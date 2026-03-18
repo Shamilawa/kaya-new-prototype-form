@@ -104,6 +104,8 @@ const Sidebar: React.FC<SidebarProps> = () => {
     React.useEffect(() => {
         if (pathname.includes('/iflows')) {
             setActiveTab("iFlows");
+        } else if (pathname.includes('/agents')) {
+            setActiveTab("Workspace Agent");
         } else if (activeWorkspace && !activeIFlow && !activeAgent) {
             setActiveTab("Workspace Overview");
         } else if (!activeWorkspace) {
@@ -386,7 +388,16 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 router.push(`/${activeWorkspace}/iflows`);
                             }} 
                         />
-                        <SidebarItem name="Workspace Agent" icon={Users2} count="3" isActive={activeTab === "Workspace Agent"} onClick={() => setActiveTab("Workspace Agent")} />
+                        <SidebarItem 
+                            name="Workspace Agent" 
+                            icon={Users2} 
+                            count="3" 
+                            isActive={activeTab === "Workspace Agent"} 
+                            onClick={() => {
+                                setActiveTab("Workspace Agent");
+                                router.push(`/${activeWorkspace}/agents`);
+                            }} 
+                        />
                     </SidebarSection>
 
                     <SidebarSection title="SET UP">
