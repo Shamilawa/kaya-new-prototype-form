@@ -4,6 +4,7 @@ import {
     ChevronRight, 
     Building2
 } from "lucide-react";
+import Link from "next/link";
 
 interface MetricCardProps {
     title: string;
@@ -40,6 +41,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ title, value, subtitle, trend, 
 );
 
 interface IFlowCardProps {
+    workspaceId: string;
     title: string;
     description: string;
     status: 'Published' | 'Draft';
@@ -47,7 +49,11 @@ interface IFlowCardProps {
     lastModified: string;
 }
 
-const IFlowCard: React.FC<IFlowCardProps> = ({ title, description, status, agents, lastModified }) => (
+const IFlowCard: React.FC<IFlowCardProps> = ({ workspaceId, title, description, status, agents, lastModified }) => {
+    // Generate slug for the iFlow
+    const iflowId = title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]/g, '');
+
+    return (
     <div className="flex-1 shadow-[0_1px_2px_rgba(10,13,18,0.05)] rounded-xl bg-white border border-border-secondary flex flex-col items-start min-w-[320px]">
         <div className="self-stretch flex flex-col items-start p-5 gap-4">
             <div className="self-stretch flex flex-col gap-2">
@@ -77,16 +83,23 @@ const IFlowCard: React.FC<IFlowCardProps> = ({ title, description, status, agent
             </div>
         </div>
         <div className="self-stretch border-t border-border-secondary p-4 px-6 flex justify-end">
-            <button className="text-sm font-semibold text-[#004A96] hover:underline">View iFlow</button>
+            <Link 
+                href={`/${workspaceId}/${iflowId}`}
+                className="text-sm font-semibold text-[#004A96] hover:underline"
+            >
+                View iFlow
+            </Link>
         </div>
     </div>
 );
+};
 
 interface WorkspaceBodyProps {
+    workspaceId: string;
     workspaceName: string;
 }
 
-const WorkspaceBody: React.FC<WorkspaceBodyProps> = ({ workspaceName }) => {
+const WorkspaceBody: React.FC<WorkspaceBodyProps> = ({ workspaceId, workspaceName }) => {
     const filters = ["12 months", "30 days", "7 days", "24 hours"];
 
     return (
@@ -160,6 +173,7 @@ const WorkspaceBody: React.FC<WorkspaceBodyProps> = ({ workspaceName }) => {
                 </div>
                 <div className="flex flex-wrap gap-6">
                     <IFlowCard 
+                        workspaceId={workspaceId}
                         title="Invoice Processing" 
                         description="This workflow handles invoice processing tasks." 
                         status="Published" 
@@ -167,6 +181,7 @@ const WorkspaceBody: React.FC<WorkspaceBodyProps> = ({ workspaceName }) => {
                         lastModified="Mar 17, 2026, 15:44" 
                     />
                     <IFlowCard 
+                        workspaceId={workspaceId}
                         title="Invoice Processing" 
                         description="This workflow handles invoice processing tasks." 
                         status="Draft" 
@@ -176,6 +191,7 @@ const WorkspaceBody: React.FC<WorkspaceBodyProps> = ({ workspaceName }) => {
                 </div>
                 <div className="flex flex-wrap gap-6">
                     <IFlowCard 
+                        workspaceId={workspaceId}
                         title="Invoice Processing" 
                         description="This workflow handles invoice processing tasks." 
                         status="Draft" 
@@ -183,6 +199,7 @@ const WorkspaceBody: React.FC<WorkspaceBodyProps> = ({ workspaceName }) => {
                         lastModified="Mar 17, 2026, 15:44" 
                     />
                     <IFlowCard 
+                        workspaceId={workspaceId}
                         title="Invoice Processing" 
                         description="This workflow handles invoice processing tasks." 
                         status="Published" 

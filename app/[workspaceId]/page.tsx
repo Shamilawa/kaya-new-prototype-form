@@ -14,5 +14,5 @@ export default function WorkspacePage() {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
-    return <WorkspaceBody workspaceName={workspaceName} />;
+    return <WorkspaceBody workspaceId={workspaceId} workspaceName={workspaceName} />;
 }

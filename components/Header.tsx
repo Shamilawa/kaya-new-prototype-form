@@ -2,17 +2,22 @@
 
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Square, Globe, Settings, ChevronRight, Building2 } from 'lucide-react';
+import { Square, Globe, Settings, ChevronRight, Building2, Workflow, ChevronDown } from 'lucide-react';
 
 interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = () => {
     const params = useParams();
-    const activeWorkspaceId = params.workspaceId as string | undefined;
+    const workspaceId = params.workspaceId as string | undefined;
+    const iflowId = params.iflowId as string | undefined;
     
-    const displayWorkspaceName = activeWorkspaceId 
-        ? activeWorkspaceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    const displayWorkspaceName = workspaceId 
+        ? workspaceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        : null;
+
+    const displayIFlowName = iflowId
+        ? iflowId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : null;
 
     return (
@@ -36,11 +41,27 @@ const Header: React.FC<HeaderProps> = () => {
                     {displayWorkspaceName && (
                         <>
                             <ChevronRight className="w-4 h-4 text-[#D0D5DD]" />
-                            <div className="h-8 py-1 px-3 bg-white rounded-lg border border-border-secondary flex items-center gap-3 shadow-[0_1px_2px_rgba(10,13,18,0.05)]">
-                                <Building2 className="w-4 h-4 text-text-primary" />
+                            <Link 
+                                href={`/${workspaceId}`}
+                                className="h-8 py-1 px-3 bg-white rounded-lg border border-border-secondary flex items-center gap-3 shadow-[0_1px_2px_rgba(10,13,18,0.05)] hover:border-border-primary transition-colors cursor-pointer"
+                            >
+                                <Building2 className="w-4 h-4 text-brand-orange" />
                                 <div className="text-sm font-semibold text-text-primary font-encode leading-5">
                                     {displayWorkspaceName}
                                 </div>
+                            </Link>
+                        </>
+                    )}
+
+                    {displayIFlowName && (
+                        <>
+                            <ChevronRight className="w-4 h-4 text-[#98A2B3]" />
+                            <div className="h-8 py-1.5 px-3 bg-white rounded-lg border border-[#D0D5DD] flex items-center gap-2 shadow-[0_1px_2px_rgba(16,24,40,0.05)] cursor-pointer group hover:bg-gray-50 transition-all">
+                                <Workflow className="w-4 h-4 text-[#6941C6]" />
+                                <div className="text-sm font-semibold text-[#344054] font-inter leading-5">
+                                    {displayIFlowName}
+                                </div>
+                                <ChevronDown className="w-4 h-4 text-[#667085] transition-transform group-hover:translate-y-0.5" />
                             </div>
                         </>
                     )}
