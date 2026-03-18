@@ -6,6 +6,7 @@ import IFlowBody from "@/components/IFlowBody";
 
 export default function IFlowDetailPage() {
     const params = useParams();
+    const workspaceId = params.workspaceId as string;
     const iflowId = params.iflowId as string;
     
     const displayIFlowName = iflowId
@@ -13,5 +14,5 @@ export default function IFlowDetailPage() {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
-    return <IFlowBody iflowName={displayIFlowName} />;
+    return <IFlowBody workspaceId={workspaceId} iflowId={iflowId} iflowName={displayIFlowName} />;
 }

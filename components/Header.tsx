@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Square, Globe, Settings, ChevronRight, Building2, Workflow, ChevronDown } from 'lucide-react';
+import { Square, Globe, Settings, ChevronRight, Building2, Workflow, ChevronDown, Bot } from 'lucide-react';
 
 interface HeaderProps {
 }
@@ -11,13 +11,23 @@ const Header: React.FC<HeaderProps> = () => {
     const params = useParams();
     const workspaceId = params.workspaceId as string | undefined;
     const iflowId = params.iflowId as string | undefined;
+    const agentId = params.agentId as string | undefined;
     
-    const displayWorkspaceName = workspaceId 
-        ? workspaceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-        : null;
+    const isAgentLevel = !!agentId;
+
+    let displayWorkspaceName: string | null = null;
+    if (workspaceId) {
+        displayWorkspaceName = isAgentLevel 
+            ? '...' 
+            : workspaceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    }
 
     const displayIFlowName = iflowId
         ? iflowId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        : null;
+
+    const displayAgentName = agentId
+        ? agentId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : null;
 
     return (
@@ -35,7 +45,7 @@ const Header: React.FC<HeaderProps> = () => {
                         <span className="flex items-center justify-center">
                             <Globe className="w-4 h-4 text-brand-blue" />
                         </span>
-                        <span className="text-sm font-semibold text-text-primary font-inter">Enterprise</span>
+                        <span className="text-sm font-semibold text-text-primary font-inter">{isAgentLevel ? '...' : 'Enterprise'}</span>
                     </Link>
 
                     {displayWorkspaceName && (
@@ -56,10 +66,26 @@ const Header: React.FC<HeaderProps> = () => {
                     {displayIFlowName && (
                         <>
                             <ChevronRight className="w-4 h-4 text-[#98A2B3]" />
-                            <div className="h-8 py-1.5 px-3 bg-white rounded-lg border border-[#D0D5DD] flex items-center gap-2 shadow-[0_1px_2px_rgba(16,24,40,0.05)] cursor-pointer group hover:bg-gray-50 transition-all">
+                            <Link 
+                                href={`/${workspaceId}/${iflowId}`}
+                                className="h-8 py-1.5 px-3 bg-white rounded-lg border border-[#D0D5DD] flex items-center gap-2 shadow-[0_1px_2px_rgba(16,24,40,0.05)] cursor-pointer group hover:bg-gray-50 transition-all"
+                            >
                                 <Workflow className="w-4 h-4 text-[#6941C6]" />
                                 <div className="text-sm font-semibold text-[#344054] font-inter leading-5">
                                     {displayIFlowName}
+                                </div>
+                                <ChevronDown className="w-4 h-4 text-[#667085] transition-transform group-hover:translate-y-0.5" />
+                            </Link>
+                        </>
+                    )}
+
+                    {displayAgentName && (
+                        <>
+                            <ChevronRight className="w-4 h-4 text-[#98A2B3]" />
+                            <div className="h-8 py-1.5 px-3 bg-white rounded-lg border border-[#D0D5DD] flex items-center gap-2 shadow-[0_1px_2px_rgba(16,24,40,0.05)] cursor-pointer group hover:bg-gray-50 transition-all">
+                                <Bot className="w-4 h-4 text-[#667085]" />
+                                <div className="text-sm font-semibold text-[#344054] font-inter leading-5">
+                                    {displayAgentName}
                                 </div>
                                 <ChevronDown className="w-4 h-4 text-[#667085] transition-transform group-hover:translate-y-0.5" />
                             </div>

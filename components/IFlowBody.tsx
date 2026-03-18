@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Calendar, ChevronRight, Workflow } from "lucide-react";
+import Link from "next/link";
 
 interface AgentMetricCardProps {
     title: string;
@@ -26,6 +27,8 @@ const AgentMetricCard: React.FC<AgentMetricCardProps> = ({ title, value }) => (
 );
 
 interface AgentCardProps {
+    workspaceId: string;
+    iflowId: string;
     title: string;
     description: string;
     status: "Published" | "Draft";
@@ -35,13 +38,18 @@ interface AgentCardProps {
 }
 
 const AgentCard: React.FC<AgentCardProps> = ({
+    workspaceId,
+    iflowId,
     title,
     description,
     status,
     agentType,
     model,
     lastModified,
-}) => (
+}) => {
+    const agentId = title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]/g, '');
+
+    return (
     <div className="flex-1 shadow-[0_1px_2px_rgba(10,13,18,0.05)] rounded-xl bg-white border border-border-secondary flex flex-col items-start min-w-[320px]">
         <div className="self-stretch flex flex-col items-start p-5 gap-4">
             <div className="self-stretch flex flex-col gap-2">
@@ -83,18 +91,24 @@ const AgentCard: React.FC<AgentCardProps> = ({
             </div>
         </div>
         <div className="self-stretch border-t border-border-secondary p-4 px-6 flex justify-end">
-            <button className="text-sm font-semibold text-[#004A96] hover:underline">
+            <Link 
+                href={`/${workspaceId}/${iflowId}/${agentId}`}
+                className="text-sm font-semibold text-[#004A96] hover:underline"
+            >
                 View Agent
-            </button>
+            </Link>
         </div>
     </div>
 );
+};
 
 interface IFlowBodyProps {
+    workspaceId: string;
+    iflowId: string;
     iflowName: string;
 }
 
-const IFlowBody: React.FC<IFlowBodyProps> = ({ iflowName }) => {
+const IFlowBody: React.FC<IFlowBodyProps> = ({ workspaceId, iflowId, iflowName }) => {
     const filters = ["12 months", "30 days", "7 days", "24 hours"];
 
     return (
@@ -166,6 +180,8 @@ const IFlowBody: React.FC<IFlowBodyProps> = ({ iflowName }) => {
                 </div>
                 <div className="flex flex-wrap gap-6 pt-2">
                     <AgentCard
+                        workspaceId={workspaceId}
+                        iflowId={iflowId}
                         title="Invoice Processing Bot"
                         description="This agent handles invoice processing tasks."
                         status="Published"
@@ -174,6 +190,8 @@ const IFlowBody: React.FC<IFlowBodyProps> = ({ iflowName }) => {
                         lastModified="Mar 17, 2026, 15:44"
                     />
                     <AgentCard
+                        workspaceId={workspaceId}
+                        iflowId={iflowId}
                         title="Invoice Processing Bot"
                         description="This workflow handles invoice processing tasks."
                         status="Draft"
