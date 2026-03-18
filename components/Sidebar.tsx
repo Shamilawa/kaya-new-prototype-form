@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter, usePathname } from 'next/navigation';
 import { 
     LayoutGrid, TrendingUp, Layers, 
     ChevronLeft, ChevronDown, ChevronUp, Plus,
@@ -76,6 +76,8 @@ const VerticalTab = ({
 
 const Sidebar: React.FC<SidebarProps> = () => {
     const params = useParams();
+    const router = useRouter();
+    const pathname = usePathname();
     const activeWorkspace = params.workspaceId as string | undefined;
     const activeIFlow = params.iflowId as string | undefined;
     const activeAgent = params.agentId as string | undefined;
@@ -93,7 +95,23 @@ const Sidebar: React.FC<SidebarProps> = () => {
         ? activeAgent.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : null;
 
-    const [activeTab, setActiveTab] = React.useState(activeWorkspace ? "Workspace Overview" : "All Workspaces");
+    const initialTab = activeWorkspace && !activeIFlow && !activeAgent 
+        ? "Workspace Overview" 
+        : "All Workspaces";
+    const [activeTab, setActiveTab] = React.useState(initialTab);
+
+    // Update active tab when URL parameters change
+    React.useEffect(() => {
+        if (pathname.includes('/iflows')) {
+            setActiveTab("iFlows");
+        } else if (pathname.includes('/agents')) {
+            setActiveTab("Workspace Agent");
+        } else if (activeWorkspace && !activeIFlow && !activeAgent) {
+            setActiveTab("Workspace Overview");
+        } else if (!activeWorkspace) {
+            setActiveTab("All Workspaces");
+        }
+    }, [activeWorkspace, activeIFlow, activeAgent, pathname]);
 
     const enterpriseItems = [
         {
@@ -337,7 +355,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             name="Workspace Overview" 
                             icon={Building2} 
                             isActive={activeTab === "Workspace Overview"}
-                            onClick={() => setActiveTab("Workspace Overview")}
+                            onClick={() => {
+                                setActiveTab("Workspace Overview");
+                                router.push(`/${activeWorkspace}`);
+                            }}
                         />
                         <button className="w-full shadow-[0_1px_10px_rgba(0,0,0,0.1)] rounded-lg flex items-center justify-center py-2 px-3 gap-1 hover:opacity-90 transition-opacity active:scale-[0.98]"
                             style={{ background: 'radial-gradient(423.78% 126.68% at 24.61% -88.89%, #005bb5 19.07%, #36374c 39.42%, #32191d 48.08%, #ff5714 83.65%)' }}>
@@ -350,8 +371,26 @@ const Sidebar: React.FC<SidebarProps> = () => {
                 {/* Navigation Chunks */}
                 <nav className="flex-1 flex flex-col gap-8 pr-5 pb-8">
                     <SidebarSection title="MANAGE">
-                        <SidebarItem name="iFlows" iconSrc="/sidebar-workflow.svg" count="3/5" isActive={activeTab === "iFlows"} onClick={() => setActiveTab("iFlows")} />
-                        <SidebarItem name="Workspace Agent" iconSrc="/sidebar-bot.svg" count="3" isActive={activeTab === "Workspace Agent"} onClick={() => setActiveTab("Workspace Agent")} />
+                        <SidebarItem 
+                            name="iFlows" 
+                            iconSrc="/sidebar-workflow.svg" 
+                            count="3/5" 
+                            isActive={activeTab === "iFlows"} 
+                            onClick={() => {
+                                setActiveTab("iFlows");
+                                router.push(`/${activeWorkspace}/iflows`);
+                            }} 
+                        />
+                        <SidebarItem 
+                            name="Workspace Agent" 
+                            iconSrc="/sidebar-bot.svg" 
+                            count="3" 
+                            isActive={activeTab === "Workspace Agent"} 
+                            onClick={() => {
+                                setActiveTab("Workspace Agent");
+                                router.push(`/${activeWorkspace}/agents`);
+                            }} 
+                        />
                     </SidebarSection>
 
                     <SidebarSection title="SET UP">

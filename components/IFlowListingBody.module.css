@@ -1,0 +1,592 @@
+.inlineCtaParent {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 0px 0px 11.52px 11.52px;
+    background-color: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px;
+    text-align: left;
+    font-size: 16px;
+    color: #181d27;
+    font-family: Inter;
+}
+.inlineCta {
+    align-self: stretch;
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+    border-radius: 12px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+.imageWrap {
+    align-self: stretch;
+    width: 239px;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 12px 0px 0px 12px;
+    background-color: #c4c4c4;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.content {
+    flex: 1;
+    border-radius: 0px 12px 12px 0px;
+    border-top: 1px solid #e9eaeb;
+    border-right: 1px solid #e9eaeb;
+    border-bottom: 1px solid #e9eaeb;
+    display: flex;
+    align-items: flex-start;
+    padding: 24px;
+}
+.content2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.textAndSupportingText {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+.text {
+    align-self: stretch;
+    position: relative;
+    line-height: 24px;
+    font-weight: 600;
+}
+.supportingText {
+    align-self: stretch;
+    position: relative;
+    font-size: 14px;
+    line-height: 20px;
+    color: #535862;
+}
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #535862;
+}
+.buttonsbutton {
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+}
+.textPadding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 2px;
+}
+.text2 {
+    position: relative;
+    line-height: 20px;
+    font-weight: 600;
+}
+.buttonsbutton2 {
+    box-shadow:
+        0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+        0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+        0px 1px 2px rgba(10, 13, 18, 0.05);
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #d5d7da;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    color: #414651;
+}
+.headerSectionParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 16px;
+    gap: 32px;
+    flex-shrink: 0;
+    font-size: 18px;
+    color: #535862;
+    font-family: "Encode Sans";
+}
+.headerSection {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 24px;
+    color: #181d27;
+    font-family: Inter;
+}
+.container {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.imageWrap2 {
+    width: 1440px;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4px 4px 0px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+.image2 {
+    align-self: stretch;
+    height: 240px;
+    position: relative;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #a5c0ee, #fbc5ec);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.content3 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 0px 0px;
+    gap: 20px;
+    flex-shrink: 0;
+}
+.breadcrumbs {
+    width: 256px;
+    height: 28px;
+    display: none;
+    align-items: center;
+    flex-shrink: 0;
+}
+.container2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1280px;
+    flex-shrink: 0;
+}
+.pageHeader {
+    align-self: stretch;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.content4 {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 20px 0px;
+}
+.textAndSupportingText2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    min-width: 320px;
+}
+.text4 {
+    align-self: stretch;
+    position: relative;
+    line-height: 32px;
+    font-weight: 600;
+}
+.supportingText2 {
+    align-self: stretch;
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+    color: #535862;
+}
+.actions2 {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #fff;
+}
+.buttonsbutton3 {
+    box-shadow:
+        0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+        0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+        0px 1px 2px rgba(10, 13, 18, 0.05);
+    border-radius: 8px;
+    background:
+        #005bb5 padding-box,
+        linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.12),
+                rgba(255, 255, 255, 0)
+            )
+            border-box;
+    border: 2px solid transparent;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    gap: 4px;
+}
+.plusIcon {
+    width: 20px;
+    position: relative;
+    max-height: 100%;
+}
+.actions3 {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+.buttonsbutton4 {
+    height: 40px;
+    width: 86px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    box-sizing: border-box;
+}
+.buttonsbutton5 {
+    height: 40px;
+    width: 106px;
+    box-shadow:
+        0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+        0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+        0px 1px 2px rgba(10, 13, 18, 0.05);
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #d5d7da;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+}
+.buttonsbutton7 {
+    height: 40px;
+    width: 85px;
+    box-shadow:
+        0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+        0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+        0px 1px 2px rgba(10, 13, 18, 0.05);
+    border-radius: 8px;
+    background:
+        #005bb5 padding-box,
+        linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.12),
+                rgba(255, 255, 255, 0)
+            )
+            border-box;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+}
+.select {
+    width: 320px;
+    height: 40px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 200px;
+    max-width: 320px;
+    flex-shrink: 0;
+}
+.dividerIcon {
+    width: 1216px;
+    height: 1px;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: none;
+}
+.pageHeaderParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.pageHeader2 {
+    align-self: stretch;
+    height: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.content5 {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.textAndSupportingText3 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 320px;
+    max-width: 100%;
+}
+.text6 {
+    align-self: stretch;
+    position: relative;
+    line-height: 28px;
+    font-weight: 600;
+}
+.experienceWrapper {
+    align-self: stretch;
+    border-radius: 12px;
+    background-color: #f9f9fb;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #414651;
+}
+.experience {
+    width: 1218px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    min-width: 720px;
+    flex-shrink: 0;
+}
+.integrationCardDesktop {
+    flex: 1;
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid #e9eaeb;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.content6 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+    gap: 20px;
+}
+.headingAndToggle {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+}
+.badge {
+    border-radius: 6px;
+    background-color: #ecfdf3;
+    border: 1px solid #abefc6;
+    display: flex;
+    align-items: center;
+    padding: 2px 6px;
+    font-size: 12px;
+    color: #067647;
+}
+.text7 {
+    position: relative;
+    line-height: 18px;
+    font-weight: 500;
+}
+.headingAndIcon {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    font-size: 16px;
+    color: #181d27;
+    font-family: Inter;
+}
+.iconWrap {
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #e9eaeb;
+    display: none;
+    align-items: center;
+    padding: 2px;
+    flex-shrink: 0;
+}
+.linear {
+    height: 48px;
+    width: 48px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.heading {
+    flex: 1;
+    position: relative;
+    line-height: 24px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.supportingText3 {
+    align-self: stretch;
+    position: relative;
+    line-height: 20px;
+    font-family: Inter;
+    text-align: left;
+}
+.headingAndToggleInner {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+}
+.parent {
+    width: 59px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.b {
+    align-self: stretch;
+    position: relative;
+    line-height: 20px;
+}
+.agents {
+    align-self: stretch;
+    position: relative;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #717680;
+}
+.supportingText4 {
+    align-self: stretch;
+    position: relative;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #717680;
+    text-align: left;
+}
+.sectionFooter {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 16px;
+    gap: 16px;
+    text-align: left;
+    color: #004a96;
+    font-family: Inter;
+}
+.dividerIcon2 {
+    align-self: stretch;
+    height: 1px;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.content7 {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0px 24px;
+}
+.actions4 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.button {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.badge2 {
+    border-radius: 6px;
+    background-color: #fafafa;
+    border: 1px solid #e9eaeb;
+    display: flex;
+    align-items: center;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+.experience2 {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    min-width: 720px;
+    text-align: center;
+    font-size: 14px;
+    color: #414651;
+}
+.integrationCardDesktop5 {
+    flex: 1;
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+    border-radius: 12px;
+    background-color: #fff;
+    border: 1px solid #e9eaeb;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 320px;
+}
