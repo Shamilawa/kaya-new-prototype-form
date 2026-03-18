@@ -86,6 +86,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
         {
             name: "All Workspaces",
             icon: LayoutGrid,
+            iconSrc: "/workflow.svg",
             count: 10,
             section: "ENTERPRISE OVERVIEW",
         },
@@ -97,7 +98,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
     if (!activeWorkspace) {
         return (
-            <aside className="w-[296px] h-full pl-5 flex flex-col justify-between border-r border-border-secondary bg-[#F9F9FB]">
+            <aside className="w-[296px] h-full pl-5 pr-5 flex flex-col justify-between bg-[#F9F9FB]">
                 <div className="pt-6 pb-8">
                     <img src="/logo_main.png" alt="Kaya Logo" className="w-[120px] h-[39px]" />
                 </div>
@@ -112,6 +113,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                         key={item.name}
                                         name={item.name}
                                         icon={item.icon}
+                                        iconSrc={item.iconSrc}
                                         count={item.count}
                                         isActive={activeTab === item.name}
                                         onClick={() => setActiveTab(item.name)}
@@ -121,9 +123,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
                     ))}
                 </nav>
 
-                <div className="py-5 pr-5 pb-6 flex justify-between items-center border-t border-border-secondary">
+                <div className="py-5 pb-6 flex justify-between items-start border-t border-border-secondary">
                     <div className="flex items-center gap-2">
-                        <div className="w-10 h-10 bg-white rounded-full border border-border-secondary flex justify-center items-center text-[14px] font-semibold text-text-primary">
+                        <div className="w-10 h-10 bg-[#F5F5F5] rounded-full border border-border-secondary flex justify-center items-center text-[16px] font-bold aspect-square" style={{ padding: '8px 0', color: '#717680' }}>
                             OR
                         </div>
                         <div className="flex flex-col">
@@ -132,7 +134,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                         </div>
                     </div>
                     <button className="p-1.5 hover:bg-gray-100 rounded-md">
-                        <ChevronDown className="w-4 h-4 text-text-muted" />
+                        <img src="/user-toggle.svg" alt="Toggle" width={9} height={9} />
                     </button>
                 </div>
             </aside>
@@ -140,7 +142,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
     }
 
     return (
-        <aside className="w-[296px] h-full pl-5 flex flex-col justify-between border-r border-border-secondary bg-[#F9F9FB] font-inter">
+        <aside className="w-[296px] h-full pl-5 pr-5 flex flex-col justify-between bg-[#F9F9FB] font-inter">
             <div className="flex-1 flex flex-col overflow-y-auto">
                 {/* Header */}
                 <div className="pt-6 pb-4 flex flex-col gap-4">
@@ -225,9 +227,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
             </div>
 
             {/* Account Footer */}
-            <div className="py-5 pr-5 pb-6 flex justify-between items-center border-t border-border-secondary bg-[#F9F9FB] sticky bottom-0">
+            <div className="py-5 pb-6 flex justify-between items-start border-t border-border-secondary bg-[#F9F9FB] sticky bottom-0">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white rounded-full border border-border-secondary flex justify-center items-center text-[14px] font-semibold text-text-primary">
+                    <div className="w-10 h-10 bg-[#F5F5F5] rounded-full border border-border-secondary flex justify-center items-center text-[16px] font-bold aspect-square" style={{ padding: '8px 0', color: '#717680' }}>
                         OR
                     </div>
                     <div className="flex flex-col">
@@ -236,7 +238,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                     </div>
                 </div>
                 <button className="p-1.5 hover:bg-gray-100 rounded-md">
-                    <ChevronDown className="w-4 h-4 text-text-muted" />
+                    <img src="/user-toggle.svg" alt="Toggle" width={9} height={9} />
                 </button>
             </div>
         </aside>

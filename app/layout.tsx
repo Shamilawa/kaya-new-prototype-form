@@ -21,9 +21,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex w-full h-screen">
             <Sidebar />
-            <main className="flex-1 flex flex-col py-6">
+            <main className="flex-1 flex flex-col py-6 px-6">
                 <Header />
-                <section className="flex-1 bg-white border border-[#D9D9E0] border-t-0 rounded-bl-xl rounded-br-xl p-5 overflow-y-auto shadow-[0_10px_30px_rgba(163,167,174,0.15)]">
+                <section className="flex-1 bg-white border border-[#D9D9E0] border-t-0 rounded-bl-xl rounded-br-xl p-6 overflow-y-auto shadow-[0_0_12px_0_rgba(164,167,174,0.35)]">
                     {children}
                 </section>
             </main>
