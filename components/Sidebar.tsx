@@ -6,8 +6,8 @@ import { useParams } from 'next/navigation';
 import { 
     LayoutGrid, TrendingUp, Layers, 
     ChevronLeft, ChevronDown, ChevronUp, Plus,
-    Activity, ShieldCheck, Settings, Rocket,
-    Building2, Workflow, Users2, Globe,
+    ShieldCheck, Settings, Rocket,
+    Building2, Workflow, Globe,
     PlayCircle, ClipboardCheck, FileCheck2, LayoutPanelLeft,
     BarChart3, Bot, SquarePen,
     ScrollText, BookOpen
@@ -36,11 +36,11 @@ const CollapsibleSection = ({
         <div className="flex flex-col w-full">
             <button 
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center justify-between w-full py-2 px-3 rounded-lg hover:bg-[#f0f0f3] transition-colors group"
+                className="flex items-center justify-between w-full py-2 px-2 rounded-lg hover:bg-[#f0f0f3] transition-colors group"
             >
                 <div className="flex items-center gap-3">
                     {Icon && <Icon className="w-4 h-4 text-text-tertiary" />}
-                    <span className="text-sm font-semibold text-text-primary leading-5">{title}</span>
+                    <span className="text-sm font-semibold text-[#181D27] leading-5">{title}</span>
                 </div>
                 {isOpen ? (
                     <ChevronUp className="w-4 h-4 text-text-muted" />
@@ -48,7 +48,7 @@ const CollapsibleSection = ({
                     <ChevronDown className="w-4 h-4 text-text-muted" />
                 )}
             </button>
-            {isOpen && <div className="mt-1">{children}</div>}
+            {isOpen && <div className="mt-2 pt-0 px-3 pb-2 flex flex-col gap-2">{children}</div>}
         </div>
     );
 };
@@ -64,7 +64,7 @@ const VerticalTab = ({
 }) => (
     <button
         onClick={onClick}
-        className={`w-full flex items-center px-6 py-1.5 text-sm font-medium border-l-2 transition-colors ${
+        className={`w-full flex items-center px-6 text-sm font-medium border-l-2 transition-colors ${
             isActive 
                 ? "border-brand-orange text-[#CC3E07]" 
                 : "border-border-secondary text-text-tertiary hover:border-text-muted hover:text-text-primary"
@@ -93,7 +93,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
         ? activeAgent.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
         : null;
 
-    const [activeTab, setActiveTab] = React.useState("All Workspaces");
+    const [activeTab, setActiveTab] = React.useState(activeWorkspace ? "Workspace Overview" : "All Workspaces");
 
     const enterpriseItems = [
         {
@@ -111,7 +111,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
     if (!activeWorkspace) {
         return (
-            <aside className="w-[296px] h-full pl-5 pr-5 flex flex-col justify-between bg-[#F9F9FB]">
+            <aside className="w-[312px] shrink-0 h-full pl-5 pr-5 flex flex-col justify-between bg-[#F9F9FB]">
                 <div className="pt-6 pb-8">
                     <img src="/logo_main.png" alt="Kaya Logo" className="w-[120px] h-[39px]" />
                 </div>
@@ -156,7 +156,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
     if (activeAgent) {
         return (
-            <aside className="w-[296px] h-full pl-5 flex flex-col justify-between border-r border-border-secondary bg-[#F9F9FB] font-inter">
+            <aside className="w-[312px] shrink-0 h-full pl-5 flex flex-col justify-between border-r border-border-secondary bg-[#F9F9FB] font-inter">
                 <div className="flex-1 flex flex-col overflow-y-auto">
                     {/* Header */}
                     <div className="pt-6 pb-4 flex flex-col gap-4">
@@ -231,7 +231,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
     if (activeIFlow) {
         return (
-            <aside className="w-[296px] h-full pl-5 flex flex-col justify-between border-r border-border-secondary bg-[#F9F9FB] font-inter">
+            <aside className="w-[312px] shrink-0 h-full pl-5 flex flex-col justify-between border-r border-border-secondary bg-[#F9F9FB] font-inter">
                 <div className="flex-1 flex flex-col overflow-y-auto">
                     {/* Header */}
                     <div className="pt-6 pb-4 flex flex-col gap-4">
@@ -311,7 +311,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
     }
 
     return (
-        <aside className="w-[296px] h-full pl-5 pr-5 flex flex-col justify-between bg-[#F9F9FB] font-inter">
+        <aside className="w-[296px] shrink-0 h-full pl-5 pr-3 flex flex-col justify-between bg-[#F9F9FB] font-inter">
             <div className="flex-1 flex flex-col overflow-y-auto">
                 {/* Header */}
                 <div className="pt-6 pb-4 flex flex-col gap-4">
@@ -327,16 +327,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
                 {/* Workspace Controls */}
                 <div className="pr-5 flex flex-col gap-4 mb-8">
-                    <div className="w-full shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] rounded-lg bg-white overflow-hidden flex items-center justify-between p-2 pl-3 group cursor-pointer border border-transparent hover:border-border-primary transition-all">
-                        <span className="text-sm font-semibold text-text-primary font-encode">{displayWorkspaceName}</span>
-                        <div className="flex items-center gap-1">
-                            <div className="w-4 h-4 flex items-center justify-center">
-                                <ChevronDown className="w-4 h-4 text-text-muted" />
-                            </div>
-                            <div className="w-4 h-4 flex items-center justify-center -ml-2">
-                                <ChevronUp className="w-4 h-4 text-text-muted" />
-                            </div>
-                        </div>
+                    <div className="w-full shadow-[0_0_0_1px_#E9EAEB_inset,0_-2px_0_0_rgba(10,13,18,0.05)_inset,0_1px_2px_0_rgba(10,13,18,0.05)] rounded-lg bg-white overflow-hidden flex items-center justify-between py-2 px-3 gap-2 group cursor-pointer hover:border-border-primary transition-all">
+                        <span className="text-sm font-semibold text-[#535862] font-encode overflow-hidden text-ellipsis whitespace-nowrap flex-1 min-w-0">{displayWorkspaceName}</span>
+                        <img src="/user-toggle.svg" alt="" className="w-[8px] h-[13px] shrink-0" />
                     </div>
 
                     <div className="flex flex-col gap-2">
@@ -357,8 +350,8 @@ const Sidebar: React.FC<SidebarProps> = () => {
                 {/* Navigation Chunks */}
                 <nav className="flex-1 flex flex-col gap-8 pr-5 pb-8">
                     <SidebarSection title="MANAGE">
-                        <SidebarItem name="iFlows" icon={Workflow} count="3/5" isActive={activeTab === "iFlows"} onClick={() => setActiveTab("iFlows")} />
-                        <SidebarItem name="Workspace Agent" icon={Users2} count="3" isActive={activeTab === "Workspace Agent"} onClick={() => setActiveTab("Workspace Agent")} />
+                        <SidebarItem name="iFlows" iconSrc="/sidebar-workflow.svg" count="3/5" isActive={activeTab === "iFlows"} onClick={() => setActiveTab("iFlows")} />
+                        <SidebarItem name="Workspace Agent" iconSrc="/sidebar-bot.svg" count="3" isActive={activeTab === "Workspace Agent"} onClick={() => setActiveTab("Workspace Agent")} />
                     </SidebarSection>
 
                     <SidebarSection title="SET UP">
@@ -385,12 +378,12 @@ const Sidebar: React.FC<SidebarProps> = () => {
                     </SidebarSection>
 
                     <SidebarSection title="DEPLOY">
-                        <SidebarItem name="Pull from Registry" icon={Rocket} isActive={activeTab === "Pull from Registry"} onClick={() => setActiveTab("Pull from Registry")} />
+                        <SidebarItem name="Pull from Registry" iconSrc="/git.svg" isActive={activeTab === "Pull from Registry"} onClick={() => setActiveTab("Pull from Registry")} />
                     </SidebarSection>
 
                     <SidebarSection title="MONITOR">
-                        <SidebarItem name="Track Usage" icon={Activity} isActive={activeTab === "Track Usage"} onClick={() => setActiveTab("Track Usage")} />
-                        <SidebarItem name="Metrics & Analytics" icon={TrendingUp} isActive={activeTab === "Metrics & Analytics"} onClick={() => setActiveTab("Metrics & Analytics")} />
+                        <SidebarItem name="Track Usage" iconSrc="/track.svg" isActive={activeTab === "Track Usage"} onClick={() => setActiveTab("Track Usage")} />
+                        <SidebarItem name="Metrics & Analytics" iconSrc="/metrics.svg" isActive={activeTab === "Metrics & Analytics"} onClick={() => setActiveTab("Metrics & Analytics")} />
                     </SidebarSection>
                 </nav>
             </div>

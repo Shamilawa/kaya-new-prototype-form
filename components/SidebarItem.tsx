@@ -4,7 +4,7 @@ import Image from "next/image";
 
 interface SidebarItemProps {
     name: string;
-    icon: LucideIcon;
+    icon?: LucideIcon;
     iconSrc?: string;
     count?: number | string;
     isActive: boolean;
@@ -49,15 +49,15 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                         }`}
                     >
                         {iconSrc ? (
-                            <Image src={iconSrc} alt={name} width={18} height={18} />
+                            <Image src={iconSrc} alt={name} width={20} height={20} className="w-5 h-5" />
                         ) : (
                             <Icon
-                                className="w-[18px] h-[18px] stroke-[2px] text-[#181D27]"
+                                className="w-5 h-5 stroke-[2px] text-[#181D27]"
                             />
                         )}
                     </div>
                     <div
-                        className={`justify-start text-base leading-6 ${
+                        className={`justify-start text-sm leading-5 ${
                             isActive
                                 ? "font-semibold text-text-primary"
                                 : "font-medium text-text-tertiary"
@@ -67,8 +67,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                     </div>
                 </div>
                 {count !== undefined && (
-                    <div className="px-1.5 py-0.5 bg-white rounded-md outline -outline-offset-1 outline-border-secondary flex justify-start items-center">
-                        <div className="text-center justify-start text-text-tertiary text-xs font-medium leading-4">
+                    <div className="flex items-center px-1.5 py-0.5 bg-white rounded-md border border-[#D5D7DA] shadow-[0_1px_2px_0_rgba(10,13,18,0.05)]">
+                        <div className="text-center text-text-tertiary text-xs font-medium leading-4">
                             {count}
                         </div>
                     </div>

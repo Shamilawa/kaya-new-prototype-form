@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { Settings, ChevronRight, Building2, Workflow, ChevronDown, Bot } from 'lucide-react';
+import { Settings, Building2, Workflow, ChevronDown, Bot } from 'lucide-react';
 
 interface HeaderProps {
 }
@@ -41,7 +41,9 @@ const Header: React.FC<HeaderProps> = () => {
                 <div className="flex items-center gap-2">
                     <Link 
                         href="/"
-                        className={`bg-white rounded-lg py-1 px-3 flex items-center gap-3 h-8 border border-transparent hover:border-border-primary transition-colors cursor-pointer`}
+                        className={`rounded-lg py-1 px-3 flex items-center gap-3 h-8 transition-colors cursor-pointer ${
+                            !workspaceId ? 'bg-white border border-transparent hover:border-border-primary' : 'border border-transparent hover:bg-white/50'
+                        }`}
                     >
                         <span className="flex items-center justify-center">
                             <svg width="16" height="16" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,12 +55,14 @@ const Header: React.FC<HeaderProps> = () => {
 
                     {displayWorkspaceName && (
                         <>
-                            <ChevronRight className="w-4 h-4 text-[#D0D5DD]" />
+                            <span className="text-[#A4A7AE] text-md">/</span>
                             <Link 
                                 href={`/${workspaceId}`}
-                                className="h-8 py-1 px-3 bg-white rounded-lg border border-border-secondary flex items-center gap-3 shadow-[0_1px_2px_rgba(10,13,18,0.05)] hover:border-border-primary transition-colors cursor-pointer"
+                                className={`h-8 py-1 px-3 rounded-lg flex items-center gap-3 transition-colors cursor-pointer ${
+                                    !iflowId ? 'bg-white border border-border-secondary shadow-[0_1px_2px_rgba(10,13,18,0.05)] hover:border-border-primary' : 'border border-transparent hover:bg-white/50'
+                                }`}
                             >
-                                <Building2 className="w-4 h-4 text-brand-orange" />
+                                <Building2 className="w-4 h-4 text-[#FF5714]" />
                                 <div className="text-sm font-semibold text-text-primary font-encode leading-5">
                                     {displayWorkspaceName}
                                 </div>
@@ -68,7 +72,7 @@ const Header: React.FC<HeaderProps> = () => {
 
                     {displayIFlowName && (
                         <>
-                            <ChevronRight className="w-4 h-4 text-[#98A2B3]" />
+                            <span className="text-[#D5D7DA] text-sm">/</span>
                             <Link 
                                 href={`/${workspaceId}/${iflowId}`}
                                 className="h-8 py-1.5 px-3 bg-white rounded-lg border border-[#D0D5DD] flex items-center gap-2 shadow-[0_1px_2px_rgba(16,24,40,0.05)] cursor-pointer group hover:bg-gray-50 transition-all"
@@ -84,7 +88,7 @@ const Header: React.FC<HeaderProps> = () => {
 
                     {displayAgentName && (
                         <>
-                            <ChevronRight className="w-4 h-4 text-[#98A2B3]" />
+                            <span className="text-[#D5D7DA] text-sm">/</span>
                             <div className="h-8 py-1.5 px-3 bg-white rounded-lg border border-[#D0D5DD] flex items-center gap-2 shadow-[0_1px_2px_rgba(16,24,40,0.05)] cursor-pointer group hover:bg-gray-50 transition-all">
                                 <Bot className="w-4 h-4 text-[#667085]" />
                                 <div className="text-sm font-semibold text-[#344054] font-inter leading-5">
