@@ -14,7 +14,6 @@
     text-align: left;
     font-size: 16px;
     color: #181d27;
-    font-family: Inter, sans-serif;
 }
 .inlineCta {
     align-self: stretch;
@@ -133,7 +132,6 @@
     flex-shrink: 0;
     font-size: 18px;
     color: #535862;
-    font-family: 'Encode Sans', sans-serif;
 }
 .headerSection {
     align-self: stretch;
@@ -142,7 +140,6 @@
     align-items: flex-start;
     font-size: 24px;
     color: #181d27;
-    font-family: Inter, sans-serif;
 }
 .container {
     align-self: stretch;
@@ -427,7 +424,6 @@
     gap: 12px;
     font-size: 16px;
     color: #181d27;
-    font-family: Inter, sans-serif;
 }
 .iconWrap {
     box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
@@ -458,7 +454,6 @@
     position: relative;
     font-size: 14px;
     line-height: 20px;
-    font-family: Inter, sans-serif;
     color: #414651;
 }
 .supportingTextWrapper {
@@ -492,7 +487,6 @@
     gap: 16px;
     font-size: 14px;
     color: #004a96;
-    font-family: Inter, sans-serif;
 }
 .dividerIcon2 {
     align-self: stretch;
@@ -569,5 +563,4 @@
     position: relative;
     font-size: 14px;
     line-height: 20px;
-    font-family: Inter, sans-serif;
 }

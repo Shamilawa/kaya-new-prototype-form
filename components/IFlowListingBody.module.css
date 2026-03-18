@@ -5,15 +5,10 @@
     border-radius: 0px 0px 11.52px 11.52px;
     background-color: #fff;
     box-sizing: border-box;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 6px;
-    text-align: left;
     font-size: 16px;
     color: #181d27;
-    font-family: Inter;
 }
 .inlineCta {
     align-self: stretch;
@@ -72,6 +67,8 @@
     gap: 2px;
 }
 .text {
+    font-size: 16px;
+    color: #181d27;
     align-self: stretch;
     position: relative;
     line-height: 24px;
@@ -109,6 +106,7 @@
     position: relative;
     line-height: 20px;
     font-weight: 600;
+    cursor: pointer;
 }
 .buttonsbutton2 {
     box-shadow:
@@ -130,21 +128,20 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px 16px;
+    padding: 0px 0px;
     gap: 32px;
     flex-shrink: 0;
     font-size: 18px;
     color: #535862;
-    font-family: "Encode Sans";
 }
 .headerSection {
+    width: 100%;
     align-self: stretch;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     font-size: 24px;
     color: #181d27;
-    font-family: Inter;
 }
 .container {
     align-self: stretch;
@@ -154,7 +151,7 @@
     gap: 20px;
 }
 .imageWrap2 {
-    width: 1440px;
+    width: 100%;
     overflow: hidden;
     display: none;
     flex-direction: column;
@@ -176,10 +173,11 @@
     align-self: stretch;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 24px 0px 0px;
     gap: 20px;
     flex-shrink: 0;
+    justify-content: space-between;
 }
 .breadcrumbs {
     width: 256px;
@@ -194,7 +192,6 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    max-width: 1280px;
     flex-shrink: 0;
 }
 .pageHeader {
@@ -247,14 +244,7 @@
         0px -2px 0px rgba(10, 13, 18, 0.05) inset,
         0px 1px 2px rgba(10, 13, 18, 0.05);
     border-radius: 8px;
-    background:
-        #005bb5 padding-box,
-        linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.12),
-                rgba(255, 255, 255, 0)
-            )
-            border-box;
+    background: #005bb5 padding-box;
     border: 2px solid transparent;
     overflow: hidden;
     display: flex;
@@ -262,6 +252,7 @@
     justify-content: center;
     padding: 10px 14px;
     gap: 4px;
+    cursor: pointer;
 }
 .plusIcon {
     width: 20px;
@@ -399,15 +390,16 @@
     color: #414651;
 }
 .experience {
-    width: 1218px;
     display: flex;
     align-items: flex-start;
     gap: 24px;
     min-width: 720px;
-    flex-shrink: 0;
+    overflow-x: clip;
+    height: fit-content;
 }
 .integrationCardDesktop {
-    flex: 1;
+    width: 286px;
+    height: 290px;
     box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
     border-radius: 12px;
     background-color: #fff;
@@ -455,7 +447,6 @@
     text-align: left;
     font-size: 16px;
     color: #181d27;
-    font-family: Inter;
 }
 .iconWrap {
     box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
@@ -485,7 +476,6 @@
     align-self: stretch;
     position: relative;
     line-height: 20px;
-    font-family: Inter;
     text-align: left;
 }
 .headingAndToggleInner {
@@ -530,7 +520,6 @@
     gap: 16px;
     text-align: left;
     color: #004a96;
-    font-family: Inter;
 }
 .dividerIcon2 {
     align-self: stretch;
@@ -545,7 +534,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 0px 24px;
+    padding: 16px 24px;
+    border-top: 1px solid #e9eaeb;
 }
 .actions4 {
     flex: 1;
@@ -573,7 +563,7 @@
     display: flex;
     align-items: flex-start;
     gap: 24px;
-    min-width: 720px;
+
     text-align: center;
     font-size: 14px;
     color: #414651;
@@ -589,4 +579,6 @@
     flex-direction: column;
     align-items: flex-start;
     min-width: 320px;
+    width: 496px;
+    margin-bottom: 20px;
 }
