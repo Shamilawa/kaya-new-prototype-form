@@ -135,6 +135,8 @@ const Sidebar: React.FC<SidebarProps> = () => {
     React.useEffect(() => {
         if (pathname.includes("/track-usage")) {
             setActiveTab("Track Usage");
+        } else if (pathname.includes("/metrics-and-analytics")) {
+            setActiveTab("Metrics & Analytics");
         } else if (pathname.includes("/iflows")) {
             setActiveTab("iFlows");
         } else if (pathname.includes("/agents")) {
@@ -707,7 +709,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             name="Metrics & Analytics"
                             iconSrc="/metrics.svg"
                             isActive={activeTab === "Metrics & Analytics"}
-                            onClick={() => setActiveTab("Metrics & Analytics")}
+                            onClick={() => {
+                                setActiveTab("Metrics & Analytics");
+                                router.push(`/${activeWorkspace}/metrics-and-analytics`);
+                            }}
                         />
                     </SidebarSection>
                 </nav>
