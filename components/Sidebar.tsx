@@ -22,6 +22,7 @@ import {
     SquarePen,
     ScrollText,
     BookOpen,
+    Database,
 } from "lucide-react";
 import SidebarItem from "./SidebarItem";
 import SidebarSection from "./SidebarSection";
@@ -135,7 +136,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
             setActiveTab("Metrics & Analytics");
         } else if (pathname.includes("/iflows")) {
             setActiveTab("iFlows");
-        } else if (pathname.includes("/agents")) {
+        } else if (pathname.includes("/learning-records")) {
+            setActiveTab("Learning Records");
+        } else if (pathname.includes("/playground")) {
             setActiveTab("Workspace Agent");
         } else if (pathname.includes("/models")) {
             setActiveTab("Models");
@@ -153,6 +156,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
             setActiveTab("Workspace Variable");
         } else if (pathname.includes("/executable-functions")) {
             setActiveTab("Executable Functions");
+        } else if (pathname.includes("/registry")) {
+            setActiveTab("Pull from Registry");
+        } else if (pathname.includes("/lineage")) {
+            setActiveTab("Data Lineage");
         } else if (activeWorkspace && !activeIFlow && !activeAgent) {
             setActiveTab("Workspace Overview");
         } else if (!activeWorkspace) {
@@ -278,13 +285,13 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             <div
                                 className="w-full rounded-lg p-[2px] hover:opacity-90 transition-opacity active:scale-[0.98]"
                                 style={{
-                                    background: "linear-gradient(90deg, rgba(0, 91, 181, 0.5) 35%, rgba(255, 87, 20, 0.5) 100%)",
-                                    boxShadow: "0 1px 10px 1px rgba(0, 0, 0, 0.20)",
+                                    background:
+                                        "linear-gradient(90deg, rgba(0, 91, 181, 0.5) 35%, rgba(255, 87, 20, 0.5) 100%)",
+                                    boxShadow:
+                                        "0 1px 10px 1px rgba(0, 0, 0, 0.20)",
                                 }}
                             >
-                                <button
-                                    className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1"
-                                >
+                                <button className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1">
                                     <SquarePen
                                         className="w-4 h-4 text-[#535862]"
                                         strokeWidth={3}
@@ -310,7 +317,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name="Learning Records"
                                 icon={BookOpen}
                                 isActive={activeTab === "Learning Records"}
-                                onClick={() => setActiveTab("Learning Records")}
+                                onClick={() => {
+                                    setActiveTab("Learning Records");
+                                    router.push(`/${activeWorkspace}/agents/${activeAgent}/learning-records`);
+                                }}
                             />
                         </SidebarSection>
 
@@ -321,7 +331,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 isActive={activeTab === "Track Usage"}
                                 onClick={() => {
                                     setActiveTab("Track Usage");
-                                    router.push(`/${activeWorkspace}/agents/${activeAgent}/track-usage`);
+                                    router.push(
+                                        `/${activeWorkspace}/agents/${activeAgent}/track-usage`,
+                                    );
                                 }}
                             />
                             <SidebarItem
@@ -394,7 +406,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
                         <div className="flex flex-col gap-2">
                             <SidebarItem
-                                name={displayIFlowName || ''}
+                                name={displayIFlowName || ""}
                                 iconSrc="/sidebar-workflow.svg"
                                 isActive={true}
                                 onClick={() => {}}
@@ -402,13 +414,13 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             <div
                                 className="w-full rounded-lg p-[2px] hover:opacity-90 transition-opacity active:scale-[0.98]"
                                 style={{
-                                    background: "linear-gradient(90deg, rgba(0, 91, 181, 0.5) 35%, rgba(255, 87, 20, 0.5) 100%)",
-                                    boxShadow: "0 1px 10px 1px rgba(0, 0, 0, 0.20)",
+                                    background:
+                                        "linear-gradient(90deg, rgba(0, 91, 181, 0.5) 35%, rgba(255, 87, 20, 0.5) 100%)",
+                                    boxShadow:
+                                        "0 1px 10px 1px rgba(0, 0, 0, 0.20)",
                                 }}
                             >
-                                <button
-                                    className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1"
-                                >
+                                <button className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1">
                                     <SquarePen
                                         className="w-4 h-4 text-[#535862]"
                                         strokeWidth={3}
@@ -462,7 +474,12 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name="Data Lineage"
                                 iconSrc="/sidebar-bot.svg"
                                 isActive={activeTab === "Data Lineage"}
-                                onClick={() => setActiveTab("Data Lineage")}
+                                onClick={() => {
+                                    setActiveTab("Data Lineage");
+                                    router.push(
+                                        `/${activeWorkspace}/${activeIFlow}/lineage`,
+                                    );
+                                }}
                             />
                             <SidebarItem
                                 name="Track Usage"
@@ -470,7 +487,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 isActive={activeTab === "Track Usage"}
                                 onClick={() => {
                                     setActiveTab("Track Usage");
-                                    router.push(`/${activeWorkspace}/${activeIFlow}/track-usage`);
+                                    router.push(
+                                        `/${activeWorkspace}/${activeIFlow}/track-usage`,
+                                    );
                                 }}
                             />
                             <SidebarItem
@@ -671,9 +690,11 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 title="Workspace Settings"
                                 icon={Globe}
                             >
-                                <VerticalTab 
-                                    label="Workspace Variable" 
-                                    isActive={activeTab === "Workspace Variable"}
+                                <VerticalTab
+                                    label="Workspace Variable"
+                                    isActive={
+                                        activeTab === "Workspace Variable"
+                                    }
                                     onClick={() => {
                                         setActiveTab("Workspace Variable");
                                         router.push(
@@ -688,9 +709,11 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 title="Custom Capabilities"
                                 icon={Rocket}
                             >
-                                <VerticalTab 
-                                    label="Executable Functions" 
-                                    isActive={activeTab === "Executable Functions"}
+                                <VerticalTab
+                                    label="Executable Functions"
+                                    isActive={
+                                        activeTab === "Executable Functions"
+                                    }
                                     onClick={() => {
                                         setActiveTab("Executable Functions");
                                         router.push(
@@ -707,7 +730,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             name="Pull from Registry"
                             iconSrc="/git.svg"
                             isActive={activeTab === "Pull from Registry"}
-                            onClick={() => setActiveTab("Pull from Registry")}
+                            onClick={() => {
+                                setActiveTab("Pull from Registry");
+                                router.push(`/${activeWorkspace}/registry`);
+                            }}
                         />
                     </SidebarSection>
 
@@ -727,7 +753,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             isActive={activeTab === "Metrics & Analytics"}
                             onClick={() => {
                                 setActiveTab("Metrics & Analytics");
-                                router.push(`/${activeWorkspace}/metrics-and-analytics`);
+                                router.push(
+                                    `/${activeWorkspace}/metrics-and-analytics`,
+                                );
                             }}
                         />
                     </SidebarSection>
