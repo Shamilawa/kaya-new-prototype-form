@@ -26,6 +26,7 @@ import {
     SquarePen,
     ScrollText,
     BookOpen,
+    Database,
 } from "lucide-react";
 import SidebarItem from "./SidebarItem";
 import SidebarSection from "./SidebarSection";
@@ -159,6 +160,8 @@ const Sidebar: React.FC<SidebarProps> = () => {
             setActiveTab("Executable Functions");
         } else if (pathname.includes("/registry")) {
             setActiveTab("Pull from Registry");
+        } else if (pathname.includes("/lineage")) {
+            setActiveTab("Data Lineage");
         } else if (activeWorkspace && !activeIFlow && !activeAgent) {
             setActiveTab("Workspace Overview");
         } else if (!activeWorkspace) {
@@ -446,9 +449,12 @@ const Sidebar: React.FC<SidebarProps> = () => {
                         <SidebarSection title="MONITOR">
                             <SidebarItem
                                 name="Data Lineage"
-                                icon={Bot}
+                                icon={Database}
                                 isActive={activeTab === "Data Lineage"}
-                                onClick={() => setActiveTab("Data Lineage")}
+                                onClick={() => {
+                                    setActiveTab("Data Lineage");
+                                    router.push(`/${activeWorkspace}/${activeIFlow}/lineage`);
+                                }}
                             />
                             <SidebarItem
                                 name="Track Usage"
