@@ -358,7 +358,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name={displayAgentName || ""}
                                 icon={Bot}
                                 isActive={true}
-                                onClick={() => {}}
+                                onClick={() => {
+                                    router.push(`/${activeWorkspace}/${activeIFlow}/${activeAgent}`);
+                                }}
                             />
                             <div
                                 className="w-full rounded-lg p-[2px] hover:opacity-90 transition-opacity active:scale-[0.98]"
@@ -536,7 +538,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name={displayIFlowName || ""}
                                 iconSrc="/sidebar-workflow.svg"
                                 isActive={true}
-                                onClick={() => {}}
+                                onClick={() => {
+                                    router.push(`/${activeWorkspace}/${activeIFlow}`);
+                                }}
                             />
                             <div
                                 className="w-full rounded-lg p-[2px] hover:opacity-90 transition-opacity active:scale-[0.98]"
