@@ -72,10 +72,10 @@ const WorkspaceMetricsAndAnalyticsBody: React.FC<WorkspaceProps> = ({ workspaceN
                                     </div>
                                     
                                     <div>
-                                        <div className={styles.datePickerDropdown}>
-                                            <Calendar className="w-4 h-4" />
+                                        <button className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white border border-border-secondary shadow-sm text-sm font-semibold text-[#717680] hover:bg-gray-50">
+                                            <Calendar className="w-5 h-5 text-[#717680]" />
                                             <span>Select dates</span>
-                                        </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

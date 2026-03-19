@@ -53,7 +53,7 @@ export default function AgentDetailPage() {
     const timeFilters = ["12 months", "30 days", "7 days", "24 hours"];
 
     return (
-        <div className="w-full h-full flex flex-col gap-8 p-6 font-inter bg-white rounded-xl border border-[#d9d9e0] overflow-hidden">
+        <div className="w-full h-full flex flex-col gap-8 py-6 font-inter bg-white rounded-xl overflow-y-auto">
             <div className="flex flex-col gap-8 px-4">
                 {/* Header Section */}
                 <div className="w-full flex flex-col items-start gap-5 max-w-[1280px]">
@@ -87,9 +87,9 @@ export default function AgentDetailPage() {
                     </div>
 
                     <div className="flex items-center">
-                        <button className="flex items-center gap-1 shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] rounded-lg border border-[#d5d7da] bg-white px-3.5 py-2.5 hover:bg-gray-50 transition-all">
+                        <button className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white border border-border-secondary shadow-sm text-sm font-semibold text-[#717680] hover:bg-gray-50">
                             <Calendar className="w-5 h-5 text-[#717680]" />
-                            <span className="text-sm font-semibold text-[#414651] px-0.5">Select dates</span>
+                            <span>Select dates</span>
                         </button>
                     </div>
                 </div>
@@ -104,10 +104,10 @@ export default function AgentDetailPage() {
                 {/* Agent Setup Section */}
                 <div className="w-full flex flex-col items-start gap-4">
                     <div className="w-full h-7 flex flex-col items-start justify-center">
-                        <h2 className="w-full text-lg font-semibold text-[#535862] font-encode leading-7 uppercase tracking-wider">Agent Setup</h2>
+                        <h2 className="w-full text-lg font-semibold text-[#535862] font-encode leading-7 tracking-wider">Agent Setup</h2>
                     </div>
                     
-                    <div className="w-full max-w-[1016px] flex flex-col items-start py-3 gap-4">
+                    <div className="w-full flex flex-col items-start py-3 gap-4">
                         <SetupRow label="Prompt Template" value="{Lorem Ipsum}" />
                         <SetupRow label="Intelligence Source" value="{Lorem Ipsum}" />
                         <SetupRow label="API Connections" value="{Lorem Ipsum}" />

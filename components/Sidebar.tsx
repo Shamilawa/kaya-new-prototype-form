@@ -19,7 +19,6 @@ import {
     PlayCircle,
     ClipboardCheck,
     FileCheck2,
-    Bot,
     SquarePen,
     ScrollText,
     BookOpen,
@@ -355,8 +354,8 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
                         <div className="flex flex-col gap-2">
                             <SidebarItem
-                                name={displayAgentName || ""}
-                                icon={Bot}
+                                name={displayAgentName || ''}
+                                iconSrc="/sidebar-bot.svg"
                                 isActive={true}
                                 onClick={() => {
                                     router.push(`/${activeWorkspace}/${activeIFlow}/${activeAgent}`);
@@ -569,7 +568,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                         <SidebarSection title="MANAGE">
                             <SidebarItem
                                 name="Agents"
-                                icon={Bot}
+                                iconSrc="/sidebar-bot.svg"
                                 count="10"
                                 isActive={activeTab === "Agents"}
                                 onClick={() => setActiveTab("Agents")}
