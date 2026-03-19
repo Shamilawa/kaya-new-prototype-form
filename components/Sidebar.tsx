@@ -153,6 +153,8 @@ const Sidebar: React.FC<SidebarProps> = () => {
             setActiveTab("Workspace Variable");
         } else if (pathname.includes("/executable-functions")) {
             setActiveTab("Executable Functions");
+        } else if (pathname.includes("/track-usage")) {
+            setActiveTab("Track Usage");
         } else if (activeWorkspace && !activeIFlow && !activeAgent) {
             setActiveTab("Workspace Overview");
         } else if (!activeWorkspace) {
@@ -309,7 +311,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name="Track Usage"
                                 icon={LayoutPanelLeft}
                                 isActive={activeTab === "Track Usage"}
-                                onClick={() => setActiveTab("Track Usage")}
+                                onClick={() => {
+                                    setActiveTab("Track Usage");
+                                    router.push(`/${activeWorkspace}/track-usage`);
+                                }}
                             />
                             <SidebarItem
                                 name="Metrics & Analytics"
@@ -445,7 +450,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name="Track Usage"
                                 icon={LayoutPanelLeft}
                                 isActive={activeTab === "Track Usage"}
-                                onClick={() => setActiveTab("Track Usage")}
+                                onClick={() => {
+                                    setActiveTab("Track Usage");
+                                    router.push(`/${activeWorkspace}/track-usage`);
+                                }}
                             />
                             <SidebarItem
                                 name="Metrics & Analytics"
@@ -690,7 +698,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             name="Track Usage"
                             iconSrc="/track.svg"
                             isActive={activeTab === "Track Usage"}
-                            onClick={() => setActiveTab("Track Usage")}
+                            onClick={() => {
+                                setActiveTab("Track Usage");
+                                router.push(`/${activeWorkspace}/track-usage`);
+                            }}
                         />
                         <SidebarItem
                             name="Metrics & Analytics"
