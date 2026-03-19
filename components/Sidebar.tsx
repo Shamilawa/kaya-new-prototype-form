@@ -133,7 +133,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
     // Update active tab when URL parameters change
     React.useEffect(() => {
-        if (pathname.includes("/iflows")) {
+        if (pathname.includes("/track-usage")) {
+            setActiveTab("Track Usage");
+        } else if (pathname.includes("/iflows")) {
             setActiveTab("iFlows");
         } else if (pathname.includes("/agents")) {
             setActiveTab("Workspace Agent");
@@ -153,8 +155,6 @@ const Sidebar: React.FC<SidebarProps> = () => {
             setActiveTab("Workspace Variable");
         } else if (pathname.includes("/executable-functions")) {
             setActiveTab("Executable Functions");
-        } else if (pathname.includes("/track-usage")) {
-            setActiveTab("Track Usage");
         } else if (activeWorkspace && !activeIFlow && !activeAgent) {
             setActiveTab("Workspace Overview");
         } else if (!activeWorkspace) {
@@ -313,7 +313,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 isActive={activeTab === "Track Usage"}
                                 onClick={() => {
                                     setActiveTab("Track Usage");
-                                    router.push(`/${activeWorkspace}/track-usage`);
+                                    router.push(`/${activeWorkspace}/agents/${activeAgent}/track-usage`);
                                 }}
                             />
                             <SidebarItem

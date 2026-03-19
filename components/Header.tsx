@@ -18,9 +18,7 @@ const Header: React.FC<HeaderProps> = () => {
 
     let displayWorkspaceName: string | null = null;
     if (workspaceId) {
-        displayWorkspaceName = isAgentLevel 
-            ? '...' 
-            : workspaceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        displayWorkspaceName = workspaceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     }
 
     const displayIFlowName = iflowId
