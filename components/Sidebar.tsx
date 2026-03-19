@@ -257,30 +257,37 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
                     {/* Agent Controls */}
                     <div className="pr-5 flex flex-col gap-4 mb-8">
-                        <div className="w-full shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] rounded-lg bg-white overflow-hidden flex items-center justify-between p-2 pl-3 group cursor-pointer border border-transparent hover:border-border-primary transition-all">
-                            <span className="text-sm font-semibold text-text-primary font-encode">
+                        <div className="w-full shadow-[0_0_0_1px_#E9EAEB_inset,0_-2px_0_0_rgba(10,13,18,0.05)_inset,0_1px_2px_0_rgba(10,13,18,0.05)] rounded-lg bg-white overflow-hidden flex items-center justify-between py-2 px-3 gap-2 group cursor-pointer hover:border-border-primary transition-all">
+                            <span className="text-sm font-semibold text-[#535862] font-encode overflow-hidden text-ellipsis whitespace-nowrap flex-1 min-w-0">
                                 {displayWorkspaceName}
                             </span>
-                            <div className="flex items-center gap-1">
-                                <div className="w-4 h-4 flex items-center justify-center">
-                                    <ChevronDown className="w-4 h-4 text-text-muted" />
-                                </div>
-                                <div className="w-4 h-4 flex items-center justify-center -ml-2">
-                                    <ChevronUp className="w-4 h-4 text-text-muted" />
-                                </div>
-                            </div>
+                            <img
+                                src="/user-toggle.svg"
+                                alt=""
+                                className="w-[8px] h-[13px] shrink-0"
+                            />
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#F2F4F7] border border-transparent">
-                                <Bot className="w-4 h-4 text-text-tertiary" />
-                                <span className="text-sm font-semibold text-text-primary leading-5">
-                                    {displayAgentName}
-                                </span>
-                            </div>
-                            <button className="w-full bg-white border border-[#D0D5DD] shadow-[0_1px_2px_rgba(16,24,40,0.05)] rounded-lg flex items-center justify-center py-2 px-3 gap-2 hover:bg-gray-50 transition-all active:scale-[0.98]">
-                                <SquarePen className="w-4 h-4 text-[#344054]" />
-                                <span className="text-sm font-semibold text-[#344054]">
+                            <SidebarItem
+                                name={displayAgentName || ''}
+                                icon={Bot}
+                                isActive={true}
+                                onClick={() => {}}
+                            />
+                            <button
+                                className="w-full shadow-[0_1px_10px_rgba(0,0,0,0.1)] rounded-lg flex items-center justify-center py-2 px-3 gap-1 hover:opacity-90 transition-opacity active:scale-[0.98]"
+                                style={{
+                                    backgroundImage: "url(/btn-gradient.svg)",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }}
+                            >
+                                <SquarePen
+                                    className="w-4 h-4 text-white"
+                                    strokeWidth={3}
+                                />
+                                <span className="text-sm font-semibold text-white">
                                     Edit Agent
                                 </span>
                             </button>
@@ -368,30 +375,37 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
                     {/* iFlow Controls */}
                     <div className="pr-5 flex flex-col gap-4 mb-8">
-                        <div className="w-full shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] rounded-lg bg-white overflow-hidden flex items-center justify-between p-2 pl-3 group cursor-pointer border border-transparent hover:border-border-primary transition-all">
-                            <span className="text-sm font-semibold text-text-primary font-encode">
+                        <div className="w-full shadow-[0_0_0_1px_#E9EAEB_inset,0_-2px_0_0_rgba(10,13,18,0.05)_inset,0_1px_2px_0_rgba(10,13,18,0.05)] rounded-lg bg-white overflow-hidden flex items-center justify-between py-2 px-3 gap-2 group cursor-pointer hover:border-border-primary transition-all">
+                            <span className="text-sm font-semibold text-[#535862] font-encode overflow-hidden text-ellipsis whitespace-nowrap flex-1 min-w-0">
                                 {displayWorkspaceName}
                             </span>
-                            <div className="flex items-center gap-1">
-                                <div className="w-4 h-4 flex items-center justify-center">
-                                    <ChevronDown className="w-4 h-4 text-text-muted" />
-                                </div>
-                                <div className="w-4 h-4 flex items-center justify-center -ml-2">
-                                    <ChevronUp className="w-4 h-4 text-text-muted" />
-                                </div>
-                            </div>
+                            <img
+                                src="/user-toggle.svg"
+                                alt=""
+                                className="w-[8px] h-[13px] shrink-0"
+                            />
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#F2F4F7] border border-transparent">
-                                <Workflow className="w-4 h-4 text-text-tertiary" />
-                                <span className="text-sm font-semibold text-text-primary leading-5">
-                                    {displayIFlowName}
-                                </span>
-                            </div>
-                            <button className="w-full bg-white border border-[#D0D5DD] shadow-[0_1px_2px_rgba(16,24,40,0.05)] rounded-lg flex items-center justify-center py-2 px-3 gap-2 hover:bg-gray-50 transition-all active:scale-[0.98]">
-                                <SquarePen className="w-4 h-4 text-[#344054]" />
-                                <span className="text-sm font-semibold text-[#344054]">
+                            <SidebarItem
+                                name={displayIFlowName || ''}
+                                icon={Workflow}
+                                isActive={true}
+                                onClick={() => {}}
+                            />
+                            <button
+                                className="w-full shadow-[0_1px_10px_rgba(0,0,0,0.1)] rounded-lg flex items-center justify-center py-2 px-3 gap-1 hover:opacity-90 transition-opacity active:scale-[0.98]"
+                                style={{
+                                    backgroundImage: "url(/btn-gradient.svg)",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }}
+                            >
+                                <SquarePen
+                                    className="w-4 h-4 text-white"
+                                    strokeWidth={3}
+                                />
+                                <span className="text-sm font-semibold text-white">
                                     Edit iFlow
                                 </span>
                             </button>
