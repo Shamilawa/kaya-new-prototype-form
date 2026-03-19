@@ -52,7 +52,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                             <Image src={iconSrc} alt={name} width={20} height={20} className="w-5 h-5" />
                         ) : (
                             <Icon
-                                className="w-5 h-5 stroke-[2px] text-[#181D27]"
+                                className="w-5 h-5 text-[#181D27]"
+                                strokeWidth={1.75}
                             />
                         )}
                     </div>

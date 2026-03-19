@@ -100,8 +100,8 @@ const WorkspaceBody: React.FC<WorkspaceBodyProps> = ({ workspaceId, workspaceNam
                             </button>
                         ))}
                     </div>
-                    <button className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white border border-border-secondary shadow-sm text-sm font-semibold text-text-secondary hover:bg-gray-50">
-                        <Calendar className="w-5 h-5 text-text-muted" />
+                    <button className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white border border-border-secondary shadow-sm text-sm font-semibold text-[#717680] hover:bg-gray-50">
+                        <Calendar className="w-5 h-5 text-[#717680]" />
                         <span>Select dates</span>
                     </button>
                 </div>
