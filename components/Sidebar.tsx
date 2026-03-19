@@ -452,7 +452,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 isActive={activeTab === "Track Usage"}
                                 onClick={() => {
                                     setActiveTab("Track Usage");
-                                    router.push(`/${activeWorkspace}/track-usage`);
+                                    router.push(`/${activeWorkspace}/${activeIFlow}/track-usage`);
                                 }}
                             />
                             <SidebarItem
