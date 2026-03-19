@@ -40,7 +40,7 @@ const ModelsBody: React.FC<ModelsBodyProps> = ({ workspaceId }) => {
                     </div>
 
                     <div className={styles["content"]}>
-                        <div className="flex items-center justify-between flex-wrap gap-5">
+                        <div className="flex items-center justify-between flex-wrap gap-5 w-full">
                             <div className="flex flex-col gap-1">
                                 <div className="flex items-center gap-2">
                                     <div className="w-[30px] h-[30px] rounded bg-white shadow-[0_0_6px_rgba(164,167,174,0.35)] flex items-center justify-center p-[4px]">

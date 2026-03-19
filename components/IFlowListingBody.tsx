@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./IFlowListingBody.module.css";
 import { Plus } from "lucide-react";
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
+import CreateIFlowDrawer from "./CreateIFlowDrawer";
 
 const mockIFlows = [
     { id: "invoice-processing", name: "Invoice Processing", status: "Published", agents: 9, lastModified: "Mar 17, 2026, 15:44" },
@@ -17,6 +18,8 @@ const IFlowListingBody = () => {
     const router = useRouter();
     const params = useParams();
     const workspaceId = params.workspaceId as string;
+
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const handleViewIFlow = (iflowId: string) => {
         router.push(`/${workspaceId}/${iflowId}`);
@@ -77,10 +80,11 @@ const IFlowListingBody = () => {
                                         </p>
                                     </div>
                                     <div className={styles.actions2}>
-                                        <div
+                                        <button
                                             className={
                                                 styles.buttonsbutton3
                                             }
+                                            onClick={() => setIsDrawerOpen(true)}
                                         >
                                             <Plus
                                                 className={styles.plusIcon}
@@ -96,7 +100,7 @@ const IFlowListingBody = () => {
                                                     Create iFlow
                                                 </div>
                                             </div>
-                                        </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -375,6 +379,10 @@ const IFlowListingBody = () => {
                     </div>
                 </div>
             </div>
+            <CreateIFlowDrawer
+                isOpen={isDrawerOpen}
+                onClose={() => setIsDrawerOpen(false)}
+            />
         </div>
     );
 };
