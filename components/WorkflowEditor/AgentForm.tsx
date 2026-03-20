@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./AgentForm.module.css";
 import { ChevronLeft, ChevronRight, HelpCircle } from "lucide-react";
+import EditorDrawer from "./EditorDrawer";
 
 interface AgentFormProps {
   onCancel: () => void;
@@ -8,6 +9,8 @@ interface AgentFormProps {
 }
 
 const AgentForm: React.FC<AgentFormProps> = ({ onCancel, onSave }) => {
+  const [isEditorOpen, setIsEditorOpen] = useState(false);
+
   return (
     <>
       <div className={styles.bodyContentInner}>
@@ -81,12 +84,17 @@ const AgentForm: React.FC<AgentFormProps> = ({ onCancel, onSave }) => {
                         <HelpCircle className={styles.helpCircleIcon} />
                       </div>
                     </div>
-                    <div className={styles.navMenuItemCardParent}>
+                    <div
+                      className={styles.navMenuItemCardParent}
+                      onClick={() => setIsEditorOpen(true)}
+                    >
                       <div className={styles.navMenuItemCard}>
                         <div className={styles.content2}>
                           <div className={styles.textAndSupportingText}>
                             <div className={styles.text7}>Set up prompt instruction</div>
-                            <div className={styles.supportingText}>No prompt instruction configured yet</div>
+                            <div className={styles.supportingText}>
+                              No prompt instruction configured yet
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -107,7 +115,9 @@ const AgentForm: React.FC<AgentFormProps> = ({ onCancel, onSave }) => {
                         <div className={styles.content2}>
                           <div className={styles.textAndSupportingText}>
                             <div className={styles.text7}>Select model</div>
-                            <div className={styles.supportingText}>No intelligence source configured yet</div>
+                            <div className={styles.supportingText}>
+                              No intelligence source configured yet
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -142,6 +152,13 @@ const AgentForm: React.FC<AgentFormProps> = ({ onCancel, onSave }) => {
           </div>
         </div>
       </div>
+
+      <EditorDrawer
+        isOpen={isEditorOpen}
+        onClose={() => setIsEditorOpen(false)}
+        title="Setup Prompt Template"
+        subtitle="Provide details to start building your prompt instruction."
+      />
     </>
   );
 };
