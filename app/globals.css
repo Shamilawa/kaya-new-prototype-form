@@ -1,60 +1,73 @@
 @import "tailwindcss";
 
 :root {
-    --bg-main: #F9F9FB;
-    --sidebar-bg: #F9F9FB;
-    --sidebar-active: #F0F0F3;
-    --text-primary: #181D27;
-    --text-secondary: #414651;
-    --text-tertiary: #535862;
-    --text-quaternary: #717680;
-    --text-muted: #A4A7AE;
-    --border-primary: #D5D7DA;
-    --border-secondary: #E9EAEB;
-    --white: #FFFFFF;
-    --brand-blue: #0070C9;
-    --shadow-subtle: 0px 0px 6px rgba(163, 167, 174, 0.2);
-    --shadow-main: 0px 10px 30px rgba(163, 167, 174, 0.15);
-    --gradient-sidebar: linear-gradient(180deg, #F9F9FB 0%, #F0F0F3 100%);
-    --gradient-header: linear-gradient(90deg, #F2EFF3 0%, #FFFFFF 100%);
+  --bg-main: #f9f9fb;
+  --sidebar-bg: #f9f9fb;
+  --sidebar-active: #f0f0f3;
+  --text-primary: #181d27;
+  --text-secondary: #414651;
+  --text-tertiary: #535862;
+  --text-quaternary: #717680;
+  --text-muted: #a4a7ae;
+  --border-primary: #d5d7da;
+  --border-secondary: #e9eaeb;
+  --white: #ffffff;
+  --brand-blue: #0070c9;
+  --shadow-subtle: 0px 0px 6px rgba(163, 167, 174, 0.2);
+  --shadow-main: 0px 10px 30px rgba(163, 167, 174, 0.15);
+  --gradient-sidebar: linear-gradient(180deg, #f9f9fb 0%, #f0f0f3 100%);
+  --gradient-header: linear-gradient(90deg, #f2eff3 0%, #ffffff 100%);
 }
 
 @theme {
-  --color-brand-blue: #0070C9;
-  --color-text-primary: #181D27;
+  --color-brand-blue: #0070c9;
+  --color-text-primary: #181d27;
   --color-text-tertiary: #535862;
   --color-text-quaternary: #717680;
-  --color-text-muted: #A4A7AE;
-  --color-sidebar-active: #F0F0F3;
-  --color-border-secondary: #E9EAEB;
+  --color-text-muted: #a4a7ae;
+  --color-sidebar-active: #f0f0f3;
+  --color-border-secondary: #e9eaeb;
 }
 
 body {
-    font-family: var(--font-encode-sans), 'Encode Sans', system-ui, -apple-system, sans-serif;
-    background: var(--bg-main);
-    color: var(--text-primary);
-    overflow: hidden;
-    height: 100vh;
+  font-family:
+    var(--font-encode-sans),
+    "Encode Sans",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  overflow: hidden;
+  height: 100vh;
 }
 
 /* Thin scrollbar for sidebar */
 aside::-webkit-scrollbar,
 aside *::-webkit-scrollbar {
-    width: 4px;
+  width: 4px;
 }
 
 aside::-webkit-scrollbar-track,
 aside *::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 aside::-webkit-scrollbar-thumb,
 aside *::-webkit-scrollbar-thumb {
-    background-color: rgba(164, 167, 174, 0.4);
-    border-radius: 4px;
+  background-color: rgba(164, 167, 174, 0.4);
+  border-radius: 4px;
 }
 
 aside::-webkit-scrollbar-thumb:hover,
 aside *::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(164, 167, 174, 0.7);
+  background-color: rgba(164, 167, 174, 0.7);
+}
+
+.white-space-nowrap {
+  white-space: nowrap;
+}
+
+.mr-2 {
+  margin-right: 4px;
 }

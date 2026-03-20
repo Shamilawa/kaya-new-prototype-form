@@ -8,7 +8,7 @@ interface WorkflowTestProps {
 
 const WorkflowTest: React.FC<WorkflowTestProps> = ({ onBack }) => {
   return (
-    <div className={styles.bodyContent}>
+    <div className={`${styles.bodyContent} m-4! p-0! ml-0!`}>
       <div className={styles.navHeader}>
         <div className={styles.breadcrumbsWrapper}>
           <div className={styles.badge}>
@@ -29,7 +29,9 @@ const WorkflowTest: React.FC<WorkflowTestProps> = ({ onBack }) => {
             <div className={styles.textAndSupportingText}>
               <div className={styles.text2}>Start testing your Workflow</div>
               <div className={styles.supportingText}>
-                Send a message below to test how your workflow responds. Each test runs in real-time using your configured settings and variables.
+                Send a message below to test how your workflow responds. Each
+                test runs in real-time using your configured settings and
+                variables.
               </div>
             </div>
             <div className={styles.messageInput}>

@@ -121,7 +121,7 @@ const IFlowListingBody = () => {
                     </div>
                     <div className={styles.experienceWrapper}>
                         <div className={styles.experience}>
-                            {mockIFlows.map((iflow) => (
+                            {mockIFlows.slice(0, 3).map((iflow) => (
                                 <div
                                     key={iflow.id}
                                     className={styles.integrationCardDesktop}

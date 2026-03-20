@@ -1,5 +1,13 @@
 import React from "react";
-import { ChevronLeft, HelpCircle, Edit2, Trash2, Plus, Bot, ChevronDown } from "lucide-react";
+import {
+  ChevronLeft,
+  HelpCircle,
+  Edit2,
+  Trash2,
+  Plus,
+  Bot,
+  ChevronDown,
+} from "lucide-react";
 import styles from "./PlaygroundSidebar.module.css";
 
 interface PlaygroundSidebarProps {
@@ -8,10 +16,12 @@ interface PlaygroundSidebarProps {
   onSave: () => void;
 }
 
-const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({ onBack, onCancel, onSave }) => {
-  const variables = [
-    { name: "user_name", value: "John" }
-  ];
+const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({
+  onBack,
+  onCancel,
+  onSave,
+}) => {
+  const variables = [{ name: "user_name", value: "John" }];
 
   const agents = [
     { name: "CX Agent", promptTemplate: "CX Prompt", model: "GPT-4" },
@@ -21,7 +31,7 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({ onBack, onCancel,
   ];
 
   return (
-    <div className={styles.bodyContent}>
+    <div className={`${styles.bodyContent} h-[calc(100%-32px)]! m-4! w-fit!`}>
       <div className={styles.bodyContentInner}>
         <div className={styles.headerParent}>
           <div className={styles.header}>
@@ -50,7 +60,7 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({ onBack, onCancel,
         </div>
       </div>
 
-      <div className={styles.bodyContentChild}>
+      <div className={`${styles.bodyContentChild} font-sans!`}>
         <div className={styles.frameParent}>
           <div className={styles.subheadingWrapperParent}>
             <div className={styles.subheadingWrapper}>
@@ -104,7 +114,9 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({ onBack, onCancel,
                 <div key={i} className={styles.card}>
                   <div className={styles.content3}>
                     <div className={styles.frameGroup}>
-                      <div className={styles.featuredIconParent}>
+                      <div
+                        className={`${styles.featuredIconParent} font-sans!`}
+                      >
                         <div className={styles.featuredIcon}>
                           <Bot className="w-6 h-6" />
                         </div>
@@ -116,12 +128,18 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({ onBack, onCancel,
                       </div>
                       <div className={styles.accordionTitle}>
                         <div className={styles.promptTemplateCxContainer}>
-                          <span className={styles.promptTemplate}>Prompt Template: </span>
-                          <span className={styles.cxPrompt}>{agent.promptTemplate}</span>
+                          <span className={styles.promptTemplate}>
+                            Prompt Template:{" "}
+                          </span>
+                          <span className={styles.cxPrompt}>
+                            {agent.promptTemplate}
+                          </span>
                         </div>
                       </div>
                       <div className={styles.testInPlayground}>
-                        <span className={styles.promptTemplate}>Intelligence Source: </span>
+                        <span className={styles.promptTemplate}>
+                          Intelligence Source:{" "}
+                        </span>
                         <span className={styles.cxPrompt}>{agent.model}</span>
                       </div>
                     </div>
@@ -130,7 +148,9 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({ onBack, onCancel,
                     <div className={styles.dividerIcon} />
                     <div className={styles.content5}>
                       <div className={styles.actions2}>
-                        <button className={styles.buttonsButton7}>
+                        <button
+                          className={`${styles.buttonsButton7} font-sans!`}
+                        >
                           View in workflow
                         </button>
                         <button className={styles.buttonsButton8}>
@@ -152,7 +172,10 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({ onBack, onCancel,
             <button className={styles.buttonsButton25} onClick={onCancel}>
               Cancel
             </button>
-            <button className={styles.buttonsButton26} onClick={onSave}>
+            <button
+              className={`${styles.buttonsButton26} bg-[#005BB5]!`}
+              onClick={onSave}
+            >
               Save
             </button>
           </div>

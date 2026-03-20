@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X, Search, Link, ChevronRight } from "lucide-react";
+import { X, Search, Link, ChevronRight, Plus, Check } from "lucide-react";
 import styles from "./AdvancedDrawer.module.css";
 import EditorDrawer from "./EditorDrawer";
 
@@ -9,7 +9,14 @@ interface AdvancedDrawerProps {
   onAdd?: (items: any[]) => void;
 }
 
-const TABS = ["APIs", "MCP Servers", "Vector RAGs", "Graph RAGs", "Connectors", "Functions"];
+const TABS = [
+  "APIs",
+  "MCP Servers",
+  "Vector RAGs",
+  "Graph RAGs",
+  "Connectors",
+  "Functions",
+];
 
 const DUMMY_DATA: Record<string, any[]> = {
   APIs: [
@@ -86,13 +93,17 @@ const DUMMY_DATA: Record<string, any[]> = {
   ],
 };
 
-const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd }) => {
+const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({
+  isOpen,
+  onClose,
+  onAdd,
+}) => {
   const [activeTab, setActiveTab] = useState("APIs");
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   const toggleItem = (id: string) => {
     setSelectedItems((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id],
     );
   };
 
@@ -123,12 +134,17 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
             <div className={styles.textParent}>
               <div className={styles.text}>Add data and tools</div>
               <div className={styles.supportingText}>
-                Connect the apps and data sources your agent can use to answer questions and take action.
+                Connect the apps and data sources your agent can use to answer
+                questions and take action.
               </div>
             </div>
           </div>
         </div>
-        <button className={styles.buttonsbuttonCloseX} onClick={onClose} aria-label="Close">
+        <button
+          className={styles.buttonsbuttonCloseX}
+          onClick={onClose}
+          aria-label="Close"
+        >
           <X size={20} />
         </button>
       </div>
@@ -139,7 +155,9 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
             <div className={styles.text2}>Share project</div>
             <div className={styles.iconAndText}>
               <Link className={styles.link01} size={16} />
-              <div className={styles.text3}>untitledui.com/project/marketing-site</div>
+              <div className={styles.text3}>
+                untitledui.com/project/marketing-site
+              </div>
             </div>
           </div>
           <div className={styles.buttonsbutton}></div>
@@ -159,7 +177,10 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
             </div>
             <div className={styles.buttonsbutton2}>
               <div className={styles.textPadding}>
-                <div className={styles.text5}>Connect new integration</div>
+                <img src="/plus.svg" className="mr-2" />
+                <div className={`white-space-nowrap ${styles.text5}`}>
+                  Connect new integration
+                </div>
               </div>
             </div>
           </div>
@@ -170,7 +191,11 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
                 {TABS.map((tab) => (
                   <div
                     key={tab}
-                    className={activeTab === tab ? styles.tabButtonBase : styles.tabButtonBase2}
+                    className={
+                      activeTab === tab
+                        ? styles.tabButtonBase
+                        : styles.tabButtonBase2
+                    }
                     onClick={() => setActiveTab(tab)}
                     role="button"
                     tabIndex={0}
@@ -183,11 +208,12 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
             </div>
             <div className={styles.supportingTextParent}>
               <div className={styles.supportingText2}>
-                Connect the apps and data sources your agent can use to answer questions and take action.
+                Connect the apps and data sources your agent can use to answer
+                questions and take action.
               </div>
               <div className={styles.buttonsbutton3}>
                 <div className={styles.text6}>Learn more about {activeTab}</div>
-                <ChevronRight size={14} style={{ marginLeft: '4px' }} />
+                <ChevronRight size={14} style={{ marginLeft: "4px" }} />
               </div>
             </div>
           </div>
@@ -195,7 +221,11 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
           {currentData.map((item) => (
             <div
               key={item.id}
-              className={selectedItems.includes(item.id) ? styles.radioGroupItem : styles.radioGroupItem2}
+              className={
+                selectedItems.includes(item.id)
+                  ? styles.radioGroupItem
+                  : styles.radioGroupItem2
+              }
               onClick={() => toggleItem(item.id)}
               role="checkbox"
               aria-checked={selectedItems.includes(item.id)}
@@ -204,8 +234,16 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
             >
               <div className={styles.content4}>
                 <div className={styles.input2}>
-                  <div className={selectedItems.includes(item.id) ? styles.checkboxBase : styles.checkboxBase2}>
-                    {selectedItems.includes(item.id) && <X className={styles.checkIcon} size={14} />}
+                  <div
+                    className={
+                      selectedItems.includes(item.id)
+                        ? styles.checkboxBase
+                        : styles.checkboxBase2
+                    }
+                  >
+                    {selectedItems.includes(item.id) && (
+                      <Check className={styles.checkIcon} size={14} />
+                    )}
                   </div>
                 </div>
                 <div className={styles.textAndSupportingText3}>
@@ -221,7 +259,10 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
                   </div>
                   <div className={styles.badgeParent}>
                     {item.badges.map((badge: string, idx: number) => (
-                      <div key={idx} className={idx === 0 ? styles.badge : styles.badge2}>
+                      <div
+                        key={idx}
+                        className={idx === 0 ? styles.badge : styles.badge2}
+                      >
                         <div className={styles.text14}>{badge}</div>
                       </div>
                     ))}
@@ -243,7 +284,9 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd 
             </button>
             <button className={styles.buttonsbutton5} onClick={handleAdd}>
               <div className={styles.textPadding}>
-                <div className={styles.text6}>Add Selected ({selectedItems.length})</div>
+                <div className={styles.text6}>
+                  Add Selected ({selectedItems.length})
+                </div>
               </div>
             </button>
           </div>

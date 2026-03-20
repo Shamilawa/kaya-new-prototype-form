@@ -1,528 +1,543 @@
 .slideOutMenuHeader {
-    align-self: stretch;
-    background-color: #fff;
-    display: flex;
-    align-items: flex-start;
-    padding: 24px;
-    position: relative;
-    isolation: isolate;
-    gap: 8px;
-    font-size: 18px;
+  align-self: stretch;
+  background-color: #fff;
+  display: flex;
+  align-items: flex-start;
+  padding: 24px;
+  position: relative;
+  isolation: isolate;
+  gap: 8px;
+  font-size: 18px;
 }
 
 .content {
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    z-index: 0;
-    flex-shrink: 0;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  z-index: 0;
+  flex-shrink: 0;
 }
 
 .featuredIcon {
-    height: 40px;
-    width: 40px;
-    position: relative;
-    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
-    border-radius: 8px;
-    background-color: #fff;
-    border: 1px solid #d5d7da;
-    box-sizing: border-box;
-    overflow: hidden;
-    flex-shrink: 0;
-    display: none;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  box-shadow:
+    0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+    0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+    0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
 }
 
 .textAndSupportingText {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .textParent {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
 }
 
 .text {
-    align-self: stretch;
-    position: relative;
-    line-height: 28px;
-    font-weight: 600;
+  align-self: stretch;
+  position: relative;
+  line-height: 28px;
+  font-weight: 600;
 }
 
 .supportingText {
-    align-self: stretch;
-    position: relative;
-    font-size: 14px;
-    line-height: 20px;
-    color: #6b7280;
+  align-self: stretch;
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6b7280;
 }
 
 .buttonsbuttonCloseX {
-    height: 40px;
-    width: 40px;
-    margin: 0 !important;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    box-sizing: border-box;
-    z-index: 1;
-    cursor: pointer;
-    background: none;
-    border: none;
+  height: 40px;
+  width: 40px;
+  margin: 0 !important;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  z-index: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .xCloseIcon {
-    width: 20px;
-    position: relative;
-    max-height: 100%;
+  width: 20px;
+  position: relative;
+  max-height: 100%;
 }
 
 .content2 {
-    align-self: stretch;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 24px;
-    gap: 24px;
-    overflow-y: auto;
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 24px;
+  gap: 24px;
+  overflow-y: auto;
 }
 
 .section {
-    width: 352px;
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+  width: 352px;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .textAndSupportingText2 {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 .text2 {
-    align-self: stretch;
-    position: relative;
-    line-height: 20px;
-    font-weight: 600;
+  align-self: stretch;
+  position: relative;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 .iconAndText {
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #535862;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #535862;
 }
 
 .link01 {
-    height: 16px;
-    width: 16px;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .text3 {
-    flex: 1;
-    position: relative;
-    line-height: 20px;
+  flex: 1;
+  position: relative;
+  line-height: 20px;
 }
 
 .buttonsbutton {
-    width: 112px;
-    height: 36px;
-    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
-    border-radius: 8px;
-    background-color: #fff;
-    border: 1px solid #d5d7da;
-    box-sizing: border-box;
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 12px;
+  width: 112px;
+  height: 36px;
+  box-shadow:
+    0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+    0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+    0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
 }
 
 .section2 {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    max-width: 100%;
-    font-size: 16px;
-    color: #717680;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 100%;
+  font-size: 16px;
+  color: #717680;
 }
 
 .selectParent {
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    font-family: Inter, sans-serif;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: Inter, sans-serif;
 }
 
 .select {
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 320px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 320px;
 }
 
 .inputWithLabel {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .input {
-    align-self: stretch;
-    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
-    border-radius: 8px;
-    background-color: #fff;
-    border: 1px solid #d5d7da;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    padding: 10px 14px;
+  align-self: stretch;
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
 }
 
 .content3 {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .text4 {
-    flex: 1;
-    position: relative;
-    line-height: 24px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  flex: 1;
+  position: relative;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .buttonsbutton2 {
-    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
-    border-radius: 8px;
-    background-color: #fff;
-    border: 1px solid #d5d7da;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 16px;
-    gap: 6px;
-    color: #414651;
-    font-family: 'Encode Sans', sans-serif;
-    cursor: pointer;
+  box-shadow:
+    0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+    0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+    0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  gap: 6px;
+  color: #414651;
+  font-family: "Encode Sans", sans-serif;
+  cursor: pointer;
 }
 
 .textPadding {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 2px;
 }
 
 .text5 {
-    position: relative;
-    line-height: 24px;
-    font-weight: 600;
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
 }
 
 .horizontalTabsParent {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    font-size: 14px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 14px;
 }
 
 .horizontalTabs {
-    align-self: stretch;
-    border-bottom: 1px solid #e9eaeb;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  align-self: stretch;
+  border-bottom: 1px solid #e9eaeb;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .tabs {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .tabButtonBase {
-    height: 32px;
-    border-bottom: 2px solid #005bb5;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 4px 12px;
-    color: #004a96;
-    cursor: pointer;
+  height: 32px;
+  border-bottom: 2px solid #005bb5;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 4px 12px;
+  color: #004a96;
+  cursor: pointer;
 }
 
 .text6 {
-    position: relative;
-    line-height: 20px;
-    font-weight: 600;
+  position: relative;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 .tabButtonBase2 {
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 4px 12px;
-    box-sizing: border-box;
-    cursor: pointer;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 4px 12px;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .supportingTextParent {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    color: #6b7280;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  color: #6b7280;
 }
 
 .supportingText2 {
-    align-self: stretch;
-    position: relative;
-    line-height: 20px;
+  align-self: stretch;
+  position: relative;
+  line-height: 20px;
 }
 
 .buttonsbutton3 {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    color: #535862;
-    cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #535862;
+  cursor: pointer;
 }
 
 .radioGroupItem {
-    align-self: stretch;
-    height: 112px;
-    border-radius: 12px;
-    background-color: #fff;
-    border: 2px solid #0070c9;
-    box-sizing: border-box;
-    display: flex;
-    align-items: flex-start;
-    padding: 16px;
-    color: #111827;
-    cursor: pointer;
+  align-self: stretch;
+  height: 112px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 2px solid #0070c9;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  color: #111827;
+  cursor: pointer;
 }
 
 .content4 {
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .input2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0px 0px;
 }
 
 .checkboxBase {
-    height: 20px;
-    width: 20px;
-    position: relative;
-    border-radius: 6px;
-    background-color: #005bb5;
-    overflow: hidden;
-    flex-shrink: 0;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 6px;
+  background-color: #005bb5;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .checkIcon {
-    position: absolute;
-    height: 70%;
-    width: 70%;
-    top: 15%;
-    right: 15%;
-    bottom: 15%;
-    left: 15%;
-    max-width: 100%;
-    overflow: hidden;
-    max-height: 100%;
-    color: #fff;
+  position: absolute;
+  height: 70%;
+  width: 70%;
+  top: 15%;
+  right: 15%;
+  bottom: 15%;
+  left: 15%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  color: #fff;
 }
 
 .textAndSupportingText3 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .textAndSubtext {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 }
 
 .text13 {
-    position: relative;
-    line-height: 24px;
-    font-weight: 500;
+  position: relative;
+  line-height: 24px;
+  font-weight: 500;
 }
 
 .supportingTextWrapper {
-    align-self: stretch;
-    height: 24px;
-    position: relative;
-    color: #6b7280;
+  align-self: stretch;
+  height: 24px;
+  position: relative;
+  color: #6b7280;
 }
 
 .supportingText3 {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    line-height: 24px;
-    display: inline-block;
-    width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  line-height: 24px;
+  display: inline-block;
+  width: 100%;
 }
 
 .badgeParent {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
-    font-size: 12px;
-    color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  font-size: 12px;
+  color: #374151;
 }
 
 .badge {
-    border-radius: 6px;
-    background-color: #fafafa;
-    border: 1px solid #e9eaeb;
-    display: flex;
-    align-items: center;
-    padding: 2px 6px;
+  border-radius: 6px;
+  background-color: #fafafa;
+  border: 1px solid #e9eaeb;
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
 }
 
 .text14 {
-    position: relative;
-    line-height: 18px;
-    font-weight: 500;
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
 }
 
 .badge2 {
-    border-radius: 6px;
-    background-color: #f8f9fc;
-    border: 1px solid #d5d9eb;
-    display: flex;
-    align-items: center;
-    padding: 2px 6px;
-    color: #111827;
+  border-radius: 6px;
+  background-color: #f8f9fc;
+  border: 1px solid #d5d9eb;
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+  color: #111827;
 }
 
 .radioGroupItem2 {
-    align-self: stretch;
-    height: 112px;
-    border-radius: 12px;
-    background-color: #fff;
-    border: 1px solid #e9eaeb;
-    box-sizing: border-box;
-    display: flex;
-    align-items: flex-start;
-    padding: 16px;
-    color: #111827;
-    cursor: pointer;
+  align-self: stretch;
+  height: 112px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #e9eaeb;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  color: #111827;
+  cursor: pointer;
 }
 
 .checkboxBase2 {
-    height: 20px;
-    width: 20px;
-    position: relative;
-    border-radius: 6px;
-    border: 1px solid #d5d7da;
-    box-sizing: border-box;
-    overflow: hidden;
-    flex-shrink: 0;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 6px;
+  border: 1px solid #d5d7da;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .footer {
-    align-self: stretch;
-    background-color: #fff;
-    border-top: 1px solid #e9eaeb;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    color: #414651;
+  align-self: stretch;
+  background-color: #fff;
+  border-top: 1px solid #e9eaeb;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #414651;
 }
 
 .content6 {
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    padding: 16px 24px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
 }
 
 .actions {
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    gap: 12px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
 .buttonsbutton4 {
-    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
-    border-radius: 8px;
-    background-color: #fff;
-    border: 1px solid #d5d7da;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 14px;
-    cursor: pointer;
+  box-shadow:
+    0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+    0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+    0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  cursor: pointer;
 }
 
 .buttonsbutton5 {
-    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
-    border-radius: 8px;
-    background: #005bb5;
-    border: 2px solid transparent;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 14px;
-    color: #fff;
-    cursor: pointer;
+  box-shadow:
+    0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset,
+    0px -2px 0px rgba(10, 13, 18, 0.05) inset,
+    0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background: #005bb5;
+  border: 2px solid transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  color: #fff;
+  cursor: pointer;
 }

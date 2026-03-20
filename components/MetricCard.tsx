@@ -1,6 +1,5 @@
 import React from "react";
-import { TrendingUp } from "lucide-react";
-import Image from "next/image";
+import { TrendingUp, TrendingDown } from "lucide-react";
 
 export interface MetricCardProps {
     title: string;
@@ -10,34 +9,43 @@ export interface MetricCardProps {
         value: string;
         isUp: boolean;
     };
-    chartSrc?: string;
+    chartSrc?: string;        // kept for API compatibility, no longer rendered
     variant?: 'default' | 'highlight';
 }
 
-const MetricCard: React.FC<MetricCardProps> = ({ title, value, subtitle, trend, chartSrc, variant = 'default' }) => (
-    <div className="flex-1 shadow-[0_1px_2px_rgba(10,13,18,0.05)] rounded-xl bg-[#fdfdfd] border border-[#e9eaeb] overflow-hidden flex flex-col items-start min-h-[160px]">
-        <div className="self-stretch flex items-center pt-3 pb-2 px-5 gap-4">
+const MetricCard: React.FC<MetricCardProps> = ({ title, value, subtitle, trend }) => (
+    <div className="flex-1 shadow-[0_1px_2px_rgba(10,13,18,0.05)] rounded-xl bg-white border border-[#e9eaeb] overflow-hidden flex flex-col min-h-[140px]">
+        {/* Header */}
+        <div className="px-5 py-3 border-b border-[#e9eaeb]">
             <span className="text-sm font-semibold text-[#181d27] leading-5">{title}</span>
         </div>
-        <div className="self-stretch flex-1 shadow-[0_1px_2px_rgba(10,13,18,0.05)] rounded-xl bg-white border border-[#e9eaeb] p-[20px] flex flex-col justify-between gap-2">
-            <div className="flex flex-col gap-2">
-                <div className="flex items-baseline gap-2 mb-[12px]">
-                    <span className="text-[30px] font-semibold text-text-primary leading-[38px]">{value}</span>
-                    {subtitle && <div className="text-xl font-medium text-text-tertiary font-encode">{subtitle}</div>}
-                </div>
-                {trend && (
-                    <div className="flex items-center gap-2">
-                        <div className={`flex items-center gap-1 text-sm font-medium rounded-md border border-[#D5D7DA] bg-white shadow-[0_1px_2px_rgba(10,13,18,0.05)] py-0.5 px-2 ${trend.isUp ? 'text-success-700' : 'text-error-700'}`}>
-                            {trend.isUp ? <TrendingUp className="w-5 h-5 text-[#17B26A] font-semibold" /> : <TrendingUp className="w-5 h-5 scale-y-[-1] text-[#F04438] font-semibold" />}
-                            {trend.isUp ? <span className="text-[#414651] text-[14px] font-500">{trend.value}</span> : <span className="text-[#414651] text-[14px]">{trend.value}</span>}
-                        </div>
-                        <span className="text-sm font-medium text-text-tertiary">vs last month</span>
-                    </div>
+
+        {/* Body */}
+        <div className="flex-1 flex flex-col justify-center gap-3 px-5 py-4">
+            {/* Value row — inline subtitle only when there's also a trend */}
+            <div className="flex items-baseline gap-2 flex-wrap">
+                <span className="text-[30px] font-semibold text-[#181d27] leading-[38px]">{value}</span>
+                {subtitle && trend && (
+                    <span className="text-lg font-medium text-[#535862]">{subtitle}</span>
                 )}
             </div>
-            {chartSrc && (
-                <div className="self-stretch mt-2">
-                    <Image src={trend?.isUp === false ? '/chart-red.svg' : '/chart-green.svg'} alt="Chart" width={200} height={50} className="w-full h-auto" />
+
+            {/* Standalone subtitle (no trend) — shown below the value */}
+            {subtitle && !trend && (
+                <div className="text-sm font-medium text-[#717680]">{subtitle}</div>
+            )}
+
+            {/* Trend row */}
+            {trend && (
+                <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1 text-sm font-medium rounded-md border border-[#d5d7da] bg-white shadow-[0_1px_2px_rgba(10,13,18,0.05)] py-0.5 px-2">
+                        {trend.isUp
+                            ? <TrendingUp className="w-4 h-4 text-[#F04438]" />
+                            : <TrendingDown className="w-4 h-4 text-[#F04438]" />
+                        }
+                        <span className="text-[#414651] text-[13px] font-medium">{trend.value}</span>
+                    </div>
+                    <span className="text-sm text-[#717680]">vs last month</span>
                 </div>
             )}
         </div>

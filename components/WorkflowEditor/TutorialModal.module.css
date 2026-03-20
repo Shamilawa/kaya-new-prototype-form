@@ -1,468 +1,473 @@
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
 .modal {
-    width: 950px;
-    max-width: 95%;
-    position: relative;
-    box-shadow: 0px 20px 24px -4px rgba(10, 13, 18, 0.08), 
-                0px 8px 8px -4px rgba(10, 13, 18, 0.03), 
-                0px 3px 3px -1.5px rgba(10, 13, 18, 0.04);
-    border-radius: 16px;
-    background-color: #fff;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-    font-size: 16px;
-    color: #181d27;
-    font-family: var(--font-encode-sans), 'Encode Sans', sans-serif;
+  width: 950px;
+  max-width: 95%;
+  position: relative;
+  box-shadow:
+    0px 20px 24px -4px rgba(10, 13, 18, 0.08),
+    0px 8px 8px -4px rgba(10, 13, 18, 0.03),
+    0px 3px 3px -1.5px rgba(10, 13, 18, 0.04);
+  border-radius: 16px;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  font-size: 16px;
+  color: #181d27;
+  font-family: var(--font-encode-sans), "Encode Sans", sans-serif;
 }
 
 .modalHeader {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    isolation: isolate;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
 }
 
 .content {
-    align-self: stretch;
-    display: flex;
-    align-items: flex-start;
-    padding: 24px 24px 0px;
-    z-index: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  padding: 24px 24px 0px;
+  z-index: 0;
 }
 
 .textAndSupportingText {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .text {
-    align-self: stretch;
-    position: relative;
-    line-height: 24px;
-    font-weight: 600;
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
 }
 
 .buttonsbuttonCloseX {
-    width: 44px;
-    height: 44px;
-    margin: 0 !important;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    box-sizing: border-box;
-    z-index: 1;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  width: 44px;
+  height: 44px;
+  margin: 0 !important;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  z-index: 1;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .buttonsbuttonCloseX:hover {
-    background-color: #f9f9fb;
+  background-color: #f9f9fb;
 }
 
 .xCloseIcon {
-    width: 24px;
-    color: #98a2b3;
+  width: 24px;
+  color: #98a2b3;
 }
 
 .paddingBottom {
-    align-self: stretch;
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 2;
+  align-self: stretch;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
 }
 
-.content2, .content2Step2 {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 24px 0px;
-    color: #101828;
+.content2,
+.content2Step2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 24px 0px;
+  color: #101828;
 }
 
 .content2Step2 {
-    align-items: center;
+  align-items: center;
 }
 
 .pricingCards {
-    align-self: stretch;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    justify-content: center;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  justify-content: center;
 }
 
-.pricingCard, .pricingCard2 {
-    width: 286px;
-    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
-    border-radius: 12px;
-    background-color: #fff;
-    border: 1px solid #d5d7da;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.pricingCard,
+.pricingCard2 {
+  width: 286px;
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .header {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 20px 0px;
-    gap: 8px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 20px 0px;
+  gap: 8px;
 }
 
 .iconsPlaceholder {
-    width: 40px;
-    height: 40px;
-    box-shadow: 0px 0px 6px rgba(164, 167, 174, 0.35);
-    border-radius: 4px;
-    background-color: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: #005bb5;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 0px 6px rgba(164, 167, 174, 0.35);
+  border-radius: 4px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #555555;
 }
 
 .headingAndSupportingText {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .content3 {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    color: #4a5565;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  color: #4a5565;
 }
 
 .checkItems {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .checkItemTextParent {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 .checkItemText {
-    width: 246px;
-    display: flex;
-    align-items: flex-start;
+  width: 246px;
+  display: flex;
+  align-items: flex-start;
 }
 
 .text2 {
-    align-self: stretch;
-    position: relative;
-    line-height: 24px;
-    font-size: 14px;
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  font-size: 14px;
 }
 
 .buttonsbutton {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-size: 14px;
-    color: #535862;
-    cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #535862;
+  cursor: pointer;
 }
 
 .text5 {
-    position: relative;
-    text-decoration: underline;
-    line-height: 20px;
-    font-weight: 600;
+  position: relative;
+  text-decoration: underline;
+  line-height: 20px;
+  font-weight: 600;
 }
 
 .arrowNarrowUpRightIcon {
-    width: 20px;
+  width: 20px;
 }
 
 /* Step 2 Video Styles */
 .videoPlayer169 {
-    align-self: stretch;
-    height: 505.1px;
-    position: relative;
-    border-radius: 12px;
-    background-color: #c4c4c4;
-    border: 0.5px solid rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    overflow: hidden;
-    flex-shrink: 0;
-    width: 100%;
+  align-self: stretch;
+  height: 505.1px;
+  position: relative;
+  border-radius: 12px;
+  background-color: #c4c4c4;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 100%;
 }
 
 .videoOverlayAction {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    right: 0px;
-    background-color: rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .playButtonLarge {
-    height: 64px;
-    width: 64px;
-    border-radius: 9999px;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  height: 64px;
+  width: 64px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .videoActionsBar {
-    position: absolute;
-    width: 100%;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 48px 32px 24px;
-    box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 48px 32px 24px;
+  box-sizing: border-box;
 }
 
 .content3Video {
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: white;
-    font-size: 12px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: white;
+  font-size: 12px;
 }
 
 .videoActionButton {
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  cursor: pointer;
 }
 
 .videoVolumeSlider {
-    width: 84px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    padding: 0px 8px 0px 0px;
-    box-sizing: border-box;
+  width: 84px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0px 8px 0px 0px;
+  box-sizing: border-box;
 }
 
 .videoVolumeSliderHandle {
-    height: 4px;
-    flex: 1;
-    position: relative;
-    border-radius: 9999px;
-    background-color: rgba(255, 255, 255, 0.3);
+  height: 4px;
+  flex: 1;
+  position: relative;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .progress {
-    position: absolute;
-    width: 70%; /* Example progress */
-    top: 0px;
-    left: 0px;
-    border-radius: 9999px;
-    background-color: #fff;
-    height: 4px;
+  position: absolute;
+  width: 70%; /* Example progress */
+  top: 0px;
+  left: 0px;
+  border-radius: 9999px;
+  background-color: #fff;
+  height: 4px;
 }
 
 .controlHandle {
-    position: absolute;
-    top: -4px;
-    right: -6px;
-    border-radius: 9999px;
-    background-color: #fff;
-    width: 12px;
-    height: 12px;
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  border-radius: 9999px;
+  background-color: #fff;
+  width: 12px;
+  height: 12px;
 }
 
 .videoProgress {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 0px 8px;
-    gap: 8px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0px 8px;
+  gap: 8px;
 }
 
-.timestampStart, .timestampEnd {
-    width: auto;
-    min-width: 36px;
-    line-height: 18px;
-    font-weight: 600;
+.timestampStart,
+.timestampEnd {
+  width: auto;
+  min-width: 36px;
+  line-height: 18px;
+  font-weight: 600;
 }
 
 .progressSlider {
-    height: 8px;
-    flex: 1;
-    position: relative;
-    backdrop-filter: blur(8px);
-    border-radius: 9999px;
-    background-color: rgba(255, 255, 255, 0.3);
+  height: 8px;
+  flex: 1;
+  position: relative;
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .bufferingProgress {
-    position: absolute;
-    height: 100%;
-    width: 17.83%;
-    left: 0%;
-    border-radius: 9999px;
-    background-color: #fff;
-    opacity: 0.3;
+  position: absolute;
+  height: 100%;
+  width: 17.83%;
+  left: 0%;
+  border-radius: 9999px;
+  background-color: #fff;
+  opacity: 0.3;
 }
 
 .progressLine {
-    position: absolute;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    border-radius: 9999px;
-    background-color: #fff;
-    width: 10%; /* Example progress */
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  border-radius: 9999px;
+  background-color: #fff;
+  width: 10%; /* Example progress */
 }
 
 .videoActionButton3 {
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding: 0 8px;
-    cursor: pointer;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 8px;
+  cursor: pointer;
 }
 
 .speed {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 /* Modal Actions */
 .modalActions {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 32px 0px 0px;
-    font-size: 14px;
-    color: #414651;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 0px 0px;
+  font-size: 14px;
+  color: #414651;
 }
 
 .dividerWrap {
-    align-self: stretch;
-    height: 1px;
-    background-color: #e9eaeb;
-    margin-bottom: 24px;
+  align-self: stretch;
+  height: 1px;
+  background-color: #e9eaeb;
+  margin-bottom: 24px;
 }
 
 .content6 {
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    padding: 0px 24px 24px;
-    gap: 12px;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 0px 24px 24px;
+  gap: 12px;
 }
 
 .checkbox {
-    flex: 1;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    cursor: pointer;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .checkboxBase {
-    height: 16px;
-    width: 16px;
-    border-radius: 4px;
-    border: 1px solid #d5d7da;
-    box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+  border: 1px solid #d5d7da;
+  box-sizing: border-box;
 }
 
 .text14 {
-    line-height: 20px;
-    font-weight: 500;
+  line-height: 20px;
+  font-weight: 500;
 }
 
 .actions {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
-    font-size: 16px;
-    color: #535862;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  font-size: 16px;
+  color: #535862;
 }
 
-.buttonsbutton4, .buttonsbutton5 {
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+.buttonsbutton4,
+.buttonsbutton5 {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .buttonsbutton4 {
-    background: transparent;
+  background: transparent;
 }
 
 .buttonsbutton4:hover {
-    background-color: #f9f9fb;
+  background-color: #f9f9fb;
 }
 
 .buttonsbutton5 {
-    background: #005bb5;
-    color: #fff;
-    border: 1px solid #005bb5;
+  background: #005bb5;
+  color: #fff;
+  border: 1px solid #005bb5;
 }
 
 .buttonsbutton5:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }

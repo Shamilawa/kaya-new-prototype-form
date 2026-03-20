@@ -390,12 +390,15 @@
     color: #414651;
 }
 .experience {
-    display: flex;
-    align-items: flex-start;
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    min-width: 720px;
-    overflow-x: clip;
-    height: fit-content;
+}
+.experience > div {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0;
 }
 .integrationCardDesktop {
     width: 286px;
@@ -696,11 +699,17 @@
 /* ── All iFlows grid / list containers ── */
 .allIFlowsGrid {
     align-self: stretch;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     font-size: 14px;
     color: #414651;
+}
+
+.allIFlowsGrid > div {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0;
 }
 
 /* ── List table view ── */
