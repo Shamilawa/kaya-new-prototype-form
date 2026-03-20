@@ -25,8 +25,8 @@ const IFlowCard: React.FC<IFlowCardProps> = ({ workspaceId, title, description, 
     return (
     <div className="flex-1 shadow-[0_1px_2px_rgba(10,13,18,0.05)] rounded-xl bg-white border border-border-secondary flex flex-col items-start min-w-[320px]">
         <div className="self-stretch flex flex-col items-start p-5 gap-4">
-            <div className="self-stretch flex flex-col gap-2 mb-[16px]">
-                <div className="flex items-center justify-between">
+            <div className="self-stretch flex flex-col gap-2">
+                <div className="flex items-center justify-between mb-[10px]">
                     <div className={`px-2 py-0.5 rounded-md text-xs font-medium border ${
                         status === 'Published' 
                             ? 'bg-[#ECFDF3] text-[#067647] border-[#ABEFC6]' 
@@ -44,10 +44,10 @@ const IFlowCard: React.FC<IFlowCardProps> = ({ workspaceId, title, description, 
             <div className="self-stretch flex items-center justify-between">
                 <div className="flex items-center gap-1">
                     <span className="text-sm font-bold text-[#535862] leading-5">{agents}</span>
-                    <span className="text-sm font-medium text-[#535862] leading-5">Agents</span>
+                    <span className="text-sm font-[400] text-[#535862] leading-5">Agents</span>
                 </div>
-                <div className="text-sm font-medium text-[#535862] leading-5">
-                    Last modified: <span className="font-semibold text-[#535862]">{lastModified}</span>
+                <div className="text-sm font-[400] text-[#535862] leading-5">
+                    Last modified: <span className="font-[600] text-[#535862]">{lastModified}</span>
                 </div>
             </div>
         </div>

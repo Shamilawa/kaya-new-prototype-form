@@ -52,7 +52,7 @@ const AgentCard: React.FC<AgentCardProps> = ({
     <div className="flex-1 shadow-[0_1px_2px_rgba(10,13,18,0.05)] rounded-xl bg-[#fdfdfd] border border-[#e9eaeb] overflow-hidden flex flex-col items-start min-w-[320px]">
         <div className="self-stretch flex flex-col items-start pt-4 px-5 pb-5 gap-5">
             <div className="self-stretch flex flex-col gap-2">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mb-[10px]">
                     <div
                         className={`px-2 py-0.5 rounded-md text-xs font-medium border ${
                             status === "Published"
@@ -73,23 +73,32 @@ const AgentCard: React.FC<AgentCardProps> = ({
                 </div>
             </div>
 
-            <div className="flex flex-col gap-5">
-                <div className="text-sm font-medium text-text-tertiary leading-5">
-                    <span className="text-text-muted">Agent Type: </span>
-                    <span className="font-bold text-text-secondary">
-                        {agentType}
-                    </span>
-                    <span className="text-text-muted"> | Model: </span>
-                    <span className="font-bold text-text-secondary">
-                        {model}
-                    </span>
+            <div className="flex flex-col gap-5 w-full">
+                <div className="text-sm font-medium text-text-tertiary leading-5 flex items-center gap-4 justify-between">
+                    <div className="flex items-center gap-1 justify-between">
+                        <span className="text-[#535862] font-[400]">Agent Type: </span>
+                        <span className="font-[600] text-text-secondary">
+                            {agentType}
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                        <span className="text-[#535862] font-[400]">Model: </span>
+                        <span className="font-[700] text-text-secondary">
+                            {model}
+                        </span>
+                    </div>
                 </div>
-                <div className="text-sm font-medium text-[#717680] leading-5">
-                    Last modified: {lastModified}
+                <div className="text-sm font-medium text-[#717680] leading-5 flex items-center gap-4">
+                    <div className="flex items-center gap-1">
+                        <span className="text-[#535862] font-[400]">Last modified: </span>
+                        <span className="font-[600] text-[#535862]">
+                            {lastModified}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div className="self-stretch border-t border-[#e9eaeb] py-4 px-6 flex justify-end">
+        <div className="self-stretch py-4 px-6 flex justify-end pt-0">
             <Link 
                 href={`/${workspaceId}/${iflowId}/${agentId}`}
                 className="px-4 py-2 text-sm font-semibold text-[#414651] bg-white border border-border-secondary rounded-lg shadow-[0_1px_2px_rgba(10,13,18,0.05)] hover:bg-gray-50 transition-colors"
@@ -169,10 +178,10 @@ const IFlowBody: React.FC<IFlowBodyProps> = ({ workspaceId, iflowId, iflowName }
             {/* Recently Modified Section */}
             <section className="self-stretch px-4 flex flex-col gap-4 mt-4">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-lg font-semibold text-text-tertiary font-encode">
-                        Recently modified
+                    <h2 className="text-lg font-semibold text[#181D27] font-encode">
+                        Recently modified Agent
                     </h2>
-                    <button className="flex items-center gap-1 text-sm font-semibold text-text-secondary hover:text-text-primary">
+                    <button className="flex items-center gap-1 text-sm font-semibold text-[#004A96] hover:text-text-primary">
                         <span>View all Agents</span>
                         <ChevronRight className="w-4 h-4" />
                     </button>
@@ -189,6 +198,16 @@ const IFlowBody: React.FC<IFlowBodyProps> = ({ workspaceId, iflowId, iflowName }
                         lastModified="Mar 17, 2026, 15:44"
                     />
                     <AgentCard
+                        workspaceId={workspaceId}
+                        iflowId={iflowId}
+                        title="Invoice Processing Bot"
+                        description="This workflow handles invoice processing tasks."
+                        status="Draft"
+                        agentType="Triage"
+                        model="GPT-4"
+                        lastModified="Mar 17, 2026, 15:44"
+                    />
+                     <AgentCard
                         workspaceId={workspaceId}
                         iflowId={iflowId}
                         title="Invoice Processing Bot"

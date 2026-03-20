@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useCallback, useEffect } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import {
     ReactFlow,
     Background,
@@ -20,7 +20,6 @@ import "@xyflow/react/dist/style.css";
 import {
     ChevronLeft,
     Search,
-    MoreVertical,
     Layout,
     Filter,
     MessageSquare,
@@ -34,6 +33,7 @@ import {
     Save,
     Play,
     UploadCloud,
+    GripVertical,
     Zap,
     Bot,
 } from "lucide-react";
@@ -184,7 +184,7 @@ const NodeCard: React.FC<
                     <Icon className={`w-5 h-5 ${iconColorClass}`} />
                 </div>
                 <div className={styles.dotsVerticalParent}>
-                    <MoreVertical className={styles.dotsVerticalIcon} />
+                    <GripVertical className={styles.dotsVerticalIcon} />
                 </div>
             </div>
             <div className={styles.textAndEmailCapture}>
@@ -209,7 +209,7 @@ const WorkspaceAgentCard: React.FC<{ title: string; description: string }> = ({
                 </div>
             </div>
             <div className={styles.dotsVerticalParent}>
-                <MoreVertical className={styles.dotsVerticalIcon} />
+                <GripVertical className={styles.dotsVerticalIcon} />
             </div>
         </div>
     </div>
@@ -217,6 +217,7 @@ const WorkspaceAgentCard: React.FC<{ title: string; description: string }> = ({
 
 const WorkflowEditorContent: React.FC = () => {
     const params = useParams();
+    const router = useRouter();
     const [activeTab, setActiveTab] = useState<"all" | "workspace">("all");
     const [selectedNode, setSelectedNode] = useState<any>(null);
     const [isTesting, setIsTesting] = useState(false);
@@ -227,6 +228,13 @@ const WorkflowEditorContent: React.FC = () => {
     }, []);
     const workspaceId = params.workspaceId as string;
     const iflowId = params.iflowId as string;
+
+    const displayIFlowName = iflowId
+        ? iflowId
+              .split("-")
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(" ")
+        : "Order Support";
 
     const coreNodes = [
         { title: "Basic Agent", icon: Bot },
@@ -395,9 +403,12 @@ const WorkflowEditorContent: React.FC = () => {
                             setNodes((nds) =>
                                 nds.map((node) =>
                                     node.id === selectedNode.id
-                                        ? { ...node, data: { ...node.data, ...data } }
-                                        : node
-                                )
+                                        ? {
+                                              ...node,
+                                              data: { ...node.data, ...data },
+                                          }
+                                        : node,
+                                ),
                             );
                             setSelectedNode(null);
                         }}
@@ -408,7 +419,16 @@ const WorkflowEditorContent: React.FC = () => {
                         <div className={styles.bodyContentInner}>
                             <div className={styles.headerParent}>
                                 <div className={styles.header}>
-                                    <div className={styles.buttonsbutton}>
+                                    <div
+                                        className={styles.buttonsbutton}
+                                        onClick={() =>
+                                            workspaceId &&
+                                            iflowId &&
+                                            router.push(
+                                                `/${workspaceId}/${iflowId}`,
+                                            )
+                                        }
+                                    >
                                         <ChevronLeft className="w-5 h-5" />
                                         <div className={styles.textPadding}>
                                             <div className={styles.text}>
@@ -420,7 +440,7 @@ const WorkflowEditorContent: React.FC = () => {
                                 <div className={styles.buttonGroup}>
                                     <div className={styles.buttonGroupBase}>
                                         <div className={styles.text2}>
-                                            Order Support
+                                            {displayIFlowName}
                                         </div>
                                     </div>
                                     <div className={styles.buttonGroupBase2}>
@@ -574,10 +594,10 @@ const WorkflowEditorContent: React.FC = () => {
                                                                 node.title ===
                                                                 "Basic Agent"
                                                                     ? (event) =>
-                                                                           onDragStart(
-                                                                               event,
-                                                                               "basicAgent",
-                                                                           )
+                                                                          onDragStart(
+                                                                              event,
+                                                                              "basicAgent",
+                                                                          )
                                                                     : undefined
                                                             }
                                                         />
@@ -726,7 +746,7 @@ const WorkflowEditorContent: React.FC = () => {
                                                         styles.actionButtonText
                                                     }
                                                 >
-                                                    Test
+                                                    Playground
                                                 </span>
                                             </div>
                                         </button>

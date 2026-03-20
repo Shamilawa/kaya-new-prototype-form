@@ -306,7 +306,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
             <aside className="w-[312px] shrink-0 h-full pl-5 flex flex-col justify-between bg-[#F9F9FB] font-inter">
                 <div className="flex-1 flex flex-col overflow-y-auto">
                     {/* Header */}
-                    <div className="pt-6 pb-4">
+                    <div className="pt-6 pb-[32px]">
                         <Link
                             href={`/${activeWorkspace}`}
                             className="flex items-center gap-1 py-2 text-sm font-semibold text-text-tertiary hover:text-text-primary transition-colors pr-4"
@@ -318,82 +318,14 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
                     {/* Agent Controls */}
                     <div className="pr-5 flex flex-col gap-4 mb-8">
-                        <div className="relative" ref={dropdownRef}>
-                            <div
-                                className="w-full shadow-[0_0_0_1px_#E9EAEB_inset,0_-2px_0_0_rgba(10,13,18,0.05)_inset,0_1px_2px_0_rgba(10,13,18,0.05)] rounded-lg bg-white overflow-hidden flex items-center justify-between py-2 px-3 gap-2 group cursor-pointer hover:border-border-primary transition-all"
-                                role="button"
-                                tabIndex={0}
-                                onClick={() =>
-                                    setIsWorkspaceDropdownOpen(
-                                        !isWorkspaceDropdownOpen,
-                                    )
-                                }
-                                onKeyDown={(e) => {
-                                    if (e.key === "Enter" || e.key === " ") {
-                                        setIsWorkspaceDropdownOpen(
-                                            !isWorkspaceDropdownOpen,
-                                        );
-                                    }
-                                }}
-                            >
-                                <span className="text-sm font-semibold text-text-tertiary font-encode overflow-hidden text-ellipsis whitespace-nowrap flex-1 min-w-0">
-                                    {displayWorkspaceName}
-                                </span>
-                                <img
-                                    src="/user-toggle.svg"
-                                    alt=""
-                                    className={`w-[8px] h-[13px] shrink-0 transition-transform ${
-                                        isWorkspaceDropdownOpen
-                                            ? "rotate-180"
-                                            : ""
-                                    }`}
-                                />
-                            </div>
-
-                            {isWorkspaceDropdownOpen && (
-                                <div className="absolute top-full left-0 w-full mt-1 bg-white border border-border-secondary rounded-lg shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] z-50 py-1">
-                                    {workspaces.map((ws) => (
-                                        <button
-                                            key={ws.id}
-                                            className="w-full text-left px-3 py-2 text-sm hover:bg-[#F9F9FB] transition-colors"
-                                            onClick={() => {
-                                                setIsWorkspaceDropdownOpen(
-                                                    false,
-                                                );
-                                                router.push(`/${ws.id}`);
-                                            }}
-                                        >
-                                            <span
-                                                className={
-                                                    activeWorkspace === ws.id
-                                                        ? "font-semibold text-brand-orange"
-                                                        : "text-text-tertiary"
-                                                }
-                                            >
-                                                {ws.name}
-                                            </span>
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
                         <div className="flex flex-col gap-2">
-                            <SidebarItem
-                                name={displayAgentName || ''}
-                                iconSrc="/sidebar-bot.svg"
-                                isActive={true}
-                                onClick={() => {
-                                    router.push(`/${activeWorkspace}/${activeIFlow}/${activeAgent}`);
-                                }}
-                            />
-                            <div
+                             <div
                                 className="w-full rounded-lg p-[2px] hover:opacity-90 transition-opacity active:scale-[0.98]"
                                 style={{
                                     background:
                                         "linear-gradient(90deg, rgba(0, 91, 181, 0.5) 35%, rgba(255, 87, 20, 0.5) 100%)",
                                     boxShadow:
-                                        "0 1px 10px 1px rgba(0, 0, 0, 0.20)",
+                                        "0 1px 10px 1px rgba(0, 0, 0, 0.10)",
                                 }}
                             >
                                 <button className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1">
@@ -406,6 +338,14 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                     </span>
                                 </button>
                             </div>
+                            <SidebarItem
+                                name={displayAgentName || ''}
+                                iconSrc="/sidebar-bot.svg"
+                                isActive={true}
+                                onClick={() => {
+                                    router.push(`/${activeWorkspace}/${activeIFlow}/${activeAgent}`);
+                                }}
+                            />
                         </div>
                     </div>
 
@@ -484,7 +424,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
             <aside className="w-[312px] shrink-0 h-full pl-5 flex flex-col justify-between bg-[#F9F9FB] font-inter">
                 <div className="flex-1 flex flex-col overflow-y-auto">
                     {/* Header */}
-                    <div className="pt-6 pb-4">
+                    <div className="pt-6 pb-[32px]">
                         <Link
                             href={`/${activeWorkspace}`}
                             className="flex items-center gap-1 py-2 text-sm font-semibold text-text-tertiary hover:text-text-primary transition-colors pr-4"
@@ -496,85 +436,20 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
                     {/* iFlow Controls */}
                     <div className="pr-5 flex flex-col gap-4 mb-8">
-                        <div className="relative" ref={dropdownRef}>
-                            <div
-                                className="w-full shadow-[0_0_0_1px_#E9EAEB_inset,0_-2px_0_0_rgba(10,13,18,0.05)_inset,0_1px_2px_0_rgba(10,13,18,0.05)] rounded-lg bg-white overflow-hidden flex items-center justify-between py-2 px-3 gap-2 group cursor-pointer hover:border-border-primary transition-all"
-                                role="button"
-                                tabIndex={0}
-                                onClick={() =>
-                                    setIsWorkspaceDropdownOpen(
-                                        !isWorkspaceDropdownOpen,
-                                    )
-                                }
-                                onKeyDown={(e) => {
-                                    if (e.key === "Enter" || e.key === " ") {
-                                        setIsWorkspaceDropdownOpen(
-                                            !isWorkspaceDropdownOpen,
-                                        );
-                                    }
-                                }}
-                            >
-                                <span className="text-sm font-semibold text-text-tertiary font-encode overflow-hidden text-ellipsis whitespace-nowrap flex-1 min-w-0">
-                                    {displayWorkspaceName}
-                                </span>
-                                <img
-                                    src="/user-toggle.svg"
-                                    alt=""
-                                    className={`w-[8px] h-[13px] shrink-0 transition-transform ${
-                                        isWorkspaceDropdownOpen
-                                            ? "rotate-180"
-                                            : ""
-                                    }`}
-                                />
-                            </div>
-
-                            {isWorkspaceDropdownOpen && (
-                                <div className="absolute top-full left-0 w-full mt-1 bg-white border border-border-secondary rounded-lg shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] z-50 py-1">
-                                    {workspaces.map((ws) => (
-                                        <button
-                                            key={ws.id}
-                                            className="w-full text-left px-3 py-2 text-sm hover:bg-[#F9F9FB] transition-colors"
-                                            onClick={() => {
-                                                setIsWorkspaceDropdownOpen(
-                                                    false,
-                                                );
-                                                router.push(`/${ws.id}`);
-                                            }}
-                                        >
-                                            <span
-                                                className={
-                                                    activeWorkspace === ws.id
-                                                        ? "font-semibold text-brand-orange"
-                                                        : "text-text-tertiary"
-                                                }
-                                            >
-                                                {ws.name}
-                                            </span>
-                                        </button>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
                         <div className="flex flex-col gap-2">
-                            <SidebarItem
-                                name={displayIFlowName || ""}
-                                iconSrc="/sidebar-workflow.svg"
-                                isActive={true}
-                                onClick={() => {
-                                    router.push(`/${activeWorkspace}/${activeIFlow}`);
-                                }}
-                            />
                             <div
                                 className="w-full rounded-lg p-[2px] hover:opacity-90 transition-opacity active:scale-[0.98]"
                                 style={{
                                     background:
                                         "linear-gradient(90deg, rgba(0, 91, 181, 0.5) 35%, rgba(255, 87, 20, 0.5) 100%)",
                                     boxShadow:
-                                        "0 1px 10px 1px rgba(0, 0, 0, 0.20)",
+                                        "0 1px 10px 1px rgba(0, 0, 0, 0.10)",
                                 }}
                             >
-                                <button className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1">
+                                <button 
+                                    className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1"
+                                    onClick={() => activeIFlow && activeWorkspace && router.push(`/editor/${activeWorkspace}/${activeIFlow}`)}
+                                >
                                     <SquarePen
                                         className="w-4 h-4 text-text-tertiary"
                                         strokeWidth={3}
@@ -584,6 +459,15 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                     </span>
                                 </button>
                             </div>
+                            <SidebarItem
+                                name={displayIFlowName || ""}
+                                iconSrc="/sidebar-workflow.svg"
+                                isActive={true}
+                                onClick={() => {
+                                    router.push(`/${activeWorkspace}/${activeIFlow}`);
+                                }}
+                            />
+                            
                         </div>
                     </div>
 

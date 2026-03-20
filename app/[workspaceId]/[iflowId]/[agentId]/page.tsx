@@ -104,7 +104,7 @@ export default function AgentDetailPage() {
                 {/* Agent Setup Section */}
                 <div className="w-full flex flex-col items-start gap-4">
                     <div className="w-full h-7 flex flex-col items-start justify-center">
-                        <h2 className="w-full text-lg font-semibold text-[#535862] font-encode leading-7 tracking-wider">Agent Setup</h2>
+                        <h2 className="w-full text-lg font-[600] text-[#181D27] font-encode leading-7 tracking-wider">Agent Setup</h2>
                     </div>
                     
                     <div className="w-full flex flex-col items-start py-3 gap-4">

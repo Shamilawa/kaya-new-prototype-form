@@ -96,8 +96,9 @@ const Header: React.FC<HeaderProps> = () => {
                             <span className="text-[#A4A7AE] text-md">/</span>
                             <div className="h-8 py-1.5 px-3 bg-white rounded-lg border border-[#D0D5DD] flex items-center gap-2 shadow-[0_1px_2px_rgba(16,24,40,0.05)] cursor-pointer group hover:bg-gray-50 transition-all">
                                 <Bot className="w-4 h-4 text-[#667085]" />
-                                <div className="text-sm font-semibold text-[#344054] font-inter leading-5">
-                                    {displayAgentName}
+                                <div className="text-sm font-semibold text-[#344054] font-encode leading-5 flex items-center gap-1">
+                                    <span className='text-[#535862] font-medium text-xs mb-[1px]'>Agent</span>
+                                    <span className='mt-[0.5px]'>| {displayAgentName}</span>
                                 </div>
                                 <ChevronDown className="w-4 h-4 text-[#667085] transition-transform group-hover:translate-y-0.5" />
                             </div>
