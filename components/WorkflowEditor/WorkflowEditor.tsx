@@ -37,6 +37,8 @@ import {
   Zap,
 } from "lucide-react";
 import AgentForm from "./AgentForm";
+import WorkflowTest from "./WorkflowTest";
+import PlaygroundSidebar from "./PlaygroundSidebar";
 import styles from "./WorkflowEditor.module.css";
 
 interface NodeCardProps {
@@ -166,7 +168,6 @@ const WorkspaceAgentCard: React.FC<{ title: string; description: string }> = ({
   </div>
 );
 
-import WorkflowTest from "./WorkflowTest";
 
 const WorkflowEditorContent: React.FC = () => {
   const params = useParams();
@@ -318,7 +319,13 @@ const WorkflowEditorContent: React.FC = () => {
     <div className={styles.bodyContentParent}>
       {/* Left Sidebar */}
       <div className={styles.bodyContent}>
-        {selectedNode ? (
+        {isTesting ? (
+          <PlaygroundSidebar
+            onBack={() => setIsTesting(false)}
+            onCancel={() => setIsTesting(false)}
+            onSave={() => setIsTesting(false)}
+          />
+        ) : selectedNode ? (
           <AgentForm onCancel={() => setSelectedNode(null)} onSave={() => setSelectedNode(null)} />
         ) : (
           <>
