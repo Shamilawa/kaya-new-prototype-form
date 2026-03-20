@@ -377,6 +377,14 @@
     justify-content: center;
 }
 
+.featuredIconBlue {
+    background-color: #eff8ff;
+}
+
+.featuredIconGreen {
+    background-color: #ecfdf3;
+}
+
 .dotsVerticalParent {
     display: flex;
     align-items: center;

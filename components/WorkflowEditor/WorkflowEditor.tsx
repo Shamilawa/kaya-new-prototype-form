@@ -40,7 +40,7 @@ import styles from "./WorkflowEditor.module.css";
 interface NodeCardProps {
   title: string;
   icon: React.ElementType;
-  className?: string;
+  variant?: "core" | "data";
 }
 
 const StartNode = () => {
@@ -77,23 +77,28 @@ const nodeTypes = {
   ghost: GhostNode,
 };
 
-const NodeCard: React.FC<NodeCardProps> = ({ title, icon: Icon, className }) => (
-  <div className={styles.agentNodeCard}>
-    <div className={styles.featuredIconParent}>
-      <div className={styles.featuredIcon}>
-        <Icon className="w-5 h-5 text-[#CC3E07]" />
+const NodeCard: React.FC<NodeCardProps> = ({ title, icon: Icon, variant }) => {
+  const iconBgClass = variant === "core" ? styles.featuredIconBlue : variant === "data" ? styles.featuredIconGreen : "";
+  const iconColorClass = variant === "core" ? "text-[#005BB5]" : variant === "data" ? "text-[#039855]" : "text-[#CC3E07]";
+
+  return (
+    <div className={styles.agentNodeCard}>
+      <div className={styles.featuredIconParent}>
+        <div className={`${styles.featuredIcon} ${iconBgClass}`}>
+          <Icon className={`w-5 h-5 ${iconColorClass}`} />
+        </div>
+        <div className={styles.dotsVerticalParent}>
+          <MoreVertical className={styles.dotsVerticalIcon} />
+        </div>
       </div>
-      <div className={styles.dotsVerticalParent}>
-        <MoreVertical className={styles.dotsVerticalIcon} />
+      <div className={styles.textAndEmailCapture}>
+        <div className={styles.headingAndSupportingText}>
+          <div className={styles.heading}>{title}</div>
+        </div>
       </div>
     </div>
-    <div className={styles.textAndEmailCapture}>
-      <div className={styles.headingAndSupportingText}>
-        <div className={styles.heading}>{title}</div>
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 const WorkflowEditor: React.FC = () => {
   const params = useParams();
@@ -227,7 +232,7 @@ const WorkflowEditor: React.FC = () => {
                 </div>
                 <div className={styles.agentNodeCardParent}>
                   {coreNodes.map((node) => (
-                    <NodeCard key={node.title} title={node.title} icon={node.icon} />
+                    <NodeCard key={node.title} title={node.title} icon={node.icon} variant="core" />
                   ))}
                 </div>
               </div>
@@ -241,7 +246,12 @@ const WorkflowEditor: React.FC = () => {
                 </div>
                 <div className={styles.agentNodeCardParent}>
                   {dataNodesList.map((node, index) => (
-                    <NodeCard key={`${node.title}-${index}`} title={node.title} icon={node.icon} />
+                    <NodeCard
+                      key={`${node.title}-${index}`}
+                      title={node.title}
+                      icon={node.icon}
+                      variant="data"
+                    />
                   ))}
                 </div>
               </div>
