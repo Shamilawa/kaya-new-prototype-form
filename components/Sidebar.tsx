@@ -390,7 +390,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name="Prompt Template"
                                 icon={ScrollText}
                                 isActive={activeTab === "Prompt Template"}
-                                onClick={() => setActiveTab("Prompt Template")}
+                                onClick={() => {
+                                    setActiveTab("Prompt Template");
+                                    router.push(`/${activeWorkspace}/agents/${activeAgent}/prompt-template`);
+                                }}
                             />
                             <SidebarItem
                                 name="Learning Records"

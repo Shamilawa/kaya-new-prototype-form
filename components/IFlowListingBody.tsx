@@ -2,17 +2,19 @@
 
 import React, { useState } from "react";
 import styles from "./IFlowListingBody.module.css";
-import { Plus } from "lucide-react";
+import { Plus, SlidersHorizontal, Search, LayoutGrid, Table2, Copy, Trash2, Pencil, ChevronsUpDown } from "lucide-react";
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
 import CreateIFlowDrawer from "./CreateIFlowDrawer";
 
 const mockIFlows = [
-    { id: "invoice-processing", name: "Invoice Processing", status: "Published", agents: 9, lastModified: "Mar 17, 2026, 15:44" },
-    { id: "claims-triage", name: "Claims Triage", status: "Draft", agents: 5, lastModified: "Mar 18, 2026, 10:20" },
-    { id: "customer-support", name: "Customer Support", status: "Published", agents: 12, lastModified: "Mar 19, 2026, 09:15" },
-    { id: "data-extraction", name: "Data Extraction", status: "Draft", agents: 3, lastModified: "Mar 19, 2026, 11:30" },
+    { id: "invoice-processing", name: "Invoice Processing", status: "Published", agents: 9, lastModified: "Mar 17, 2026, 15:44", tags: ["Finance", "Automation", "AP"] },
+    { id: "claims-triage", name: "Claims Triage", status: "Draft", agents: 5, lastModified: "Mar 18, 2026, 10:20", tags: ["Insurance", "Triage"] },
+    { id: "customer-support", name: "Customer Support", status: "Published", agents: 12, lastModified: "Mar 19, 2026, 09:15", tags: ["Support", "CX", "Chat"] },
+    { id: "data-extraction", name: "Data Extraction", status: "Draft", agents: 3, lastModified: "Mar 19, 2026, 11:30", tags: ["ETL", "Data"] },
 ];
+
+const ITEMS_PER_PAGE = 3;
 
 const IFlowListingBody = () => {
     const router = useRouter();
@@ -20,6 +22,19 @@ const IFlowListingBody = () => {
     const workspaceId = params.workspaceId as string;
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const filteredIFlows = mockIFlows.filter((iflow) =>
+        iflow.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const totalPages = Math.max(1, Math.ceil(filteredIFlows.length / ITEMS_PER_PAGE));
+    const paginatedIFlows = filteredIFlows.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
 
     const handleViewIFlow = (iflowId: string) => {
         router.push(`/${workspaceId}/${iflowId}`);
@@ -151,27 +166,11 @@ const IFlowListingBody = () => {
                                             >
                                                 This workflow handles {iflow.name.toLowerCase()} tasks.
                                             </div>
-                                            <div
-                                                className={
-                                                    styles.headingAndToggleInner
-                                                }
-                                            >
-                                                <div className={styles.parent}>
-                                                    <b className={styles.b}>
-                                                        {iflow.agents}
-                                                    </b>
-                                                    <div
-                                                        className={
-                                                            styles.agents
-                                                        }
-                                                    >
-                                                        Agents
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
-                                        <div className={styles.supportingText4}>
-                                            Last modified: {iflow.lastModified}
+                                        <div className={styles.cardMeta}>
+                                            <span className={styles.cardMetaValue}><b>{iflow.agents}</b> Agents</span>
+                                            <span className={styles.cardMetaDivider}>|</span>
+                                            <span className={styles.cardMetaDate}>Last modified: {iflow.lastModified}</span>
                                         </div>
                                     </div>
                                     <div className={styles.sectionFooter}>
@@ -181,14 +180,14 @@ const IFlowListingBody = () => {
                                         />
                                         <div className={styles.content7}>
                                             <div className={styles.actions4}>
-                                                <button 
+                                                <button
                                                     className={styles.button}
                                                     onClick={() => handleViewIFlow(iflow.id)}
                                                 >
                                                     <div
                                                         className={styles.text2}
                                                     >
-                                                        View iFlow
+                                                        View
                                                     </div>
                                                 </button>
                                             </div>
@@ -200,165 +199,158 @@ const IFlowListingBody = () => {
                     </div>
                 </div>
 
-                <div className={styles.pageHeaderParent}>
-                    <div className={styles.pageHeader2}>
-                        <div className={styles.content5}>
-                            <div className={styles.textAndSupportingText3}>
-                                <div className={styles.text6}>Favorites</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.experience2}>
-                        {mockIFlows.slice(0, 2).map((iflow) => (
-                            <div
-                                key={iflow.id}
-                                className={styles.integrationCardDesktop5}
-                            >
-                                <div className={styles.content6}>
-                                    <div className={styles.headingAndToggle}>
-                                        <div
-                                            className={
-                                                iflow.status === "Published"
-                                                    ? styles.badge
-                                                    : styles.badge2
-                                            }
-                                        >
-                                            <div className={styles.text7}>
-                                                {iflow.status}
-                                            </div>
-                                        </div>
-                                        <div className={styles.headingAndIcon}>
-                                            <div className={styles.iconWrap}>
-                                                <div
-                                                    className={styles.linear}
-                                                ></div>
-                                            </div>
-                                            <div className={styles.heading}>
-                                                {iflow.name}
-                                            </div>
-                                        </div>
-                                        <div className={styles.supportingText3}>
-                                            This workflow handles {iflow.name.toLowerCase()} tasks.
-                                        </div>
-                                        <div
-                                            className={
-                                                styles.headingAndToggleInner
-                                            }
-                                        >
-                                            <div className={styles.parent}>
-                                                <b className={styles.b}>{iflow.agents}</b>
-                                                <div className={styles.agents}>
-                                                    Agents
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className={styles.supportingText4}>
-                                        Last modified: {iflow.lastModified}
-                                    </div>
-                                </div>
-                                <div className={styles.sectionFooter}>
-                                    <img
-                                        className={styles.dividerIcon2}
-                                        alt=""
-                                    />
-                                    <div className={styles.content7}>
-                                        <div className={styles.actions4}>
-                                            <button 
-                                                className={styles.button}
-                                                onClick={() => handleViewIFlow(iflow.id)}
-                                            >
-                                                <div className={styles.text2}>
-                                                    View iFlow
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
 
                 <div className={styles.pageHeaderParent}>
-                    <div className={styles.pageHeader2}>
-                        <div className={styles.content5}>
-                            <div className={styles.textAndSupportingText3}>
-                                <div className={styles.text6}>All iFlows</div>
+                    <div className={styles.allIFlowsToolbar}>
+                        <div className={styles.text6}>All iFlows</div>
+                        <div className={styles.toolbarActions}>
+                            <button className={styles.toolbarButton}>
+                                <SlidersHorizontal className={styles.toolbarIcon} />
+                                Filters
+                            </button>
+                            <div className={styles.searchWrapper}>
+                                <Search className={styles.searchIcon} />
+                                <input
+                                    type="text"
+                                    className={styles.searchInput}
+                                    placeholder="Search iFlows..."
+                                    value={searchQuery}
+                                    onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
+                                />
+                            </div>
+                            <div className={styles.viewToggleGroup}>
+                                <button
+                                    className={viewMode === "grid" ? styles.viewToggleActive : styles.viewToggle}
+                                    onClick={() => { setViewMode("grid"); setCurrentPage(1); }}
+                                    title="Grid view"
+                                >
+                                    <LayoutGrid size={16} />
+                                </button>
+                                <button
+                                    className={viewMode === "list" ? styles.viewToggleActive : styles.viewToggle}
+                                    onClick={() => { setViewMode("list"); setCurrentPage(1); }}
+                                    title="List view"
+                                >
+                                    <Table2 size={16} />
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div className={styles.experience2}>
-                        {mockIFlows.map((iflow) => (
-                            <div
-                                key={iflow.id}
-                                className={styles.integrationCardDesktop5}
-                            >
-                                <div className={styles.content6}>
-                                    <div className={styles.headingAndToggle}>
-                                        <div
-                                            className={
-                                                iflow.status === "Published"
-                                                    ? styles.badge
-                                                    : styles.badge2
-                                            }
-                                        >
-                                            <div className={styles.text7}>
-                                                {iflow.status}
+                    {viewMode === "grid" ? (
+                        <div className={styles.allIFlowsGrid}>
+                            {filteredIFlows.length === 0 && (
+                                <div className={styles.emptyState}>No iFlows match your search.</div>
+                            )}
+                            {filteredIFlows.map((iflow) => (
+                                <div key={iflow.id} className={styles.integrationCardDesktop}>
+                                    <div className={styles.content6}>
+                                        <div className={styles.headingAndToggle}>
+                                            <div className={iflow.status === "Published" ? styles.badge : styles.badge2}>
+                                                <div className={styles.text7}>{iflow.status}</div>
+                                            </div>
+                                            <div className={styles.headingAndIcon}>
+                                                <div className={styles.iconWrap}>
+                                                    <div className={styles.linear}></div>
+                                                </div>
+                                                <div className={styles.heading}>{iflow.name}</div>
+                                            </div>
+                                            <div className={styles.supportingText3}>
+                                                This workflow handles {iflow.name.toLowerCase()} tasks.
                                             </div>
                                         </div>
-                                        <div className={styles.headingAndIcon}>
-                                            <div className={styles.iconWrap}>
-                                                <div
-                                                    className={styles.linear}
-                                                ></div>
-                                            </div>
-                                            <div className={styles.heading}>
-                                                {iflow.name}
+                                        <div className={styles.cardMeta}>
+                                            <span className={styles.cardMetaValue}><b>{iflow.agents}</b> Agents</span>
+                                            <span className={styles.cardMetaDivider}>|</span>
+                                            <span className={styles.cardMetaDate}>Last modified: {iflow.lastModified}</span>
+                                        </div>
+                                    </div>
+                                    <div className={styles.sectionFooter}>
+                                        <img className={styles.dividerIcon2} alt="" />
+                                        <div className={styles.content7}>
+                                            <div className={styles.actions4}>
+                                                <button className={styles.button} onClick={() => handleViewIFlow(iflow.id)}>
+                                                    <div className={styles.text2}>View</div>
+                                                </button>
                                             </div>
                                         </div>
-                                        <div className={styles.supportingText3}>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className={styles.listTable}>
+                            {/* Header */}
+                            <div className={styles.listTableHeader}>
+                                <div className={styles.listHeaderNameCol}>iFlow Name &amp; Description</div>
+                                <div className={styles.listHeaderTagsCol}>
+                                    Tags
+                                    <ChevronsUpDown size={14} className={styles.listSortIcon} />
+                                </div>
+                                <div className={styles.listHeaderActionsCol}></div>
+                            </div>
+
+                            {/* Rows */}
+                            {filteredIFlows.length === 0 ? (
+                                <div className={styles.emptyState}>No iFlows match your search.</div>
+                            ) : paginatedIFlows.map((iflow) => (
+                                <div key={iflow.id} className={styles.listTableRow}>
+                                    <div className={styles.listRowNameCol}>
+                                        <div className={styles.listRowName} onClick={() => handleViewIFlow(iflow.id)}>
+                                            {iflow.name}
+                                        </div>
+                                        <div className={styles.listRowDesc}>
                                             This workflow handles {iflow.name.toLowerCase()} tasks.
                                         </div>
-                                        <div
-                                            className={
-                                                styles.headingAndToggleInner
-                                            }
-                                        >
-                                            <div className={styles.parent}>
-                                                <b className={styles.b}>{iflow.agents}</b>
-                                                <div className={styles.agents}>
-                                                    Agents
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div className={styles.supportingText4}>
-                                        Last modified: {iflow.lastModified}
+                                    <div className={styles.listRowTagsCol}>
+                                        {iflow.tags.slice(0, 3).map((tag) => (
+                                            <span key={tag} className={styles.listTag}>{tag}</span>
+                                        ))}
+                                        {iflow.tags.length > 3 && (
+                                            <span className={styles.listTagMore}>+{iflow.tags.length - 3}</span>
+                                        )}
+                                    </div>
+                                    <div className={styles.listRowActionsCol}>
+                                        <button className={styles.listActionBtn} title="Duplicate">
+                                            <Copy size={15} />
+                                        </button>
+                                        <button className={styles.listActionBtn} title="Delete">
+                                            <Trash2 size={15} />
+                                        </button>
+                                        <button className={styles.listActionBtn} title="Edit" onClick={() => handleViewIFlow(iflow.id)}>
+                                            <Pencil size={15} />
+                                        </button>
                                     </div>
                                 </div>
-                                <div className={styles.sectionFooter}>
-                                    <img
-                                        className={styles.dividerIcon2}
-                                        alt=""
-                                    />
-                                    <div className={styles.content7}>
-                                        <div className={styles.actions4}>
-                                            <button 
-                                                className={styles.button}
-                                                onClick={() => handleViewIFlow(iflow.id)}
-                                            >
-                                                <div className={styles.text2}>
-                                                    View iFlow
-                                                </div>
-                                            </button>
-                                        </div>
-                                    </div>
+                            ))}
+
+                            {/* Pagination */}
+                            <div className={styles.listPagination}>
+                                <span className={styles.listPaginationInfo}>
+                                    Page {currentPage} of {totalPages}
+                                </span>
+                                <div className={styles.listPaginationButtons}>
+                                    <button
+                                        className={styles.paginationBtn}
+                                        disabled={currentPage === 1}
+                                        onClick={() => setCurrentPage((p) => p - 1)}
+                                    >
+                                        Previous
+                                    </button>
+                                    <button
+                                        className={styles.paginationBtn}
+                                        disabled={currentPage === totalPages}
+                                        onClick={() => setCurrentPage((p) => p + 1)}
+                                    >
+                                        Next
+                                    </button>
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    )}
                 </div>
+
+
             </div>
             <CreateIFlowDrawer
                 isOpen={isDrawerOpen}
