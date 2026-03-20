@@ -21,13 +21,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-      <html>
-        <body>
-        <KayaLayout>
-            {children}
-        </KayaLayout>
-        </body>
-      </html>
-  
+        <html lang="en">
+            <body className={`${encodeSans.variable} font-sans`}>
+                <KayaLayout>
+                    {children}
+                </KayaLayout>
+            </body>
+        </html>
     );
 }

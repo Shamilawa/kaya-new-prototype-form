@@ -446,7 +446,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                         "0 1px 10px 1px rgba(0, 0, 0, 0.10)",
                                 }}
                             >
-                                <button className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1">
+                                <button 
+                                    className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1"
+                                    onClick={() => activeIFlow && activeWorkspace && router.push(`/editor/${activeWorkspace}/${activeIFlow}`)}
+                                >
                                     <SquarePen
                                         className="w-4 h-4 text-text-tertiary"
                                         strokeWidth={3}

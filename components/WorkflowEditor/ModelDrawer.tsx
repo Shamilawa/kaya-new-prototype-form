@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { X, ArrowUpRight, Search, Check } from "lucide-react";
 import styles from "./ModelDrawer.module.css";
 import EditorDrawer from "./EditorDrawer";
@@ -6,9 +6,19 @@ import EditorDrawer from "./EditorDrawer";
 interface ModelDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  onAdd?: (modelName: string) => void;
 }
 
-const ModelDrawer: React.FC<ModelDrawerProps> = ({ isOpen, onClose }) => {
+const ModelDrawer: React.FC<ModelDrawerProps> = ({ isOpen, onClose, onAdd }) => {
+  const [selectedModel, setSelectedModel] = useState<string>("GPT-4");
+
+  const handleAdd = () => {
+    if (onAdd) {
+      onAdd(selectedModel);
+    }
+    onClose();
+  };
+
   return (
     <EditorDrawer isOpen={isOpen} onClose={onClose}>
       <div className={styles.slideOutMenuHeader}>
@@ -65,11 +75,14 @@ const ModelDrawer: React.FC<ModelDrawerProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          <div className={styles.radioGroupItem}>
+          <div 
+            className={`${styles.radioGroupItem} ${selectedModel === "GPT-4" ? styles.selected : ""}`}
+            onClick={() => setSelectedModel("GPT-4")}
+          >
             <div className={styles.content4}>
               <div className={styles.input2}>
-                <div className={styles.checkboxBase}>
-                  <div className={styles.check}></div>
+                <div className={`${styles.checkboxBase} ${selectedModel === "GPT-4" ? styles.checked : ""}`}>
+                  {selectedModel === "GPT-4" && <div className={styles.check}></div>}
                 </div>
               </div>
               <div className={styles.textAndSupportingText4}>
@@ -119,15 +132,20 @@ const ModelDrawer: React.FC<ModelDrawerProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          <div className={styles.radioGroupItem2}>
+          <div 
+            className={`${styles.radioGroupItem2} ${selectedModel === "GPT-5" ? styles.selected : ""}`}
+            onClick={() => setSelectedModel("GPT-5")}
+          >
             <div className={styles.content4}>
               <div className={styles.input2}>
-                <div className={styles.checkboxBase2}></div>
+                <div className={`${styles.checkboxBase2} ${selectedModel === "GPT-5" ? styles.checked : ""}`}>
+                  {selectedModel === "GPT-5" && <div className={styles.check}></div>}
+                </div>
               </div>
               <div className={styles.textAndSupportingText4}>
                 <div className={styles.textAndSubtextParent}>
                   <div className={styles.textAndSubtext}>
-                    <div className={styles.text9}>GPT-4</div>
+                    <div className={styles.text9}>GPT-5</div>
                     <div className={styles.subtext}>OpenAI</div>
                   </div>
                   <div className={styles.supportingTextWrapper}>
@@ -181,9 +199,9 @@ const ModelDrawer: React.FC<ModelDrawerProps> = ({ isOpen, onClose }) => {
                 <div className={styles.text2}>Cancel</div>
               </div>
             </button>
-            <button className={styles.buttonsbutton5} onClick={onClose}>
+            <button className={styles.buttonsbutton5} onClick={handleAdd}>
               <div className={styles.textPadding}>
-                <div className={styles.text2}>Create Template</div>
+                <div className={styles.text2}>Add Model</div>
               </div>
             </button>
           </div>

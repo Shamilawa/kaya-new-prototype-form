@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { X, ArrowUpRight, Sparkles } from "lucide-react";
 import styles from "./EditorDrawer.module.css";
 import EditorDrawer from "./EditorDrawer";
@@ -6,9 +6,21 @@ import EditorDrawer from "./EditorDrawer";
 interface PromptTemplateDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  onCreate?: (name: string) => void;
 }
 
-const PromptTemplateDrawer: React.FC<PromptTemplateDrawerProps> = ({ isOpen, onClose }) => {
+const PromptTemplateDrawer: React.FC<PromptTemplateDrawerProps> = ({ isOpen, onClose, onCreate }) => {
+  const [promptName, setPromptName] = useState("");
+  const [description, setDescription] = useState("");
+  const [promptInstructions, setPromptInstructions] = useState("");
+
+  const handleCreate = () => {
+    if (onCreate && promptName.trim()) {
+      onCreate(promptName);
+    }
+    onClose();
+  };
+
   return (
     <EditorDrawer isOpen={isOpen} onClose={onClose}>
       <div className={styles.slideOutMenuHeader}>
@@ -39,11 +51,12 @@ const PromptTemplateDrawer: React.FC<PromptTemplateDrawerProps> = ({ isOpen, onC
               <div className={styles.labelWrapper}>
                 <div className={styles.label}>Prompt Name</div>
               </div>
-              <div className={styles.input}>
-                <div className={styles.content3}>
-                  <div className={styles.text5}>e.g. Onboarding Prompt</div>
-                </div>
-              </div>
+              <input 
+                className={styles.input}
+                value={promptName}
+                onChange={(e) => setPromptName(e.target.value)}
+                placeholder="e.g. Onboarding Prompt"
+              />
             </div>
           </div>
 
@@ -53,9 +66,12 @@ const PromptTemplateDrawer: React.FC<PromptTemplateDrawerProps> = ({ isOpen, onC
                 <div className={styles.label}>Description</div>
                 <div className={styles.asterisk}>*</div>
               </div>
-              <div className={styles.input2}>
-                <div className={styles.text6}>e.g. Summarize customer feedback</div>
-              </div>
+              <textarea 
+                className={styles.input2}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="e.g. Summarize customer feedback"
+              />
             </div>
             <div className={styles.hintText}>
               Explain the template's purpose and ideal use cases.
@@ -72,9 +88,12 @@ const PromptTemplateDrawer: React.FC<PromptTemplateDrawerProps> = ({ isOpen, onC
                   </span>
                 </div>
               </div>
-              <div className={styles.input2}>
-                <div className={styles.text6}>e.g. Summarize customer feedback</div>
-              </div>
+              <textarea 
+                className={styles.input2}
+                value={promptInstructions}
+                onChange={(e) => setPromptInstructions(e.target.value)}
+                placeholder="e.g. Summarize customer feedback"
+              />
             </div>
             <div className={styles.hintText}>Define the agent's role, tone, and key rules.</div>
           </div>
@@ -109,7 +128,7 @@ const PromptTemplateDrawer: React.FC<PromptTemplateDrawerProps> = ({ isOpen, onC
                 <div className={styles.text2}>Cancel</div>
               </div>
             </button>
-            <button className={styles.buttonsbutton6} onClick={onClose}>
+            <button className={styles.buttonsbutton6} onClick={handleCreate}>
               <div className={styles.textPadding}>
                 <div className={styles.text2}>Create Template</div>
               </div>

@@ -1,0 +1,609 @@
+.bodyContent {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 14px;
+  color: #535862;
+  font-family: 'Encode Sans'; /* Ensure this is imported globally */
+}
+
+.bodyContentInner {
+  width: 400px;
+  border-radius: 12px 12px 0px 0px;
+  background-color: #fff;
+  border: 1px solid #d9d9e0;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 20px 16px;
+}
+
+.headerParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.header {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.buttonsButton {
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px 10px 0px;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.buttonsButton:hover {
+  background-color: #f9fafb;
+}
+
+.chevronLeftIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.textPadding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 2px;
+}
+
+.text {
+  position: relative;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.buttonGroup {
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  isolation: isolate;
+  font-size: 20px;
+  color: #181d27;
+}
+
+.buttonGroupBase {
+  background-color: #fafafa;
+  border-right: 1px solid #e9eaeb;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-height: 40px;
+  z-index: 1;
+}
+
+.text2 {
+  position: relative;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.buttonGroupBase2 {
+  align-self: stretch;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px 8px 14px;
+  box-sizing: border-box;
+  min-height: 40px;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.badgeParent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: #414651;
+}
+
+.badge {
+  border-radius: 9999px;
+  background-color: #fafafa;
+  border: 1px solid #e9eaeb;
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+}
+
+.text3 {
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.frameChild {
+  height: 4px;
+  width: 4px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #a4a7ae;
+}
+
+.saved2minsAgo {
+  position: relative;
+  line-height: 18px;
+  font-weight: 500;
+  color: #535862;
+}
+
+.bodyContentChild {
+  width: 400px;
+  flex: 1;
+  background-color: #fff;
+  border-right: 1px solid #d9d9e0;
+  border-left: 1px solid #d9d9e0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 20px;
+  font-size: 16px;
+  color: #1e1e1e;
+  font-family: Inter;
+}
+
+.frameParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.subheadingWrapperParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: #535862;
+  font-family: 'Encode Sans';
+}
+
+.subheadingWrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 20px 4px 0px;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.testInPlayground {
+  align-self: stretch;
+  position: relative;
+  line-height: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.textareaInputFieldParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.textareaInputField {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  isolation: isolate;
+  gap: 6px;
+}
+
+.inputWithLabel {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  z-index: 1;
+}
+
+.variablesParent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.variables {
+  position: relative;
+  line-height: 140%;
+  font-weight: 600;
+}
+
+.helpCircleIcon {
+  width: 16px;
+  height: 16px;
+  color: #a4a7ae;
+}
+
+.cards {
+  align-self: stretch;
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 8px;
+  font-size: 14px;
+  color: #111827;
+  font-family: 'Encode Sans';
+}
+
+.navMenuItemCard {
+  flex: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 12px;
+  gap: 12px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.textAndSupportingText {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.text4 {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text5 {
+  align-self: stretch;
+  position: relative;
+  line-height: 20px;
+  font-weight: 500;
+  color: #414651;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.buttonsButtonUtility3 {
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.buttonsButtonUtility3:hover {
+  background-color: #f9fafb;
+}
+
+.buttonsButton4 {
+  align-self: stretch;
+  box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  gap: 4px;
+  cursor: pointer;
+  color: #414651;
+}
+
+.buttonsButton4:hover {
+  background-color: #f9fafb;
+}
+
+.text6 {
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.accordionTitle {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
+.workflowAgents {
+  flex: 1;
+  position: relative;
+  line-height: 140%;
+  font-weight: 600;
+}
+
+.sectionParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 12px;
+  color: #535862;
+  font-family: 'Encode Sans';
+}
+
+.section {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card {
+  align-self: stretch;
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #e9eaeb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.content3 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 16px;
+}
+
+.frameGroup {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.featuredIconParent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #181d27;
+  font-family: Inter;
+}
+
+.featuredIcon {
+  height: 38px;
+  width: 38px;
+  border-radius: 9999px;
+  background-color: #f2f4f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #005bb5;
+}
+
+.sectionHeader {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  isolation: isolate;
+}
+
+.content4 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 0;
+}
+
+.text7 {
+  align-self: stretch;
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.promptTemplateCxContainer {
+  position: relative;
+  line-height: 18px;
+}
+
+.promptTemplate {
+  font-weight: 500;
+}
+
+.cxPrompt {
+  font-weight: 600;
+  color: #181d27;
+}
+
+.sectionFooter {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 0px 12px;
+  gap: 12px;
+  font-size: 14px;
+  color: #414651;
+  font-family: Inter;
+}
+
+.dividerIcon {
+  align-self: stretch;
+  height: 1px;
+  background-color: #e9eaeb;
+}
+
+.content5 {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px;
+  gap: 16px;
+}
+
+.actions2 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.buttonsButton7 {
+  box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.buttonsButton7:hover {
+  background-color: #f9fafb;
+}
+
+.buttonsButton8 {
+  box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.buttonsButton8:hover {
+  background-color: #f9fafb;
+}
+
+.footer {
+  width: 400px;
+  border-radius: 0px 0px 12px 12px;
+  background-color: #fff;
+  border: 1px solid #d9d9e0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #414651;
+}
+
+.content18 {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.actions6 {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.buttonsButton25 {
+  box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.buttonsButton25:hover {
+  background-color: #f9fafb;
+}
+
+.buttonsButton26 {
+  box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background: #005bb5 padding-box, linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0)) border-box;
+  border: 2px solid transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttonsButton26:hover {
+  background-color: #004a94;
+}

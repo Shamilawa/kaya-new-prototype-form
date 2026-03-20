@@ -14,7 +14,6 @@
   text-align: left;
   font-size: 18px;
   color: #535862;
-  font-family: 'Encode Sans';
 }
 .headerSectionParent {
   align-self: stretch;
@@ -31,7 +30,6 @@
   align-items: flex-start;
   font-size: 24px;
   color: #181d27;
-  font-family: Inter;
 }
 .container {
   align-self: stretch;
@@ -69,7 +67,6 @@
   position: relative;
   line-height: 32px;
   font-weight: 600;
-  font-family: 'Encode Sans';
 }
 .supportingText {
   align-self: stretch;
@@ -164,7 +161,6 @@
   gap: 16px;
   font-size: 14px;
   color: #181d27;
-  font-family: Inter;
 }
 
 .pageHeaderParent {
@@ -224,7 +220,6 @@
   padding: 20px;
   text-align: center;
   font-size: 12px;
-  font-family: Inter;
   border: 1px solid #e9eaeb;
 }
 .lineAndBarChartParent {
@@ -393,7 +388,6 @@
   align-items: flex-start;
   font-size: 14px;
   color: #717680;
-  font-family: Inter;
 }
 .table {
   align-self: stretch;

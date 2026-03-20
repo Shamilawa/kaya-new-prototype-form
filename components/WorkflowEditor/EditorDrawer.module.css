@@ -271,23 +271,16 @@
     align-items: center;
     padding: 10px 14px;
     font-size: 16px;
+    color: #181d27;
+    outline: none;
+    font-family: inherit;
+    width: 100%;
+}
+
+.input::placeholder {
     color: #717680;
 }
 
-.content3 {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.text5 {
-    flex: 1;
-    position: relative;
-    line-height: 24px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
 
 .textareaInputField {
     align-self: stretch;
@@ -336,17 +329,17 @@
     isolation: isolate;
     gap: 8px;
     font-size: 16px;
+    color: #181d27;
+    outline: none;
+    font-family: inherit;
+    width: 100%;
+    resize: vertical;
+}
+
+.input2::placeholder {
     color: #717680;
 }
 
-.text6 {
-    align-self: stretch;
-    flex: 1;
-    position: relative;
-    line-height: 24px;
-    z-index: 0;
-    flex-shrink: 0;
-}
 
 .resizeHandleIcon {
     height: 12px;

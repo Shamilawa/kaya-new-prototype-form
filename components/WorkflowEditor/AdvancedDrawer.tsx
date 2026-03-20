@@ -6,6 +6,7 @@ import EditorDrawer from "./EditorDrawer";
 interface AdvancedDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  onAdd?: (items: any[]) => void;
 }
 
 const TABS = ["APIs", "MCP Servers", "Vector RAGs", "Graph RAGs", "Connectors", "Functions"];
@@ -85,14 +86,30 @@ const DUMMY_DATA: Record<string, any[]> = {
   ],
 };
 
-const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose }) => {
+const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose, onAdd }) => {
   const [activeTab, setActiveTab] = useState("APIs");
-  const [selectedItems, setSelectedItems] = useState<string[]>(["crm-api"]);
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   const toggleItem = (id: string) => {
     setSelectedItems((prev) =>
       prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
     );
+  };
+
+  const handleAdd = () => {
+    if (onAdd) {
+      // Find all selected item objects across all tabs
+      const selectedItemObjects: any[] = [];
+      Object.values(DUMMY_DATA).forEach((items) => {
+        items.forEach((item) => {
+          if (selectedItems.includes(item.id)) {
+            selectedItemObjects.push(item);
+          }
+        });
+      });
+      onAdd(selectedItemObjects);
+    }
+    onClose();
   };
 
   const currentData = DUMMY_DATA[activeTab] || [];
@@ -224,7 +241,7 @@ const AdvancedDrawer: React.FC<AdvancedDrawerProps> = ({ isOpen, onClose }) => {
                 <div className={styles.text6}>Cancel</div>
               </div>
             </button>
-            <button className={styles.buttonsbutton5} onClick={onClose}>
+            <button className={styles.buttonsbutton5} onClick={handleAdd}>
               <div className={styles.textPadding}>
                 <div className={styles.text6}>Add Selected ({selectedItems.length})</div>
               </div>

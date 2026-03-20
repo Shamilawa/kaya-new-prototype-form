@@ -269,23 +269,16 @@
     align-items: center;
     padding: 10px 14px;
     font-size: 16px;
+    color: #181d27;
+    outline: none;
+    font-family: inherit;
+    width: 100%;
+}
+
+.input::placeholder {
     color: #717680;
 }
 
-.content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.text5 {
-    flex: 1;
-    position: relative;
-    line-height: 24px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
 
 .textareaInputField {
     align-self: stretch;
@@ -325,17 +318,18 @@
     isolation: isolate;
     gap: 8px;
     font-size: 16px;
-    color: #717680;
+    color: #181d27;
     min-height: 100px;
+    outline: none;
+    font-family: inherit;
+    width: 100%;
+    resize: vertical;
 }
 
-.text6 {
-    align-self: stretch;
-    flex: 1;
-    position: relative;
-    line-height: 24px;
-    z-index: 0;
+.input2::placeholder {
+    color: #717680;
 }
+
 
 .resizeHandleIcon {
     height: 12px;
@@ -493,13 +487,14 @@
     background-color: #fafafa;
     border: 1px solid #d9d9d9;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 16px;
     cursor: pointer;
 }
 
 .accordionTitle {
-    flex: 1;
+    align-self: stretch;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -574,4 +569,162 @@
     padding: 10px 14px;
     color: #fff;
     cursor: pointer;
+}
+
+.selectedTemplateCard {
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid #d5d7da;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    gap: 12px;
+}
+
+.templateName {
+    font-size: 18px;
+    font-weight: 600;
+    color: #181d27;
+}
+
+.templateActions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.actionIcon {
+    color: #717680;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.actionIcon:hover {
+    color: #181d27;
+}
+
+.advancedSection {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.advancedCategory {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.categoryTitleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.categoryTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #414651;
+}
+
+.dashCard {
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px dashed #d5d7da;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dashCard:hover {
+    background: #f9fafb;
+}
+
+.dashCardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dashCardTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #414651;
+}
+
+.dashCardSub {
+    font-size: 14px;
+    color: #717680;
+}
+
+.toggleRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.toggleText {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.toggleLabel {
+    font-size: 14px;
+    font-weight: 500;
+    color: #414651;
+}
+
+.toggleDescription {
+    font-size: 14px;
+    color: #717680;
+}
+
+.toggleSwitch {
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+    background: #f2f4f7;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.toggleSwitch.active {
+    background: #005bb5;
+}
+
+.toggleThumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.2s;
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+}
+
+.toggleSwitch.active .toggleThumb {
+    left: 18px;
+}
+
+.addedToolsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
