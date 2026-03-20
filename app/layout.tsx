@@ -21,8 +21,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <KayaLayout>
-            {children}
-        </KayaLayout>
+        <html lang="en">
+            <body className={`${encodeSans.variable} font-sans`}>
+                <KayaLayout>
+                    {children}
+                </KayaLayout>
+            </body>
+        </html>
     );
 }

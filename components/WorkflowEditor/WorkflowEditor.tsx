@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useParams } from "next/navigation";
 import {
     ReactFlow,
@@ -39,6 +39,7 @@ import {
 import AgentForm from "./AgentForm";
 import WorkflowTest from "./WorkflowTest";
 import PlaygroundSidebar from "./PlaygroundSidebar";
+import TutorialModal from "./TutorialModal";
 import styles from "./WorkflowEditor.module.css";
 
 interface NodeCardProps {
@@ -218,6 +219,11 @@ const WorkflowEditorContent: React.FC = () => {
     const [activeTab, setActiveTab] = useState<"all" | "workspace">("all");
     const [selectedNode, setSelectedNode] = useState<any>(null);
     const [isTesting, setIsTesting] = useState(false);
+    const [isTutorialOpen, setIsTutorialOpen] = useState(false);
+
+    useEffect(() => {
+        setIsTutorialOpen(true);
+    }, []);
     const workspaceId = params.workspaceId as string;
     const iflowId = params.iflowId as string;
 
@@ -738,6 +744,10 @@ const WorkflowEditorContent: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <TutorialModal
+                isOpen={isTutorialOpen}
+                onClose={() => setIsTutorialOpen(false)}
+            />
         </div>
     );
 };
