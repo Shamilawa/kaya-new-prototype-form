@@ -61,8 +61,20 @@ const StartNode = () => {
   );
 };
 
+const GhostNode = () => {
+  return (
+    <div className={styles.ghostNodeContainer}>
+      <div className={styles.ghostNodeTitle}>Drag and Drop to get started</div>
+      <div className={styles.ghostNodeSubtitle}>Start building your workflow</div>
+      <div className={styles.ghostNodeButtonText}>Or choose a template to get started</div>
+      <Handle type="target" position={Position.Left} style={{ visibility: "hidden" }} />
+    </div>
+  );
+};
+
 const nodeTypes = {
   start: StartNode,
+  ghost: GhostNode,
 };
 
 const NodeCard: React.FC<NodeCardProps> = ({ title, icon: Icon, className }) => (
@@ -110,12 +122,27 @@ const WorkflowEditor: React.FC = () => {
     {
       id: "start",
       type: "start",
-      position: { x: 100, y: 100 },
+      position: { x: 50, y: 300 },
       data: { label: "Start" },
+    },
+    {
+      id: "ghost",
+      type: "ghost",
+      position: { x: 450, y: 195 },
+      data: { label: "Ghost" },
+      draggable: false,
     },
   ];
 
-  const initialEdges: Edge[] = [];
+  const initialEdges: Edge[] = [
+    {
+      id: "e1-2",
+      source: "start",
+      target: "ghost",
+      animated: false,
+      style: { strokeDasharray: "5 5", stroke: "#d5d7da", strokeWidth: 2 },
+    },
+  ];
 
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);

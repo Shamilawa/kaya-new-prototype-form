@@ -732,3 +732,42 @@
   font-weight: 500;
   color: #414651;
 }
+
+/* Ghost Node Styles */
+.ghostNodeContainer {
+  height: 235px;
+  width: 540px;
+  border-radius: 12px;
+  border: 4px dashed #d5d7da;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  gap: 20px;
+  text-align: center;
+  background-color: transparent;
+  pointer-events: none; /* Make it feel like a ghost */
+}
+
+.ghostNodeTitle {
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 600;
+  color: #717680;
+  font-family: var(--font-encode-sans), "Encode Sans", sans-serif;
+}
+
+.ghostNodeSubtitle {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #717680;
+}
+
+.ghostNodeButtonText {
+  font-size: 14px;
+  font-weight: 600;
+  color: #535862;
+}
