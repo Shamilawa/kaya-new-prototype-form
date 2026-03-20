@@ -581,3 +581,338 @@
     align-items: flex-start;
     margin-bottom: 20px;
 }
+
+/* ── All iFlows toolbar ── */
+.allIFlowsToolbar {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.toolbarActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toolbarButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background-color: #fff;
+    border: 1px solid #d5d7da;
+    border-radius: 8px;
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+    font-size: 14px;
+    font-weight: 500;
+    color: #414651;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.toolbarButton:hover {
+    background-color: #f9fafb;
+}
+
+.toolbarIcon {
+    width: 16px;
+    height: 16px;
+    color: #717680;
+}
+
+.searchWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    color: #717680;
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 220px;
+    padding: 8px 12px 8px 34px;
+    border: 1px solid #d5d7da;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #181d27;
+    background-color: #fff;
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: #9da4ae;
+}
+
+.searchInput:focus {
+    border-color: #84addd;
+    box-shadow: 0 0 0 3px rgba(0, 91, 181, 0.12);
+}
+
+.viewToggleGroup {
+    display: flex;
+    border: 1px solid #d5d7da;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.viewToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    background-color: #fff;
+    border: none;
+    color: #717680;
+    cursor: pointer;
+}
+
+.viewToggle:hover {
+    background-color: #f3f4f6;
+}
+
+.viewToggleActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    background-color: #eff6ff;
+    border: none;
+    color: #005bb5;
+    cursor: pointer;
+}
+
+/* ── All iFlows grid / list containers ── */
+.allIFlowsGrid {
+    align-self: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 14px;
+    color: #414651;
+}
+
+/* ── List table view ── */
+.listTable {
+    align-self: stretch;
+    border: 1px solid #e9eaeb;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    font-size: 14px;
+    color: #414651;
+}
+
+.listTableHeader {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e9eaeb;
+    gap: 16px;
+}
+
+.listHeaderNameCol {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 500;
+    color: #717680;
+}
+
+.listHeaderTagsCol {
+    width: 240px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #717680;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.listSortIcon {
+    color: #9da4ae;
+}
+
+.listHeaderActionsCol {
+    width: 84px;
+    flex-shrink: 0;
+}
+
+.listTableRow {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    gap: 16px;
+    border-bottom: 1px solid #f2f4f7;
+}
+
+.listTableRow:last-of-type {
+    border-bottom: none;
+}
+
+.listRowNameCol {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.listRowName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #181d27;
+    cursor: pointer;
+}
+
+.listRowName:hover {
+    color: #005bb5;
+}
+
+.listRowDesc {
+    font-size: 13px;
+    color: #717680;
+}
+
+.listRowTagsCol {
+    width: 240px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.listTag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border: 1px solid #b2cceb;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #005bb5;
+    background-color: #eff6ff;
+}
+
+.listTagMore {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border: 1px solid #d5d7da;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #717680;
+    background-color: #f9fafb;
+}
+
+.listRowActionsCol {
+    width: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.listActionBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    color: #9da4ae;
+    cursor: pointer;
+}
+
+.listActionBtn:hover {
+    background-color: #f3f4f6;
+    color: #414651;
+}
+
+.listPagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-top: 1px solid #e9eaeb;
+    background-color: #fff;
+}
+
+.listPaginationInfo {
+    font-size: 14px;
+    color: #535862;
+}
+
+.listPaginationButtons {
+    display: flex;
+    gap: 8px;
+}
+
+.paginationBtn {
+    padding: 6px 14px;
+    border: 1px solid #d5d7da;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    color: #414651;
+    cursor: pointer;
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+}
+
+.paginationBtn:hover:not(:disabled) {
+    background-color: #f9fafb;
+}
+
+.paginationBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ── Card metadata (inline row) ── */
+.cardMeta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #717680;
+    font-weight: 500;
+    text-align: left;
+}
+
+.cardMetaValue {
+    color: #414651;
+}
+
+.cardMetaDivider {
+    color: #d5d7da;
+}
+
+.cardMetaDate {
+    color: #717680;
+}
+
+/* ── Empty state ── */
+.emptyState {
+    width: 100%;
+    padding: 48px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #9da4ae;
+}
