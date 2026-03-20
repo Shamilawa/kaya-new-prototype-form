@@ -24,8 +24,8 @@ const IntegrationsBody: React.FC<IntegrationsBodyProps> = ({ workspaceId }) => {
         : integrationCards.filter((card) => card.type.toLowerCase() === activeTab.toLowerCase());
 
     const cardRows = [];
-    for (let i = 0; i < filteredCards.length; i += 4) {
-        cardRows.push(filteredCards.slice(i, i + 4));
+    for (let i = 0; i < filteredCards.length; i += 3) {
+        cardRows.push(filteredCards.slice(i, i + 3));
     }
 
     return (
