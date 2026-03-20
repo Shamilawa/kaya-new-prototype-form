@@ -122,76 +122,23 @@ const IFlowListingBody = () => {
                     <div className={styles.experienceWrapper}>
                         <div className={styles.experience}>
                             {mockIFlows.slice(0, 3).map((iflow) => (
-                                <div
-                                    key={iflow.id}
-                                    className={styles.integrationCardDesktop}
-                                >
-                                    <div className={styles.content6}>
-                                        <div
-                                            className={styles.headingAndToggle}
-                                        >
-                                            <div
-                                                className={
-                                                    iflow.status === "Published"
-                                                        ? styles.badge
-                                                        : styles.badge2
-                                                }
-                                            >
-                                                <div className={styles.text7}>
-                                                    {iflow.status}
-                                                </div>
-                                            </div>
-                                            <div
-                                                className={
-                                                    styles.headingAndIcon
-                                                }
-                                            >
-                                                <div
-                                                    className={styles.iconWrap}
-                                                >
-                                                    <div
-                                                        className={
-                                                            styles.linear
-                                                        }
-                                                    ></div>
-                                                </div>
-                                                <div className={styles.heading}>
-                                                    {iflow.name}
-                                                </div>
-                                            </div>
-                                            <div
-                                                className={
-                                                    styles.supportingText3
-                                                }
-                                            >
-                                                This workflow handles {iflow.name.toLowerCase()} tasks.
-                                            </div>
-                                        </div>
-                                        <div className={styles.cardMeta}>
-                                            <span className={styles.cardMetaValue}><b>{iflow.agents}</b> Agents</span>
-                                            <span className={styles.cardMetaDivider}>|</span>
-                                            <span className={styles.cardMetaDate}>Last modified: {iflow.lastModified}</span>
-                                        </div>
+                                <div key={iflow.id} className={styles.flatCard}>
+                                    <div className={iflow.status === "Published" ? styles.badge : styles.badge2}>
+                                        <div className={styles.text7}>{iflow.status}</div>
                                     </div>
-                                    <div className={styles.sectionFooter}>
-                                        <img
-                                            className={styles.dividerIcon2}
-                                            alt=""
-                                        />
-                                        <div className={styles.content7}>
-                                            <div className={styles.actions4}>
-                                                <button
-                                                    className={styles.button}
-                                                    onClick={() => handleViewIFlow(iflow.id)}
-                                                >
-                                                    <div
-                                                        className={styles.text2}
-                                                    >
-                                                        View
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <div className="text-base font-semibold text-[#181d27] leading-6">{iflow.name}</div>
+                                    <div className="text-sm text-[#414651] leading-5">This workflow handles {iflow.name.toLowerCase()} tasks.</div>
+                                    <div className="flex items-center gap-6 mt-1">
+                                        <span className="text-sm text-[#717680]">Agents: <b className="text-[#181d27] font-semibold">{iflow.agents}</b></span>
+                                    </div>
+                                    <div className="text-sm text-[#717680]">Last modified: <b className="text-[#181d27] font-medium">{iflow.lastModified}</b></div>
+                                    <div className="flex justify-end mt-1">
+                                        <button
+                                            className="px-3.5 py-1.5 border border-[#d5d7da] rounded-lg text-sm font-medium text-[#414651] bg-white hover:bg-gray-50 cursor-pointer"
+                                            onClick={() => handleViewIFlow(iflow.id)}
+                                        >
+                                            View
+                                        </button>
                                     </div>
                                 </div>
                             ))}
@@ -242,37 +189,23 @@ const IFlowListingBody = () => {
                                 <div className={styles.emptyState}>No iFlows match your search.</div>
                             )}
                             {filteredIFlows.map((iflow) => (
-                                <div key={iflow.id} className={styles.integrationCardDesktop}>
-                                    <div className={styles.content6}>
-                                        <div className={styles.headingAndToggle}>
-                                            <div className={iflow.status === "Published" ? styles.badge : styles.badge2}>
-                                                <div className={styles.text7}>{iflow.status}</div>
-                                            </div>
-                                            <div className={styles.headingAndIcon}>
-                                                <div className={styles.iconWrap}>
-                                                    <div className={styles.linear}></div>
-                                                </div>
-                                                <div className={styles.heading}>{iflow.name}</div>
-                                            </div>
-                                            <div className={styles.supportingText3}>
-                                                This workflow handles {iflow.name.toLowerCase()} tasks.
-                                            </div>
-                                        </div>
-                                        <div className={styles.cardMeta}>
-                                            <span className={styles.cardMetaValue}><b>{iflow.agents}</b> Agents</span>
-                                            <span className={styles.cardMetaDivider}>|</span>
-                                            <span className={styles.cardMetaDate}>Last modified: {iflow.lastModified}</span>
-                                        </div>
+                                <div key={iflow.id} className={styles.flatCard}>
+                                    <div className={iflow.status === "Published" ? styles.badge : styles.badge2}>
+                                        <div className={styles.text7}>{iflow.status}</div>
                                     </div>
-                                    <div className={styles.sectionFooter}>
-                                        <img className={styles.dividerIcon2} alt="" />
-                                        <div className={styles.content7}>
-                                            <div className={styles.actions4}>
-                                                <button className={styles.button} onClick={() => handleViewIFlow(iflow.id)}>
-                                                    <div className={styles.text2}>View</div>
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <div className="text-base font-semibold text-[#181d27] leading-6">{iflow.name}</div>
+                                    <div className="text-sm text-[#414651] leading-5">This workflow handles {iflow.name.toLowerCase()} tasks.</div>
+                                    <div className="flex items-center gap-6 mt-1">
+                                        <span className="text-sm text-[#717680]">Agents: <b className="text-[#181d27] font-semibold">{iflow.agents}</b></span>
+                                    </div>
+                                    <div className="text-sm text-[#717680]">Last modified: <b className="text-[#181d27] font-medium">{iflow.lastModified}</b></div>
+                                    <div className="flex justify-end mt-1">
+                                        <button
+                                            className="px-3.5 py-1.5 border border-[#d5d7da] rounded-lg text-sm font-medium text-[#414651] bg-white hover:bg-gray-50 cursor-pointer"
+                                            onClick={() => handleViewIFlow(iflow.id)}
+                                        >
+                                            View
+                                        </button>
                                     </div>
                                 </div>
                             ))}

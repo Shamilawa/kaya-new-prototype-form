@@ -371,15 +371,17 @@
     color: #067647;
 }
 .experience {
-    width: 1218px;
-    display: flex;
-    align-items: flex-start;
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    min-width: 720px;
-    flex-shrink: 0;
+}
+.experience > div {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0;
 }
 .integrationCardDesktop {
-    flex: 1;
     box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
     border-radius: 12px;
     background-color: #fff;
@@ -412,6 +414,7 @@
     align-items: center;
     padding: 2px 6px;
     text-align: center;
+    width: fit-content;
 }
 .text7 {
     position: relative;
@@ -559,12 +562,25 @@
     align-items: center;
     padding: 2px 6px;
     text-align: center;
+    width: fit-content;
 }
 .supportingText18 {
     align-self: stretch;
     position: relative;
     font-size: 14px;
     line-height: 20px;
+}
+
+/* ── Shared flat card ── */
+.flatCard {
+    background-color: #fff;
+    border: 1px solid #e9eaeb;
+    border-radius: 12px;
+    box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 /* ── All Workspace Agents toolbar ── */
@@ -681,15 +697,21 @@
 /* ── All Agents grid ── */
 .allAgentsGrid {
     align-self: stretch;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     font-size: 14px;
     color: #414651;
 }
 
+.allAgentsGrid > div {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0;
+}
+
 .integrationCardDesktopGrid {
-    width: 286px;
+    width: 100%;
     box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
     border-radius: 12px;
     background-color: #fff;
