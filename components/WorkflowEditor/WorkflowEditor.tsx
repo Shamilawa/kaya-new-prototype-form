@@ -1,16 +1,13 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { 
   ChevronLeft, 
   Search, 
   MoreVertical, 
-  Box, 
   Layout, 
-  Zap, 
   Filter, 
   MessageSquare, 
   Volume2, 
@@ -89,7 +86,7 @@ const WorkflowEditor: React.FC = () => {
                 <div className={styles.text2}>Order Support</div>
               </div>
               <div className={styles.buttonGroupBase2}>
-                <ChevronLeft className="w-5 h-5 text-[#717680] rotate-180" />
+                <ChevronLeft className="w-5 h-5 text-text-quaternary rotate-180" />
               </div>
             </div>
             <div className={styles.badgeParent}>
@@ -126,7 +123,7 @@ const WorkflowEditor: React.FC = () => {
                   <div className={styles.horizontalTabsWrapper}>
                     <div className={styles.input}>
                       <div className={styles.content}>
-                        <Search className="w-5 h-5 text-[#717680]" />
+                        <Search className="w-5 h-5 text-text-quaternary" />
                         <div className={styles.text8}>Search all nodes.. </div>
                       </div>
                     </div>
@@ -144,8 +141,8 @@ const WorkflowEditor: React.FC = () => {
                   </div>
                 </div>
                 <div className={styles.agentNodeCardParent}>
-                  {coreNodes.map((node, i) => (
-                    <NodeCard key={i} title={node.title} icon={node.icon} />
+                  {coreNodes.map((node) => (
+                    <NodeCard key={node.title} title={node.title} icon={node.icon} />
                   ))}
                 </div>
               </div>
@@ -158,8 +155,8 @@ const WorkflowEditor: React.FC = () => {
                   </div>
                 </div>
                 <div className={styles.agentNodeCardParent}>
-                  {dataNodes.map((node, i) => (
-                    <NodeCard key={i} title={node.title} icon={node.icon} />
+                  {dataNodes.map((node) => (
+                    <NodeCard key={node.title} title={node.title} icon={node.icon} />
                   ))}
                 </div>
               </div>
