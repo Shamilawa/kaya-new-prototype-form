@@ -3,9 +3,9 @@
 import React from "react";
 import WorkflowEditor from "@/components/WorkflowEditor/WorkflowEditor";
 
-export default function WorkflowEditorPage() {
+export default function IndependentWorkflowEditorPage() {
   return (
-    <div className="w-full h-screen overflow-hidden">
+    <div className="w-full h-screen overflow-hidden bg-white">
       <WorkflowEditor />
     </div>
   );

@@ -3,20 +3,23 @@
 import React from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { 
-  ChevronLeft, 
-  Search, 
-  MoreVertical, 
-  Layout, 
-  Filter, 
-  MessageSquare, 
-  Volume2, 
+import {
+  ChevronLeft,
+  Search,
+  MoreVertical,
+  Layout,
+  Filter,
+  MessageSquare,
+  Volume2,
   AlertCircle,
   Database,
   FileJson,
   Cpu,
   RefreshCw,
-  HelpCircle
+  HelpCircle,
+  Save,
+  Play,
+  UploadCloud,
 } from "lucide-react";
 import styles from "./WorkflowEditor.module.css";
 
@@ -98,7 +101,7 @@ const WorkflowEditor: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         <div className={styles.bodyContentChild}>
           <div className={styles.frameParent}>
             <div className={styles.frameGroup}>
@@ -170,7 +173,31 @@ const WorkflowEditor: React.FC = () => {
         <div className={styles.groupDiv}>
           <div className={styles.bodyContentLivesHereParent}>
             <div className={styles.bodyContentLives}>Body Content lives here...</div>
-            
+
+            {/* Floating Action Bar */}
+            <div className={styles.floatingActions}>
+              <div className={styles.actionButtonGroup}>
+                <button className={styles.saveButton}>
+                  <Save className={styles.actionIcon} />
+                  <div className={styles.textPadding}>
+                    <span className={styles.actionButtonText}>Save</span>
+                  </div>
+                </button>
+                <button className={styles.testButton}>
+                  <Play className={styles.actionIcon} />
+                  <div className={styles.textPadding}>
+                    <span className={styles.actionButtonText}>Test</span>
+                  </div>
+                </button>
+              </div>
+              <button className={styles.publishButton}>
+                <UploadCloud className={styles.actionIcon} />
+                <div className={styles.textPadding}>
+                  <span className={styles.actionButtonText}>Publish</span>
+                </div>
+              </button>
+            </div>
+
             <div className={styles.helpmenu}>
               <HelpCircle className="w-6 h-6" />
             </div>

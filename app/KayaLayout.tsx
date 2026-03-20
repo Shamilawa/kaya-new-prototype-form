@@ -11,7 +11,7 @@ export default function KayaLayout({
     children: React.ReactNode;
 }>) {
     const pathname = usePathname();
-    const isEditor = pathname.includes("/editor");
+    const isEditor = pathname.startsWith("/editor") || pathname.includes("/editor");
 
     if (isEditor) {
         return <div className="w-full h-screen bg-white">{children}</div>;
