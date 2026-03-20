@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import {
   ReactFlow,
@@ -167,10 +166,13 @@ const WorkspaceAgentCard: React.FC<{ title: string; description: string }> = ({
   </div>
 );
 
+import WorkflowTest from "./WorkflowTest";
+
 const WorkflowEditorContent: React.FC = () => {
   const params = useParams();
   const [activeTab, setActiveTab] = useState<"all" | "workspace">("all");
   const [selectedNode, setSelectedNode] = useState<any>(null);
+  const [isTesting, setIsTesting] = useState(false);
   const workspaceId = params.workspaceId as string;
   const iflowId = params.iflowId as string;
 
@@ -232,7 +234,7 @@ const WorkflowEditorContent: React.FC = () => {
     event.dataTransfer.dropEffect = "move";
   }, []);
 
-    const onDrop = useCallback(
+  const onDrop = useCallback(
     (event: React.DragEvent) => {
       event.preventDefault();
 
@@ -321,119 +323,119 @@ const WorkflowEditorContent: React.FC = () => {
         ) : (
           <>
             <div className={styles.bodyContentInner}>
-              <div className={styles.headerParent}>
-                <div className={styles.header}>
-                  <div className={styles.buttonsbutton}>
-                    <ChevronLeft className="w-5 h-5" />
-                    <div className={styles.textPadding}>
-                      <div className={styles.text}>Back to iFlows</div>
+                <div className={styles.headerParent}>
+                  <div className={styles.header}>
+                    <div className={styles.buttonsbutton}>
+                      <ChevronLeft className="w-5 h-5" />
+                      <div className={styles.textPadding}>
+                        <div className={styles.text}>Back to iFlows</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className={styles.buttonGroup}>
-                  <div className={styles.buttonGroupBase}>
-                    <div className={styles.text2}>Order Support</div>
+                  <div className={styles.buttonGroup}>
+                    <div className={styles.buttonGroupBase}>
+                      <div className={styles.text2}>Order Support</div>
+                    </div>
+                    <div className={styles.buttonGroupBase2}>
+                      <ChevronLeft className="w-5 h-5" />
+                    </div>
                   </div>
-                  <div className={styles.buttonGroupBase2}>
-                    <ChevronLeft className="w-5 h-5" />
+                  <div className={styles.badgeParent}>
+                    <div className={styles.badge}>
+                      <div className={styles.text3}>Draft</div>
+                    </div>
+                    <div className={styles.frameChild} />
+                    <div className={styles.saved2minsAgo}>Saved 2mins ago</div>
                   </div>
-                </div>
-                <div className={styles.badgeParent}>
-                  <div className={styles.badge}>
-                    <div className={styles.text3}>Draft</div>
-                  </div>
-                  <div className={styles.frameChild} />
-                  <div className={styles.saved2minsAgo}>Saved 2mins ago</div>
                 </div>
               </div>
-            </div>
-            <div className={styles.bodyContentChild}>
-              <div className={styles.frameParent}>
-                <div className={styles.frameGroup}>
-                  <div className={styles.horizontalTabsWrapper}>
-                    <div className={styles.horizontalTabs}>
-                      <div
-                        className={`${styles.tabButtonBase} ${
-                          activeTab === "all" ? "" : styles.tabButtonBase2
-                        } ${activeTab === "all" ? styles.activeTab : ""}`}
-                        onClick={() => setActiveTab("all")}
-                      >
-                        <div className={styles.text}>All Nodes</div>
-                        <div className={styles.badge2}>
-                          <div className={styles.text3}>19</div>
+              <div className={styles.bodyContentChild}>
+                <div className={styles.frameParent}>
+                  <div className={styles.frameGroup}>
+                    <div className={styles.horizontalTabsWrapper}>
+                      <div className={styles.horizontalTabs}>
+                        <div
+                          className={`${styles.tabButtonBase} ${
+                            activeTab === "all" ? "" : styles.tabButtonBase2
+                          } ${activeTab === "all" ? styles.activeTab : ""}`}
+                          onClick={() => setActiveTab("all")}
+                        >
+                          <div className={styles.text}>All Nodes</div>
+                          <div className={styles.badge2}>
+                            <div className={styles.text3}>19</div>
+                          </div>
                         </div>
-                      </div>
-                      <div
-                        className={`${styles.tabButtonBase} ${
-                          activeTab === "workspace" ? "" : styles.tabButtonBase2
-                        } ${activeTab === "workspace" ? styles.activeTab : ""}`}
-                        onClick={() => setActiveTab("workspace")}
-                      >
-                        <div className={styles.text}>Workspace Agents</div>
-                        <div className={styles.badge3}>
-                          <div className={styles.text3}>8</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.messageAction}>
-                    <div className={styles.inputField}>
-                      <div className={styles.inputWithLabel}>
-                        <div className={styles.input}>
-                          <Search className="w-5 h-5 text-text-quaternary" />
-                          <div className={styles.content}>
-                            <div className={styles.text4}>Search all nodes..</div>
+                        <div
+                          className={`${styles.tabButtonBase} ${
+                            activeTab === "workspace" ? "" : styles.tabButtonBase2
+                          } ${activeTab === "workspace" ? styles.activeTab : ""}`}
+                          onClick={() => setActiveTab("workspace")}
+                        >
+                          <div className={styles.text}>Workspace Agents</div>
+                          <div className={styles.badge3}>
+                            <div className={styles.text3}>8</div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className={styles.scrollableArea}>
-                    {activeTab === "all" ? (
-                      <>
-                        <div className={styles.sectionHeader}>
-                          <div className={styles.subheading}>Core Agent Templates</div>
-                          <div className={styles.number}>6</div>
+                    <div className={styles.messageAction}>
+                      <div className={styles.inputField}>
+                        <div className={styles.inputWithLabel}>
+                          <div className={styles.input}>
+                            <Search className="w-5 h-5 text-text-quaternary" />
+                            <div className={styles.content}>
+                              <div className={styles.text4}>Search all nodes..</div>
+                            </div>
+                          </div>
                         </div>
-                        <div className={styles.agentNodeCardParent}>
-                          {coreNodes.map((node) => (
-                            <NodeCard
-                              key={node.title}
-                              title={node.title}
-                              icon={node.icon}
-                              variant="core"
-                              onDragStart={
-                                node.title === "Basic Agent"
-                                  ? (event) => onDragStart(event, "basicAgent")
-                                  : undefined
-                              }
-                            />
-                          ))}
-                        </div>
-                        <div className={styles.sectionHeader}>
-                          <div className={styles.subheading}>Data Agent Templates</div>
-                          <div className={styles.number}>6</div>
-                        </div>
-                        <div className={styles.agentNodeCardParent}>
-                          {dataNodesList.map((node) => (
-                            <NodeCard key={node.title} title={node.title} icon={node.icon} variant="data" />
-                          ))}
-                        </div>
-                      </>
-                    ) : (
-                      <div className={styles.agentNodeCardParent}>
-                        {workspaceAgents.map((agent, index) => (
-                          <WorkspaceAgentCard key={index} title={agent.title} description={agent.description} />
-                        ))}
                       </div>
-                    )}
+                    </div>
+                    <div className={styles.scrollableArea}>
+                      {activeTab === "all" ? (
+                        <>
+                          <div className={styles.sectionHeader}>
+                            <div className={styles.subheading}>Core Agent Templates</div>
+                            <div className={styles.number}>6</div>
+                          </div>
+                          <div className={styles.agentNodeCardParent}>
+                            {coreNodes.map((node) => (
+                              <NodeCard
+                                key={node.title}
+                                title={node.title}
+                                icon={node.icon}
+                                variant="core"
+                                onDragStart={
+                                  node.title === "Basic Agent"
+                                    ? (event) => onDragStart(event, "basicAgent")
+                                    : undefined
+                                }
+                              />
+                            ))}
+                          </div>
+                          <div className={styles.sectionHeader}>
+                            <div className={styles.subheading}>Data Agent Templates</div>
+                            <div className={styles.number}>6</div>
+                          </div>
+                          <div className={styles.agentNodeCardParent}>
+                            {dataNodesList.map((node) => (
+                              <NodeCard key={node.title} title={node.title} icon={node.icon} variant="data" />
+                            ))}
+                          </div>
+                        </>
+                      ) : (
+                        <div className={styles.agentNodeCardParent}>
+                          {workspaceAgents.map((agent, index) => (
+                            <WorkspaceAgentCard key={index} title={agent.title} description={agent.description} />
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </>
-        )}
-      </div>
+            </>
+          )}
+        </div>
 
       {/* Main Content Area */}
       <div className={styles.bodyContent2}>
@@ -444,43 +446,49 @@ const WorkflowEditorContent: React.FC = () => {
             onDrop={onDrop}
             style={{ height: "100%", width: "100%" }}
           >
-            <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                onNodeClick={onNodeClick}
-                nodeTypes={nodeTypes}
-                fitView
-              >
-                <Background color="#aaa" gap={20} />
-                <Controls />
-              </ReactFlow>
+            {isTesting ? (
+              <WorkflowTest onBack={() => setIsTesting(false)} />
+            ) : (
+              <>
+                <ReactFlow
+                  nodes={nodes}
+                  edges={edges}
+                  onNodesChange={onNodesChange}
+                  onEdgesChange={onEdgesChange}
+                  onConnect={onConnect}
+                  onNodeClick={onNodeClick}
+                  nodeTypes={nodeTypes}
+                  fitView
+                >
+                  <Background color="#aaa" gap={20} />
+                  <Controls />
+                </ReactFlow>
 
-              {/* Floating Action Bar */}
-            <div className={styles.floatingActions}>
-              <div className={styles.actionButtonGroup}>
-                <button className={styles.saveButton}>
-                  <Save className={styles.actionIcon} />
-                  <div className={styles.textPadding}>
-                    <span className={styles.actionButtonText}>Save</span>
+                {/* Floating Action Bar */}
+                <div className={styles.floatingActions}>
+                  <div className={styles.actionButtonGroup}>
+                    <button className={styles.saveButton}>
+                      <Save className={styles.actionIcon} />
+                      <div className={styles.textPadding}>
+                        <span className={styles.actionButtonText}>Save</span>
+                      </div>
+                    </button>
+                    <button className={styles.testButton} onClick={() => setIsTesting(true)}>
+                      <Play className={styles.actionIcon} />
+                      <div className={styles.textPadding}>
+                        <span className={styles.actionButtonText}>Test</span>
+                      </div>
+                    </button>
                   </div>
-                </button>
-                <button className={styles.testButton}>
-                  <Play className={styles.actionIcon} />
-                  <div className={styles.textPadding}>
-                    <span className={styles.actionButtonText}>Test</span>
-                  </div>
-                </button>
-              </div>
-              <button className={styles.publishButton}>
-                <UploadCloud className={styles.actionIcon} />
-                <div className={styles.textPadding}>
-                  <span className={styles.actionButtonText}>Publish</span>
+                  <button className={styles.publishButton}>
+                    <UploadCloud className={styles.actionIcon} />
+                    <div className={styles.textPadding}>
+                      <span className={styles.actionButtonText}>Publish</span>
+                    </div>
+                  </button>
                 </div>
-              </button>
-            </div>
+              </>
+            )}
 
             <div className={styles.helpmenu}>
               <HelpCircle className="w-6 h-6" />
