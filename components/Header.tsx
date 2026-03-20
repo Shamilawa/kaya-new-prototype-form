@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { Building2, ChevronDown, Bot } from 'lucide-react';
+import { Building2, Workflow, ChevronDown, Bot } from 'lucide-react';
 
 interface HeaderProps {
 }
@@ -18,7 +18,9 @@ const Header: React.FC<HeaderProps> = () => {
 
     let displayWorkspaceName: string | null = null;
     if (workspaceId) {
-        displayWorkspaceName = workspaceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        displayWorkspaceName = isAgentLevel 
+            ? '...' 
+            : workspaceId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     }
 
     const displayIFlowName = iflowId
@@ -73,17 +75,13 @@ const Header: React.FC<HeaderProps> = () => {
                             <span className="text-[#D5D7DA] text-sm">/</span>
                             <Link 
                                 href={`/${workspaceId}/${iflowId}`}
-                                className={`h-8 py-1.5 px-3 rounded-lg flex items-center gap-2 cursor-pointer group transition-all ${
-                                    !agentId 
-                                        ? 'bg-white border border-[#D0D5DD] shadow-[0_1px_2px_rgba(16,24,40,0.05)] hover:bg-gray-50' 
-                                        : 'border border-transparent hover:bg-white/50'
-                                }`}
+                                className="h-8 py-1.5 px-3 bg-white rounded-lg border border-[#D0D5DD] flex items-center gap-2 shadow-[0_1px_2px_rgba(16,24,40,0.05)] cursor-pointer group hover:bg-gray-50 transition-all"
                             >
-                                <Image src="/card-workflow.svg" alt="" width={16} height={16} className="w-4 h-4" />
+                                <Workflow className="w-4 h-4 text-[#6941C6]" />
                                 <div className="text-sm font-semibold text-[#344054] font-inter leading-5">
                                     {displayIFlowName}
                                 </div>
-                                {!agentId && <ChevronDown className="w-4 h-4 text-[#667085] transition-transform group-hover:translate-y-0.5" />}
+                                <ChevronDown className="w-4 h-4 text-[#667085] transition-transform group-hover:translate-y-0.5" />
                             </Link>
                         </>
                     )}

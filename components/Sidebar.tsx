@@ -62,7 +62,7 @@ const CollapsibleSection = ({
                 )}
             </button>
             {isOpen && (
-                <div className="mt-2 pt-0 px-3 pb-2 flex flex-col gap-2">
+                <div className="mt-2 pt-0 px-3 pb-2 flex flex-col gap-[8px]">
                     {children}
                 </div>
             )}
@@ -211,13 +211,22 @@ const Sidebar: React.FC<SidebarProps> = () => {
     if (!activeWorkspace) {
         return (
             <aside className="w-[312px] shrink-0 h-full pl-5 pr-5 flex flex-col justify-between bg-[#F9F9FB]">
-                <div className="pt-6 pb-8">
+                <div className="pt-6">
                     <img
                         src="/logo_main.png"
                         alt="Kaya Logo"
                         className="w-[120px] h-[39px]"
                     />
                 </div>
+
+                {/* New Workspace Button */}
+                <button
+                    className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3.5 rounded-lg text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                    style={{ backgroundImage: 'url(/btn-gradient.svg)', backgroundSize: 'cover', backgroundPosition: 'center', margin: '32px 0' }}
+                >
+                    <Plus className="w-5 h-5 text-white" />
+                    New Workspace
+                </button>
 
                 <nav className="flex-1 flex flex-col gap-6 overflow-y-auto">
                     {enterpriseSections.map((section) => (
@@ -239,6 +248,28 @@ const Sidebar: React.FC<SidebarProps> = () => {
                         </SidebarSection>
                     ))}
                 </nav>
+
+                {/* New Features Notification Card */}
+                <div className="mx-0 mb-4 p-4 rounded-xl border border-border-secondary bg-white flex flex-col gap-3">
+                    <div className="flex items-start justify-between">
+                        <div className="w-10 h-10 flex items-center justify-center">
+                            <img src="/featured-icon.svg" alt="" className="w-10 h-10" />
+                        </div>
+                        <button className="text-text-tertiary hover:text-text-primary">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <div className="text-sm font-semibold text-text-primary leading-5">New features available!</div>
+                        <div className="text-sm text-text-tertiary leading-5">Check out the new configurations that we've just added to our setup options!</div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <button className="text-sm font-semibold text-[#535862] hover:text-text-primary leading-5">Dismiss</button>
+                        <button className="text-sm font-semibold text-[#004A96] hover:text-[#003570] leading-5">Go to Setup!</button>
+                    </div>
+                </div>
 
                 <div className="py-5 pb-6 flex justify-between items-start border-t border-border-secondary">
                     <div className="flex items-center gap-2">
