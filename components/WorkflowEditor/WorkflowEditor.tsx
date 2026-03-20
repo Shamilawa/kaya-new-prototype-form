@@ -230,7 +230,7 @@ const WorkflowEditorContent: React.FC = () => {
     event.dataTransfer.dropEffect = "move";
   }, []);
 
-  const onDrop = useCallback(
+    const onDrop = useCallback(
     (event: React.DragEvent) => {
       event.preventDefault();
 
@@ -243,16 +243,34 @@ const WorkflowEditorContent: React.FC = () => {
         y: event.clientY,
       });
 
+      const newNodeId = `node_${Date.now()}`;
       const newNode = {
-        id: `node_${Date.now()}`,
+        id: newNodeId,
         type,
         position,
         data: { label: `${type} node` },
       };
 
-      setNodes((nds) => nds.concat(newNode));
+      if (type === "basicAgent") {
+        // Remove ghost node and add new node
+        setNodes((nds) => nds.filter((node) => node.id !== "ghost").concat(newNode));
+
+        // Remove edge connection to ghost and add new edge from start to basic agent
+        setEdges((eds) => {
+          const filteredEds = eds.filter((edge) => edge.target !== "ghost");
+          return filteredEds.concat({
+            id: `edge_${Date.now()}`,
+            source: "start",
+            target: newNodeId,
+            animated: true,
+            style: { stroke: "#5ea3e0", strokeWidth: 2 },
+          });
+        });
+      } else {
+        setNodes((nds) => nds.concat(newNode));
+      }
     },
-    [screenToFlowPosition, setNodes]
+    [screenToFlowPosition, setNodes, setEdges]
   );
   const workspaceAgents = [
     {
