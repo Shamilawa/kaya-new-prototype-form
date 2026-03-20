@@ -30,7 +30,11 @@ const EditorDrawer: React.FC<EditorDrawerProps> = ({ isOpen, onClose, children }
   };
 
   return (
-    <div className={styles.backdrop} onClick={handleBackdropClick}>
+    <div 
+      className={styles.backdrop} 
+      onClick={handleBackdropClick}
+      role="presentation"
+    >
       <div className={styles.panel}>{children}</div>
     </div>
   );

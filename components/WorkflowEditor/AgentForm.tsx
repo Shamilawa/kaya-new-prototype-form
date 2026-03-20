@@ -89,6 +89,9 @@ const AgentForm: React.FC<AgentFormProps> = ({ onCancel, onSave }) => {
                     <div
                       className={styles.navMenuItemCardParent}
                       onClick={() => setIsEditorOpen(true)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => e.key === "Enter" && setIsEditorOpen(true)}
                     >
                       <div className={styles.navMenuItemCard}>
                         <div className={styles.content2}>
@@ -115,6 +118,9 @@ const AgentForm: React.FC<AgentFormProps> = ({ onCancel, onSave }) => {
                     <div
                       className={styles.navMenuItemCardParent}
                       onClick={() => setIsModelDrawerOpen(true)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => e.key === "Enter" && setIsModelDrawerOpen(true)}
                     >
                       <div className={styles.navMenuItemCard}>
                         <div className={styles.content2}>
