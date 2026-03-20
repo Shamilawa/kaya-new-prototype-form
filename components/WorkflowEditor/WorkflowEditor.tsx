@@ -12,6 +12,8 @@ import {
   addEdge,
   Connection,
   Edge,
+  Handle,
+  Position,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import {
@@ -31,6 +33,7 @@ import {
   Save,
   Play,
   UploadCloud,
+  Zap,
 } from "lucide-react";
 import styles from "./WorkflowEditor.module.css";
 
@@ -39,6 +42,28 @@ interface NodeCardProps {
   icon: React.ElementType;
   className?: string;
 }
+
+const StartNode = () => {
+  return (
+    <div className={styles.startNodeContainer}>
+      <div className={styles.startNodeHeader}>
+        <div className={styles.startNodeIconWrapper}>
+          <Zap className={styles.startNodeIcon} />
+        </div>
+        <div className={styles.startNodeTitleGroup}>
+          <div className={styles.startNodeTitle}>Start</div>
+          <div className={styles.startNodeSubtitle}>Workflow trigger</div>
+        </div>
+      </div>
+      <div className={styles.startNodeBadge}>Manual Trigger</div>
+      <Handle type="source" position={Position.Right} />
+    </div>
+  );
+};
+
+const nodeTypes = {
+  start: StartNode,
+};
 
 const NodeCard: React.FC<NodeCardProps> = ({ title, icon: Icon, className }) => (
   <div className={styles.agentNodeCard}>
@@ -84,15 +109,9 @@ const WorkflowEditor: React.FC = () => {
   const initialNodes = [
     {
       id: "start",
+      type: "start",
       position: { x: 100, y: 100 },
       data: { label: "Start" },
-      style: {
-        background: "#fff",
-        border: "1px solid #d5d7da",
-        borderRadius: "12px",
-        padding: "10px",
-        width: 150,
-      },
     },
   ];
 
@@ -214,6 +233,7 @@ const WorkflowEditor: React.FC = () => {
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
+                nodeTypes={nodeTypes}
                 fitView
               >
                 <Background color="#aaa" gap={20} />

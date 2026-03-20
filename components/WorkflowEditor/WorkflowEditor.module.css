@@ -665,3 +665,70 @@
     font-weight: 600;
     font-size: 14px;
 }
+
+/* Custom Start Node Styles */
+.startNodeContainer {
+  min-width: 250px;
+  border-radius: 16px;
+  background-color: #fff;
+  border: 2px solid #3ccb7f;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 24px;
+  text-align: left;
+  font-family: var(--font-encode-sans), "Encode Sans", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.startNodeHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.startNodeIconWrapper {
+  width: 44px;
+  height: 44px;
+  background-color: #dcfce7;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.startNodeIcon {
+  width: 24px;
+  height: 24px;
+  color: #16a34a;
+}
+
+.startNodeTitleGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.startNodeTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #181d27;
+  line-height: 1.2;
+}
+
+.startNodeSubtitle {
+  font-size: 12px;
+  color: #535862;
+  font-family: var(--font-inter), Inter, sans-serif;
+}
+
+.startNodeBadge {
+  border-radius: 6px;
+  background-color: #fafafa;
+  border: 1px solid #e9eaeb;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #414651;
+}
