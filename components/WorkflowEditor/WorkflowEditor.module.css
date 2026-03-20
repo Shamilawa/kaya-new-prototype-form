@@ -779,3 +779,57 @@
   font-weight: 600;
   color: #535862;
 }
+
+/* Workspace Agent Card Styles */
+.workspaceAgentCard {
+  width: 100%;
+  border-radius: 16px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.workspaceAgentCard:hover {
+  border-color: #3ccb7f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.workspaceAgentCardContent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.workspaceAgentCardTextGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.workspaceAgentCardHeading {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.workspaceAgentCardDescription {
+  font-size: 12px;
+  line-height: 18px;
+  color: #6a7282;
+  font-weight: 400;
+}
+
+.activeTab {
+  background-color: #fff !important;
+  color: #cc3e07 !important;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+}
