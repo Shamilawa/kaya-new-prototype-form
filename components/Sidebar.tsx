@@ -22,9 +22,58 @@ import {
     SquarePen,
     ScrollText,
     BookOpen,
+    ChevronsDown,
 } from "lucide-react";
 import SidebarItem from "./SidebarItem";
 import SidebarSection from "./SidebarSection";
+
+const ScrollCue = ({ containerRef }: { containerRef: React.RefObject<any> }) => {
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        const checkScroll = () => {
+            if (containerRef.current) {
+                const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
+                setShow(scrollTop + clientHeight < scrollHeight - 20);
+            }
+        };
+
+        const container = containerRef.current;
+        if (container) {
+            container.addEventListener("scroll", checkScroll);
+            // Initial check
+            checkScroll();
+            // Re-check on window resize
+            window.addEventListener("resize", checkScroll);
+        }
+
+        return () => {
+            if (container) {
+                container.removeEventListener("scroll", checkScroll);
+            }
+            window.removeEventListener("resize", checkScroll);
+        };
+    }, [containerRef]);
+
+    if (!show) return null;
+
+    return (
+        <div className="absolute bottom-4 right-4 z-50 group">
+            <div className="absolute bottom-full right-0 mb-2 hidden group-hover:block bg-[#181D27] text-white text-xs font-semibold py-1.5 px-3 rounded-lg whitespace-nowrap shadow-lg">
+                Continue scrolling
+                <div className="absolute top-full right-4 w-2 h-2 bg-[#181D27] rotate-45 -translate-y-1" />
+            </div>
+            <button
+                onClick={() => {
+                    containerRef.current?.scrollBy({ top: 100, behavior: "smooth" });
+                }}
+                className="w-10 h-10 bg-[#181D27] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 active:scale-95"
+            >
+                <ChevronsDown className="w-5 h-5 text-white" />
+            </button>
+        </div>
+    );
+};
 
 interface SidebarProps {
     // These are no longer strictly needed as we use useParams
@@ -128,6 +177,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
     const [activeTab, setActiveTab] = React.useState(initialTab);
     const [isWorkspaceDropdownOpen, setIsWorkspaceDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const enterpriseNavRef = useRef<HTMLElement>(null);
+    const agentNavRef = useRef<HTMLDivElement>(null);
+    const iflowNavRef = useRef<HTMLDivElement>(null);
+    const workspaceNavRef = useRef<HTMLDivElement>(null);
 
     const workspaces = [
         { id: "claims-operations-overview", name: "Claims Operations Overview" },
@@ -228,7 +281,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                     New Workspace
                 </button>
 
-                <nav className="flex-1 flex flex-col gap-6 overflow-y-auto">
+                <nav 
+                    ref={enterpriseNavRef}
+                    className="flex-1 flex flex-col gap-6 overflow-y-auto relative"
+                >
                     {enterpriseSections.map((section) => (
                         <SidebarSection key={section} title={section}>
                             {enterpriseItems
@@ -247,6 +303,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 ))}
                         </SidebarSection>
                     ))}
+                    <ScrollCue containerRef={enterpriseNavRef} />
                 </nav>
 
                 {/* New Features Notification Card */}
@@ -304,7 +361,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
     if (activeAgent) {
         return (
             <aside className="w-[312px] shrink-0 h-full pl-5 flex flex-col justify-between bg-[#F9F9FB] font-inter">
-                <div className="flex-1 flex flex-col overflow-y-auto">
+                <div 
+                    ref={agentNavRef}
+                    className="flex-1 flex flex-col overflow-y-auto relative"
+                >
                     {/* Header */}
                     <div className="pt-6 pb-[32px]">
                         <Link
@@ -394,6 +454,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             />
                         </SidebarSection>
                     </nav>
+                    <ScrollCue containerRef={agentNavRef} />
                 </div>
 
                 {/* Account Footer */}
@@ -422,7 +483,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
     if (activeIFlow) {
         return (
             <aside className="w-[312px] shrink-0 h-full pl-5 flex flex-col justify-between bg-[#F9F9FB] font-inter">
-                <div className="flex-1 flex flex-col overflow-y-auto">
+                <div 
+                    ref={iflowNavRef}
+                    className="flex-1 flex flex-col overflow-y-auto relative"
+                >
                     {/* Header */}
                     <div className="pt-6 pb-[32px]">
                         <Link
@@ -544,6 +608,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                             />
                         </SidebarSection>
                     </nav>
+                    <ScrollCue containerRef={iflowNavRef} />
                 </div>
 
                 {/* Account Footer */}
@@ -571,7 +636,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
     return (
         <aside className="w-[312px] shrink-0 h-full pl-5 pr-1 flex flex-col justify-between bg-[#F9F9FB] font-inter">
-            <div className="flex-1 flex flex-col overflow-y-auto">
+            <div 
+                ref={workspaceNavRef}
+                className="flex-1 flex flex-col overflow-y-auto relative"
+            >
                 {/* Header */}
                 <div className="pt-6 pb-[32px]">
                     <Link
@@ -786,6 +854,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                         />
                     </SidebarSection>
                 </nav>
+                <ScrollCue containerRef={workspaceNavRef} />
             </div>
 
             {/* Account Footer */}
