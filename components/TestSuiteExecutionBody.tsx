@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import styles from "./TestSuiteExecutionBody.module.css";
+import TestExecutionDrawer from "./TestExecutionDrawer";
 
 interface TestSuiteExecutionBodyProps {
     workspaceId: string;
@@ -19,7 +20,9 @@ interface TestSuiteExecutionBodyProps {
 
 const TestSuiteExecutionBody: React.FC<TestSuiteExecutionBodyProps> = ({ workspaceId, iflowId, iflowName }) => {
     const [searchQuery, setSearchQuery] = useState("");
-    const [expandedSuiteId, setExpandedSuiteId] = useState<number | null>(1);
+    const [expandedSuiteId, setExpandedSuiteId] = useState<number | null>(null);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [selectedSessionId, setSelectedSessionId] = useState<string | undefined>(undefined);
 
     const testSuites = [
         {
@@ -46,8 +49,68 @@ const TestSuiteExecutionBody: React.FC<TestSuiteExecutionBodyProps> = ({ workspa
             id: 2,
             name: "Customer Support Bot",
             type: "Workflow",
+            executionsCount: 3,
+            executions: [
+                {
+                    id: "eeba1896-b1a3-41fe-8b38-65873705fa49",
+                    duration: "0.45s",
+                    executedAt: "Feb 3, 2026 · 09:15:20",
+                    status: "Success"
+                },
+                {
+                    id: "eeba1896-b1a3-41fe-8b38-65873705fa50",
+                    duration: "0.42s",
+                    executedAt: "Feb 3, 2026 · 10:20:15",
+                    status: "Success"
+                },
+                {
+                    id: "eeba1896-b1a3-41fe-8b38-65873705fa51",
+                    duration: "0.48s",
+                    executedAt: "Feb 3, 2026 · 11:45:10",
+                    status: "Fail"
+                }
+            ]
+        },
+        {
+            id: 3,
+            name: "Invoice Processing Logic",
+            type: "Workflow",
+            executionsCount: 1,
+            executions: [
+                {
+                    id: "ffba1896-b1a3-41fe-8b38-65873705fa52",
+                    duration: "0.28s",
+                    executedAt: "Feb 4, 2026 · 14:05:33",
+                    status: "Success"
+                }
+            ]
+        },
+        {
+            id: 4,
+            name: "Data Enrichment Flow",
+            type: "Workflow",
             executionsCount: 0,
             executions: []
+        },
+        {
+            id: 5,
+            name: "Email Notification System",
+            type: "Workflow",
+            executionsCount: 2,
+            executions: [
+                {
+                    id: "11ba1896-b1a3-41fe-8b38-65873705fa53",
+                    duration: "0.15s",
+                    executedAt: "Feb 5, 2026 · 16:20:11",
+                    status: "Success"
+                },
+                {
+                    id: "11ba1896-b1a3-41fe-8b38-65873705fa54",
+                    duration: "0.18s",
+                    executedAt: "Feb 5, 2026 · 17:05:45",
+                    status: "Success"
+                }
+            ]
         }
     ];
 
@@ -197,12 +260,24 @@ const TestSuiteExecutionBody: React.FC<TestSuiteExecutionBodyProps> = ({ workspa
                                         </div>
                                         <div className={styles.column4}>
                                             <div className={styles.tableCell4}>
-                                                <button className={styles.buttonsbutton9}>
-                                                    <Play size={16} fill="currentColor" />
-                                                    <div className={styles.textPadding}>
-                                                        <div className={styles.text3}>Execute</div>
-                                                    </div>
-                                                </button>
+                                                <div 
+                                                    className={styles.buttonsbutton9}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        setIsDrawerOpen(true);
+                                                    }}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === 'Enter' || e.key === ' ') {
+                                                            e.stopPropagation();
+                                                            setIsDrawerOpen(true);
+                                                        }
+                                                    }}
+                                                    tabIndex={0}
+                                                    role="button"
+                                                >
+                                                    <Play className="w-4 h-4" />
+                                                    <div className={styles.details}>Execute</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -218,47 +293,40 @@ const TestSuiteExecutionBody: React.FC<TestSuiteExecutionBodyProps> = ({ workspa
                                                     </div>
                                                     {suite.executions.map((exec) => (
                                                         <div key={exec.id} className={styles.tableCell5}>
-                                                            <div className={styles.textAndSupportingText3}>
-                                                                <div className={styles.details}>{exec.id}</div>
-                                                            </div>
+                                                            <div className={styles.supportingText2}>{exec.id}</div>
                                                         </div>
                                                     ))}
                                                 </div>
                                                 <div className={styles.column6}>
                                                     <div className={styles.tableHeaderCell6}>
-                                                        <div className={styles.tableHeaderLabel}>
+                                                        <div className={styles.tableHeaderLabel4}>
                                                             <div className={styles.text8}>Duration</div>
-                                                            <ChevronDown className={styles.chevronSelectorVerticalIcon} />
+                                                            <ChevronDown className="w-4 h-4" />
                                                         </div>
                                                     </div>
                                                     {suite.executions.map((exec) => (
                                                         <div key={exec.id} className={styles.tableCell7}>
-                                                            <div className={styles.textAndSupportingText3}>
-                                                                <div className={styles.supportingText2}>{exec.duration}</div>
-                                                            </div>
+                                                            <div className={styles.supportingText2}>{exec.duration}</div>
                                                         </div>
                                                     ))}
                                                 </div>
                                                 <div className={styles.column6}>
                                                     <div className={styles.tableHeaderCell6}>
-                                                        <div className={styles.tableHeaderLabel}>
+                                                        <div className={styles.tableHeaderLabel4}>
                                                             <div className={styles.text8}>Executed At</div>
-                                                            <ChevronDown className={styles.chevronSelectorVerticalIcon} />
+                                                            <ChevronDown className="w-4 h-4" />
                                                         </div>
                                                     </div>
                                                     {suite.executions.map((exec) => (
                                                         <div key={exec.id} className={styles.tableCell7}>
-                                                            <div className={styles.textAndSupportingText3}>
-                                                                <div className={styles.supportingText2}>{exec.executedAt}</div>
+                                                            <div className={styles.supportingText2}>{exec.executedAt}</div>
                                                             </div>
-                                                        </div>
                                                     ))}
                                                 </div>
                                                 <div className={styles.column8}>
                                                     <div className={styles.tableHeaderCell8}>
                                                         <div className={styles.tableHeaderLabel}>
                                                             <div className={styles.text8}>Status</div>
-                                                            <ChevronDown className={styles.chevronSelectorVerticalIcon} />
                                                         </div>
                                                     </div>
                                                     {suite.executions.map((exec) => (
@@ -273,9 +341,25 @@ const TestSuiteExecutionBody: React.FC<TestSuiteExecutionBodyProps> = ({ workspa
                                                     <div className={styles.tableHeaderCell9}></div>
                                                     {suite.executions.map((exec) => (
                                                         <div key={exec.id} className={styles.tableCell13}>
-                                                            <button className={styles.buttonsbutton10}>
-                                                                <div className={styles.text3}>Review</div>
-                                                            </button>
+                                                            <div 
+                                                                className={styles.buttonsbutton10}
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    setSelectedSessionId(exec.id);
+                                                                    setIsDrawerOpen(true);
+                                                                }}
+                                                                onKeyDown={(e) => {
+                                                                    if (e.key === 'Enter' || e.key === ' ') {
+                                                                        e.stopPropagation();
+                                                                        setSelectedSessionId(exec.id);
+                                                                        setIsDrawerOpen(true);
+                                                                    }
+                                                                }}
+                                                                tabIndex={0}
+                                                                role="button"
+                                                            >
+                                                                <div className={styles.details}>Review</div>
+                                                            </div>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -304,6 +388,11 @@ const TestSuiteExecutionBody: React.FC<TestSuiteExecutionBodyProps> = ({ workspa
                     </div>
                 </div>
             </div>
+            <TestExecutionDrawer 
+                isOpen={isDrawerOpen} 
+                onClose={() => setIsDrawerOpen(false)} 
+                sessionId={selectedSessionId}
+            />
         </div>
     );
 };
