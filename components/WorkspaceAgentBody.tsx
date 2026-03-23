@@ -1,6 +1,6 @@
-"use client";
 import React, { useState } from "react";
 import { useRouter, useParams } from "next/navigation";
+import CreateConfigurationDrawer from "./CreateConfigurationDrawer";
 import styles from "./WorkspaceAgentBody.module.css";
 import {
   Plus,
@@ -71,6 +71,7 @@ const WorkspaceAgentBody = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const filteredAgents = mockAgents.filter((agent) =>
     agent.name.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -139,7 +140,10 @@ const WorkspaceAgentBody = () => {
                       Placeholder text about; Workspace Agents live here
                     </p>
                   </div>
-                  <button className="flex items-center gap-1 px-3.5 py-2.5 bg-[#005BB5] text-white rounded-lg text-sm font-semibold shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] hover:bg-[#004A96] transition-colors cursor-pointer">
+                  <button 
+                    className="flex items-center gap-1 px-3.5 py-2.5 bg-[#005BB5] text-white rounded-lg text-sm font-semibold shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] hover:bg-[#004A96] transition-colors cursor-pointer"
+                    onClick={() => setIsDrawerOpen(true)}
+                  >
                     <Plus className="w-5 h-5" />
                     <span>Create Workspace Agent</span>
                   </button>
@@ -418,6 +422,12 @@ const WorkspaceAgentBody = () => {
           )}
         </div>
       </div>
+      <CreateConfigurationDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        title="Create Workspace Agent"
+        description="Configure your new Workspace Agent settings."
+      />
     </div>
   );
 };
