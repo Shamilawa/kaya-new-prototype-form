@@ -15,22 +15,43 @@ interface PlaygroundSidebarProps {
   onBack: () => void;
   onCancel: () => void;
   onSave: () => void;
+  agents: { id: string, name: string, promptTemplate: string, model: string }[];
+  onViewInWorkflow: (agentId: string) => void;
+  onEditAgent: (agentId: string) => void;
 }
 
 const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({
   onBack,
   onCancel,
   onSave,
+  agents,
+  onViewInWorkflow,
+  onEditAgent,
 }) => {
   const [isAddVariableDrawerOpen, setIsAddVariableDrawerOpen] = React.useState(false);
-  const variables = [{ name: "user_name", value: "John" }];
+  const [variables, setVariables] = React.useState<{ name: string, value: string }[]>([
+    { name: "user_name", value: "John" }
+  ]);
+  const [editingVariable, setEditingVariable] = React.useState<{ name: string, value: string } | null>(null);
 
-  const agents = [
-    { name: "CX Agent", promptTemplate: "CX Prompt", model: "GPT-4" },
-    { name: "CX Agent", promptTemplate: "CX Prompt", model: "GPT-4" },
-    { name: "CX Agent", promptTemplate: "CX Prompt", model: "GPT-4" },
-    { name: "CX Agent", promptTemplate: "CX Prompt", model: "GPT-4" },
-  ];
+  const handleAddOrUpdateVariable = (variable: { name: string, value: string }) => {
+    setVariables(prev => {
+      const exists = prev.find(v => v.name === variable.name);
+      if (exists) {
+        return prev.map(v => v.name === variable.name ? variable : v);
+      }
+      return [...prev, variable];
+    });
+  };
+
+  const handleDeleteVariable = (name: string) => {
+    setVariables(prev => prev.filter(v => v.name !== name));
+  };
+
+  const handleEditClick = (variable: { name: string, value: string }) => {
+    setEditingVariable(variable);
+    setIsAddVariableDrawerOpen(true);
+  };
 
   return (
     <div className={`${styles.bodyContent} h-[calc(100%-32px)]! m-4! w-fit!`}>
@@ -79,32 +100,41 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({
                 </div>
                 <div className={styles.cards}>
                   {variables.map((v, i) => (
-                    <div key={i} className={styles.navMenuItemCard}>
-                      <div className={styles.content}>
-                        <div className={styles.textAndSupportingText}>
-                          <div className={styles.text4}>{v.name}</div>
-                          <div className={styles.text5}>{v.value}</div>
+                    <React.Fragment key={v.name}>
+                      <div className={styles.navMenuItemCard}>
+                        <div className={styles.content}>
+                          <div className={styles.textAndSupportingText}>
+                            <div className={styles.text4}>{v.name}</div>
+                            <div className={styles.text5}>{v.value}</div>
+                          </div>
+                        </div>
+                        <div className={styles.actions}>
+                          <div 
+                            className={styles.buttonsButtonUtility3}
+                            onClick={() => handleEditClick(v)}
+                          >
+                            <Edit2 className="w-4 h-4 text-text-quaternary" />
+                          </div>
+                          <div 
+                            className={styles.buttonsButtonUtility3}
+                            onClick={() => handleDeleteVariable(v.name)}
+                          >
+                            <Trash2 className="w-4 h-4 text-text-quaternary" />
+                          </div>
                         </div>
                       </div>
-                      <div className={styles.actions}>
-                        <div 
-                          className={styles.buttonsButtonUtility3}
-                          onClick={() => setIsAddVariableDrawerOpen(true)}
-                        >
-                          <Edit2 className="w-4 h-4 text-text-quaternary" />
-                        </div>
-                        <div className={styles.buttonsButtonUtility3}>
-                          <Trash2 className="w-4 h-4 text-text-quaternary" />
-                        </div>
-                      </div>
-                    </div>
+                      {i < variables.length - 1 && <div className={styles.dividerIcon} />}
+                    </React.Fragment>
                   ))}
                 </div>
               </div>
             </div>
             <button 
               className={styles.buttonsButton4}
-              onClick={() => setIsAddVariableDrawerOpen(true)}
+              onClick={() => {
+                setEditingVariable(null);
+                setIsAddVariableDrawerOpen(true);
+              }}
             >
               <Plus className="w-5 h-5" />
               <div className={styles.textPadding}>
@@ -118,57 +148,67 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({
               <div className={styles.workflowAgents}>Workflow Agents</div>
             </div>
             <div className={styles.sectionParent}>
-              {agents.map((agent, i) => (
-                <div key={i} className={styles.card}>
-                  <div className={styles.content3}>
-                    <div className={styles.frameGroup}>
-                      <div
-                        className={`${styles.featuredIconParent} font-sans!`}
-                      >
-                        <div className={styles.featuredIcon}>
-                          <Bot className="w-6 h-6" />
-                        </div>
-                        <div className={styles.sectionHeader}>
-                          <div className={styles.content4}>
-                            <div className={styles.text7}>{agent.name}</div>
+              {agents.length > 0 ? (
+                agents.map((agent, i) => (
+                  <div key={i} className={styles.card}>
+                    <div className={styles.content3}>
+                      <div className={styles.frameGroup}>
+                        <div
+                          className={`${styles.featuredIconParent} font-sans!`}
+                        >
+                          <div className={styles.featuredIcon}>
+                            <Bot className="w-6 h-6" />
+                          </div>
+                          <div className={styles.sectionHeader}>
+                            <div className={styles.content4}>
+                              <div className={styles.text7}>{agent.name}</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className={styles.accordionTitle}>
-                        <div className={styles.promptTemplateCxContainer}>
+                        <div className={styles.accordionTitle}>
+                          <div className={styles.promptTemplateCxContainer}>
+                            <span className={styles.promptTemplate}>
+                              Prompt Template:{" "}
+                            </span>
+                            <span className={styles.cxPrompt}>
+                              {agent.promptTemplate}
+                            </span>
+                          </div>
+                        </div>
+                        <div className={styles.testInPlayground}>
                           <span className={styles.promptTemplate}>
-                            Prompt Template:{" "}
+                            Intelligence Source:{" "}
                           </span>
-                          <span className={styles.cxPrompt}>
-                            {agent.promptTemplate}
-                          </span>
+                          <span className={styles.cxPrompt}>{agent.model}</span>
                         </div>
                       </div>
-                      <div className={styles.testInPlayground}>
-                        <span className={styles.promptTemplate}>
-                          Intelligence Source:{" "}
-                        </span>
-                        <span className={styles.cxPrompt}>{agent.model}</span>
+                    </div>
+                    <div className={styles.sectionFooter}>
+                      <div className={styles.dividerIcon} />
+                      <div className={styles.content5}>
+                        <div className={styles.actions2}>
+                          <button
+                            className={`${styles.buttonsButton7} font-sans!`}
+                            onClick={() => onViewInWorkflow(agent.id)}
+                          >
+                            View in workflow
+                          </button>
+                          <button 
+                            className={styles.buttonsButton8}
+                            onClick={() => onEditAgent(agent.id)}
+                          >
+                            <Edit2 className="w-4 h-4" />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className={styles.sectionFooter}>
-                    <div className={styles.dividerIcon} />
-                    <div className={styles.content5}>
-                      <div className={styles.actions2}>
-                        <button
-                          className={`${styles.buttonsButton7} font-sans!`}
-                        >
-                          View in workflow
-                        </button>
-                        <button className={styles.buttonsButton8}>
-                          <Edit2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                ))
+              ) : (
+                <div className={styles.emptyState}>
+                  No agents setup in the workflow editor yet. Add an agent template from the left sidebar to get started.
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -191,7 +231,12 @@ const PlaygroundSidebar: React.FC<PlaygroundSidebarProps> = ({
       </div>
       <AddVariableDrawer 
         isOpen={isAddVariableDrawerOpen} 
-        onClose={() => setIsAddVariableDrawerOpen(false)} 
+        onClose={() => {
+          setIsAddVariableDrawerOpen(false);
+          setEditingVariable(null);
+        }} 
+        onSave={handleAddOrUpdateVariable}
+        initialVariable={editingVariable}
       />
     </div>
   );

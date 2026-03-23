@@ -1,0 +1,532 @@
+.groupParent {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 40px;
+  text-align: left;
+  font-size: 14px;
+  color: #181d27;
+  font-family: 'Encode Sans', sans-serif;
+}
+
+.alertParent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.alert {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #414651;
+}
+
+.alertContainer {
+  width: 100%;
+  border-radius: 12px;
+  background-color: #fef3f2;
+  border: 1px solid #f04438;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 12px 32px;
+}
+
+.alertContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.alertContent2 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.featuredIconOutline {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alertTextAndSupportingText {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 2px 6px;
+}
+
+.alertText {
+  position: relative;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.alertSupportingText {
+  position: relative;
+  line-height: 20px;
+  color: #535862;
+}
+
+.alertActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #004a96;
+}
+
+.alertButtonsButton {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.headerSection {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headerContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.headerContent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.iconsParent {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icons {
+  height: 26px;
+  width: 26px;
+  box-shadow: 0px 0px 6px rgba(164, 167, 174, 0.35);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.headerTitle {
+  flex: 1;
+  position: relative;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: #181d27;
+}
+
+.headerSupportingText {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: Inter, sans-serif;
+  color: #535862;
+}
+
+.tabsAndFilters {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: #414651;
+  font-family: Inter, sans-serif;
+  margin-top: 12px;
+}
+
+.buttonGroup {
+  box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  border: 1px solid #d5d7da;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+.buttonGroupBase {
+  background-color: #fafafa;
+  border-right: 1px solid #d5d7da;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-height: 40px;
+  color: #252b37;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buttonGroupBase2 {
+  background-color: #fff;
+  border-right: 1px solid #d5d7da;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-height: 40px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.buttonGroupBase2:hover {
+  background-color: #f9fafb;
+}
+
+.buttonGroupBase9 {
+  background-color: #fff;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  min-height: 40px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.buttonGroupBase9:hover {
+  background-color: #f9fafb;
+}
+
+.frameParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  font-family: Inter, sans-serif;
+}
+
+.metricItemParent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.metricItem {
+  height: 180px;
+  flex: 1;
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 12px;
+  background-color: #fdfdfd;
+  border: 1px solid #e9eaeb;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headingWrapper {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px 8px;
+}
+
+.heading {
+  flex: 1;
+  position: relative;
+  line-height: 20px;
+  font-weight: 600;
+  color: #181d27;
+}
+
+.metricContent {
+  align-self: stretch;
+  flex: 1;
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #e9eaeb;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 20px;
+  font-size: 20px;
+  color: #181d27;
+  font-family: 'Encode Sans', sans-serif;
+}
+
+.numberAndBadge {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+}
+
+.number {
+  align-self: stretch;
+  position: relative;
+  line-height: 30px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.number2 {
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #535862;
+}
+
+.text14 {
+  align-self: stretch;
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 8px;
+  color: #535862;
+}
+
+.metricGroup {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pageHeaderParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 18px;
+}
+
+.text20 {
+  align-self: stretch;
+  position: relative;
+  line-height: 28px;
+  font-weight: 600;
+  color: #181d27;
+}
+
+.frameContainer {
+  align-self: stretch;
+  border-radius: 12px;
+  background-color: #f9f9fb;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: #535862;
+  border: 1px solid #e9eaeb;
+}
+
+.lineAndBarChartParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.card {
+  align-self: stretch;
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 12px;
+  background-color: #fdfdfd;
+  border: 1px solid #e9eaeb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #717680;
+  font-family: Inter, sans-serif;
+}
+
+.table {
+  align-self: stretch;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tableContainer {
+  align-self: stretch;
+  overflow-x: auto;
+}
+
+.tableHeader {
+  background-color: #f9fafb !important;
+  font-size: 12px;
+  color: #717680;
+  font-weight: 600;
+}
+
+.tableRow {
+  align-self: stretch;
+  display: flex;
+  border-bottom: 1px solid #e9eaeb;
+  background-color: #fff;
+}
+
+.tableCell {
+  flex: 1;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  min-width: 120px;
+}
+
+.agentNameCell {
+  min-width: 200px;
+  font-weight: 600;
+  color: #181d27;
+}
+
+.metrics {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e9eaeb;
+}
+
+.horizontalTabs {
+  border-radius: 8px;
+  background-color: #fafafa;
+  border: 1px solid #e9eaeb;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+}
+
+.tabButtonBase {
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  color: #414651;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tabButtonBase2 {
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  border-radius: 8px;
+  padding: 8px 12px;
+  gap: 8px;
+  width: 320px;
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.pagination {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px 16px;
+  background-color: #fff;
+}
+
+.paginationButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.paginationButton {
+  box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #d5d7da;
+  padding: 8px 14px;
+  font-weight: 600;
+  color: #414651;
+  cursor: pointer;
+}
+
+.cardTitle {
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #181d27;
+  border-bottom: 1px solid #e9eaeb;
+}
+
+.metricCardsScroll {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}

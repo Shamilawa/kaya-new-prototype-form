@@ -7,6 +7,8 @@ import { X, Search, HelpCircle, ChevronDown } from "lucide-react";
 interface AddVariableDrawerProps {
     isOpen: boolean;
     onClose: () => void;
+    onSave: (variable: { name: string, value: string }) => void;
+    initialVariable?: { name: string, value: string } | null;
 }
 
 const mockVariables = [
@@ -20,9 +22,23 @@ const mockVariables = [
 const AddVariableDrawer: React.FC<AddVariableDrawerProps> = ({
     isOpen,
     onClose,
+    onSave,
+    initialVariable,
 }) => {
     const [selectedVariable, setSelectedVariable] = useState<string | null>(null);
     const [value, setValue] = useState("");
+
+    useEffect(() => {
+        if (isOpen) {
+            if (initialVariable) {
+                setSelectedVariable(initialVariable.name);
+                setValue(initialVariable.value);
+            } else {
+                setSelectedVariable(null);
+                setValue("");
+            }
+        }
+    }, [isOpen, initialVariable]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -144,9 +160,12 @@ const AddVariableDrawer: React.FC<AddVariableDrawerProps> = ({
                             <button
                                 className={styles.buttonsbutton3}
                                 onClick={() => {
-                                    console.log("Adding variable:", { selectedVariable, value });
-                                    onClose();
+                                    if (selectedVariable) {
+                                        onSave({ name: selectedVariable, value });
+                                        onClose();
+                                    }
                                 }}
+                                disabled={!selectedVariable}
                             >
                                 <div className={styles.textPadding}>
                                     <span className={styles.text6}>Add Variable</span>

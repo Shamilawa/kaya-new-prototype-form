@@ -28,7 +28,11 @@ import SidebarItem from "./SidebarItem";
 import SidebarSection from "./SidebarSection";
 import CreateIFlowDrawer from "./CreateIFlowDrawer";
 
-const ScrollCue = ({ containerRef }: { containerRef: React.RefObject<any> }) => {
+const ScrollCue = ({
+    containerRef,
+}: {
+    containerRef: React.RefObject<any>;
+}) => {
     const [show, setShow] = useState(false);
     const [isScrolledDown, setIsScrolledDown] = useState(false);
 
@@ -186,7 +190,8 @@ const Sidebar: React.FC<SidebarProps> = () => {
             ? "Workspace Overview"
             : "All Workspaces";
     const [activeTab, setActiveTab] = React.useState(initialTab);
-    const [isWorkspaceDropdownOpen, setIsWorkspaceDropdownOpen] = useState(false);
+    const [isWorkspaceDropdownOpen, setIsWorkspaceDropdownOpen] =
+        useState(false);
     const [isCreateDrawerOpen, setIsCreateDrawerOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const enterpriseNavRef = useRef<HTMLElement>(null);
@@ -195,7 +200,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
     const workspaceNavRef = useRef<HTMLDivElement>(null);
 
     const workspaces = [
-        { id: "claims-operations-overview", name: "Claims Operations Overview" },
+        {
+            id: "claims-operations-overview",
+            name: "Claims Operations Overview",
+        },
         { id: "hr-automation", name: "HR Automation" },
         { id: "telecom-ops", name: "TelecomOps" },
         { id: "healthfirst", name: "Healthfirst" },
@@ -267,8 +275,19 @@ const Sidebar: React.FC<SidebarProps> = () => {
             count: 10,
             section: "ENTERPRISE OVERVIEW",
         },
-        { name: "Insights", icon: TrendingUp, section: "ENTERPRISE OVERVIEW", disabled: true },
-        { name: "Licensing", icon: Layers, count: 10, section: "ADMIN", disabled: true },
+        {
+            name: "Insights",
+            icon: TrendingUp,
+            section: "ENTERPRISE OVERVIEW",
+            disabled: true,
+        },
+        {
+            name: "Licensing",
+            icon: Layers,
+            count: 10,
+            section: "ADMIN",
+            disabled: true,
+        },
     ];
 
     const enterpriseSections = ["ENTERPRISE OVERVIEW", "ADMIN"];
@@ -287,13 +306,18 @@ const Sidebar: React.FC<SidebarProps> = () => {
                 {/* New Workspace Button */}
                 <button
                     className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3.5 rounded-lg text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-                    style={{ backgroundImage: 'url(/btn-gradient.svg)', backgroundSize: 'cover', backgroundPosition: 'center', margin: '32px 0' }}
+                    style={{
+                        backgroundImage: "url(/btn-gradient.svg)",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        margin: "32px 0",
+                    }}
                 >
                     <Plus className="w-5 h-5 text-white" />
                     New Workspace
                 </button>
 
-                <nav 
+                <nav
                     ref={enterpriseNavRef}
                     className="flex-1 flex flex-col gap-6 overflow-y-auto relative"
                 >
@@ -322,21 +346,46 @@ const Sidebar: React.FC<SidebarProps> = () => {
                 <div className="mx-0 mb-4 p-4 rounded-xl border border-border-secondary bg-white flex flex-col gap-3">
                     <div className="flex items-start justify-between">
                         <div className="w-10 h-10 flex items-center justify-center">
-                            <img src="/featured-icon.svg" alt="" className="w-10 h-10" />
+                            <img
+                                src="/featured-icon.svg"
+                                alt=""
+                                className="w-10 h-10"
+                            />
                         </div>
                         <button className="text-text-tertiary hover:text-text-primary">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M12 4L4 12M4 4L12 12"
+                                    stroke="currentColor"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
                             </svg>
                         </button>
                     </div>
                     <div className="flex flex-col gap-1">
-                        <div className="text-sm font-semibold text-text-primary leading-5">New features available!</div>
-                        <div className="text-sm text-text-tertiary leading-5">Check out the new configurations that we've just added to our setup options!</div>
+                        <div className="text-sm font-semibold text-text-primary leading-5">
+                            New features available!
+                        </div>
+                        <div className="text-sm text-text-tertiary leading-5">
+                            Check out the new configurations that we've just
+                            added to our setup options!
+                        </div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <button className="text-sm font-semibold text-[#535862] hover:text-text-primary leading-5">Dismiss</button>
-                        <button className="text-sm font-semibold text-[#004A96] hover:text-[#003570] leading-5">Go to Setup!</button>
+                        <button className="text-sm font-semibold text-[#535862] hover:text-text-primary leading-5">
+                            Dismiss
+                        </button>
+                        <button className="text-sm font-semibold text-[#004A96] hover:text-[#003570] leading-5">
+                            Go to Setup!
+                        </button>
                     </div>
                 </div>
 
@@ -373,7 +422,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
     if (activeAgent) {
         return (
             <aside className="w-[312px] shrink-0 h-full pl-5 flex flex-col justify-between bg-[#F9F9FB] font-inter">
-                <div 
+                <div
                     ref={agentNavRef}
                     className="flex-1 flex flex-col overflow-y-auto relative"
                 >
@@ -391,7 +440,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
                     {/* Agent Controls */}
                     <div className="pr-5 flex flex-col gap-4 mb-8">
                         <div className="flex flex-col gap-2">
-                             <div
+                            <div
                                 className="w-full rounded-lg p-[2px] hover:opacity-90 transition-opacity active:scale-[0.98]"
                                 style={{
                                     background:
@@ -411,11 +460,13 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 </button>
                             </div>
                             <SidebarItem
-                                name={displayAgentName || ''}
+                                name={displayAgentName || ""}
                                 iconSrc="/sidebar-bot.svg"
                                 isActive={true}
                                 onClick={() => {
-                                    router.push(`/${activeWorkspace}/${activeIFlow}/${activeAgent}`);
+                                    router.push(
+                                        `/${activeWorkspace}/${activeIFlow}/${activeAgent}`,
+                                    );
                                 }}
                             />
                         </div>
@@ -430,7 +481,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 isActive={activeTab === "Prompt Template"}
                                 onClick={() => {
                                     setActiveTab("Prompt Template");
-                                    router.push(`/${activeWorkspace}/agents/${activeAgent}/prompt-template`);
+                                    router.push(
+                                        `/${activeWorkspace}/agents/${activeAgent}/prompt-template`,
+                                    );
                                 }}
                             />
                             <SidebarItem
@@ -439,7 +492,9 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 isActive={activeTab === "Learning Records"}
                                 onClick={() => {
                                     setActiveTab("Learning Records");
-                                    router.push(`/${activeWorkspace}/agents/${activeAgent}/learning-records`);
+                                    router.push(
+                                        `/${activeWorkspace}/agents/${activeAgent}/learning-records`,
+                                    );
                                 }}
                             />
                         </SidebarSection>
@@ -460,9 +515,10 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name="Metrics & Analytics"
                                 iconSrc="/metrics.svg"
                                 isActive={activeTab === "Metrics & Analytics"}
-                                onClick={() =>
-                                    setActiveTab("Metrics & Analytics")
-                                }
+                                onClick={() => {
+                                    setActiveTab("Metrics & Analytics");
+                                    router.push(`/${activeWorkspace}/agents/${activeAgent}/metrics-and-analytics`);
+                                }}
                             />
                         </SidebarSection>
                     </nav>
@@ -495,7 +551,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
     if (activeIFlow) {
         return (
             <aside className="w-[312px] shrink-0 h-full pl-5 flex flex-col justify-between bg-[#F9F9FB] font-inter">
-                <div 
+                <div
                     ref={iflowNavRef}
                     className="flex-1 flex flex-col overflow-y-auto relative"
                 >
@@ -522,9 +578,15 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                         "0 1px 10px 1px rgba(0, 0, 0, 0.10)",
                                 }}
                             >
-                                <button 
+                                <button
                                     className="w-full bg-white rounded-[6px] flex items-center justify-center py-2 px-3 gap-1"
-                                    onClick={() => activeIFlow && activeWorkspace && router.push(`/editor/${activeWorkspace}/${activeIFlow}`)}
+                                    onClick={() =>
+                                        activeIFlow &&
+                                        activeWorkspace &&
+                                        router.push(
+                                            `/editor/${activeWorkspace}/${activeIFlow}`,
+                                        )
+                                    }
                                 >
                                     <SquarePen
                                         className="w-4 h-4 text-text-tertiary"
@@ -540,10 +602,11 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 iconSrc="/sidebar-workflow.svg"
                                 isActive={true}
                                 onClick={() => {
-                                    router.push(`/${activeWorkspace}/${activeIFlow}`);
+                                    router.push(
+                                        `/${activeWorkspace}/${activeIFlow}`,
+                                    );
                                 }}
                             />
-                            
                         </div>
                     </div>
 
@@ -576,7 +639,11 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 isActive={activeTab === "Test Suites"}
                                 onClick={() => {
                                     setActiveTab("Test Suites");
-                                    activeWorkspace && activeIFlow && router.push(`/${activeWorkspace}/${activeIFlow}/test-suites`);
+                                    activeWorkspace &&
+                                        activeIFlow &&
+                                        router.push(
+                                            `/${activeWorkspace}/${activeIFlow}/test-suites`,
+                                        );
                                 }}
                             />
                             <SidebarItem
@@ -585,7 +652,11 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 isActive={activeTab === "Test Suites Execution"}
                                 onClick={() => {
                                     setActiveTab("Test Suites Execution");
-                                    activeWorkspace && activeIFlow && router.push(`/${activeWorkspace}/${activeIFlow}/test-suites-execution`);
+                                    activeWorkspace &&
+                                        activeIFlow &&
+                                        router.push(
+                                            `/${activeWorkspace}/${activeIFlow}/test-suites-execution`,
+                                        );
                                 }}
                             />
                         </SidebarSection>
@@ -617,9 +688,14 @@ const Sidebar: React.FC<SidebarProps> = () => {
                                 name="Metrics & Analytics"
                                 iconSrc="/metrics.svg"
                                 isActive={activeTab === "Metrics & Analytics"}
-                                onClick={() =>
-                                    setActiveTab("Metrics & Analytics")
-                                }
+                                onClick={() => {
+                                    setActiveTab("Metrics & Analytics");
+                                    activeWorkspace &&
+                                        activeIFlow &&
+                                        router.push(
+                                            `/${activeWorkspace}/${activeIFlow}/metrics-and-analytics`,
+                                        );
+                                }}
                             />
                         </SidebarSection>
                     </nav>
@@ -655,7 +731,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
 
     return (
         <aside className="w-[312px] shrink-0 h-full pl-5 pr-1 flex flex-col justify-between bg-[#F9F9FB] font-inter">
-            <div 
+            <div
                 ref={workspaceNavRef}
                 className="flex-1 flex flex-col overflow-y-auto relative"
             >

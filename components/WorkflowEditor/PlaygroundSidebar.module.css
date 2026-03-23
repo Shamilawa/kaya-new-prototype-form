@@ -258,12 +258,13 @@
   border: 1px solid #d5d7da;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
-  padding: 8px 14px;
-  gap: 8px;
+  flex-direction: column;
+  padding: 4px;
+  gap: 0px;
   font-size: 14px;
   color: #111827;
   font-family: 'Encode Sans';
+  overflow: hidden;
 }
 
 .navMenuItemCard {
@@ -606,4 +607,16 @@
 
 .buttonsButton26:hover {
   background-color: #004a94;
+}
+
+.emptyState {
+  align-self: stretch;
+  padding: 16px;
+  background-color: #f9fafb;
+  border: 1px dashed #d5d7da;
+  border-radius: 8px;
+  color: #717680;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
 }

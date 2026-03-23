@@ -235,6 +235,7 @@ const WorkflowEditorContent: React.FC = () => {
     { title: "Fallback", icon: AlertCircle },
   ];
 
+
   const dataNodesList = [
     { title: "Loader", icon: Database },
     { title: "Cleaner", icon: FileJson },
@@ -276,7 +277,26 @@ const WorkflowEditorContent: React.FC = () => {
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const { screenToFlowPosition } = useReactFlow();
+  const { screenToFlowPosition, setCenter } = useReactFlow();
+
+  const handleViewInWorkflow = useCallback((agentId: string) => {
+    const node = nodes.find((n) => n.id === agentId);
+    if (node) {
+      setIsTesting(false);
+      // Delay slightly to ensure canvas is rendered before centering
+      setTimeout(() => {
+        setCenter(node.position.x + 150, node.position.y + 100, { zoom: 1.2, duration: 800 });
+      }, 100);
+    }
+  }, [nodes, setCenter]);
+
+  const handleEditAgent = useCallback((agentId: string) => {
+    const node = nodes.find((n) => n.id === agentId);
+    if (node) {
+      setIsTesting(false);
+      setSelectedNode(node);
+    }
+  }, [nodes]);
 
   const onDragStart = (event: React.DragEvent, nodeType: string) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
@@ -380,6 +400,19 @@ const WorkflowEditorContent: React.FC = () => {
             onBack={() => setIsTesting(false)}
             onCancel={() => setIsTesting(false)}
             onSave={() => setIsTesting(false)}
+            onViewInWorkflow={handleViewInWorkflow}
+            onEditAgent={handleEditAgent}
+            agents={nodes
+              .filter((node) => node.type === "basicAgent")
+              .map((node) => {
+                const data = node.data as any;
+                return {
+                  id: node.id,
+                  name: data.name || "Unnamed Agent",
+                  promptTemplate: data.selectedTemplateName || "Not set",
+                  model: data.selectedModelName || "Not set",
+                };
+              })}
           />
         ) : selectedNode ? (
           <AgentForm
