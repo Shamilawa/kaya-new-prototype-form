@@ -288,9 +288,6 @@
   width: 100%;
 }
 .integration-card-desktop {
-  flex: 0 0 calc((100% - 48px) / 3);
-  width: calc((100% - 48px) / 3);
-  height: 138px;
   box-shadow: 0px 1px 2px rgba(10, 13, 18, 0.05);
   border-radius: 12px;
   background-color: #fff;
@@ -396,6 +393,32 @@
 .badge9 {
   background-color: #dae9f8;
   border: 1px solid #8bbce9;
+}
+.badge-wrapper-green {
+  display: flex;
+  align-items: center;
+  color: #067647;
+}
+.badge-green {
+  background-color: #ecfdf3;
+  border: 1px solid #abefc6;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+}
+.badge-wrapper-purple {
+  display: flex;
+  align-items: center;
+  color: #6941c6;
+}
+.badge-purple {
+  background-color: #f9f5ff;
+  border: 1px solid #e9d7fe;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
 }
 
 .text8 {

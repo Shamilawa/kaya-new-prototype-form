@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter, useParams } from "next/navigation";
 import styles from "./WorkspaceAgentBody.module.css";
 import {
   Plus,
@@ -65,6 +66,8 @@ const mockAgents = [
 const ITEMS_PER_PAGE = 3;
 
 const WorkspaceAgentBody = () => {
+  const router = useRouter();
+  const params = useParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
@@ -202,7 +205,10 @@ const WorkspaceAgentBody = () => {
                     </div>
                   </div>
                   <div className={`${styles.flatCardFooter} p-4! pt-0!`}>
-                    <button className="px-3.5 py-1.5 border border-[#d5d7da] rounded-lg text-sm font-medium text-[#414651] bg-white hover:bg-gray-50 cursor-pointer">
+                    <button 
+                      className="px-3.5 py-1.5 border border-[#d5d7da] rounded-lg text-sm font-medium text-[#414651] bg-white hover:bg-gray-50 cursor-pointer"
+                      onClick={() => router.push(`/${params.workspaceId}/undefined/${agent.id}`)}
+                    >
                       View
                     </button>
                   </div>
@@ -318,7 +324,10 @@ const WorkspaceAgentBody = () => {
                     </div>
                   </div>
                   <div className={`${styles.flatCardFooter} p-4! pt-0!`}>
-                    <button className="px-3.5 py-1.5 border border-[#d5d7da] rounded-lg text-sm font-medium text-[#414651] bg-white hover:bg-gray-50 cursor-pointer">
+                    <button 
+                      className="px-3.5 py-1.5 border border-[#d5d7da] rounded-lg text-sm font-medium text-[#414651] bg-white hover:bg-gray-50 cursor-pointer"
+                      onClick={() => router.push(`/${params.workspaceId}/undefined/${agent.id}`)}
+                    >
                       View
                     </button>
                   </div>

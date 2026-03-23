@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Plus, BookOpen } from "lucide-react";
 import styles from "./ModelsBody.module.css";
 import DatabaseCard from "./DatabaseCard";
+import CreateConfigurationDrawer from "./CreateConfigurationDrawer";
 
 interface KnowledgeSourcesBodyProps {
     workspaceId: string;
@@ -16,6 +17,7 @@ const integrationCards = [
 
 const KnowledgeSourcesBody: React.FC<KnowledgeSourcesBodyProps> = ({ workspaceId }) => {
     const [activeTab, setActiveTab] = useState("View All");
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const tabs = ["View All", "Vector RAG", "Graph RAG"];
 
     const filteredCards = activeTab === "View All"
@@ -52,7 +54,10 @@ const KnowledgeSourcesBody: React.FC<KnowledgeSourcesBodyProps> = ({ workspaceId
                                 <button className="flex items-center gap-1 px-3.5 py-2.5 bg-white text-[#414651] rounded-lg text-sm font-semibold border border-[#d5d7da] shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] hover:bg-gray-50 transition-colors cursor-pointer">
                                     <span>Learn More</span>
                                 </button>
-                                <button className="flex items-center gap-1 px-3.5 py-2.5 bg-[#005BB5] text-white rounded-lg text-sm font-semibold shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] hover:bg-[#004A96] transition-colors cursor-pointer">
+                                <button 
+                                    className="flex items-center gap-1 px-3.5 py-2.5 bg-[#005BB5] text-white rounded-lg text-sm font-semibold shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] hover:bg-[#004A96] transition-colors cursor-pointer"
+                                    onClick={() => setIsDrawerOpen(true)}
+                                >
                                     <Plus className="w-5 h-5" />
                                     <span>Knowledge Sources</span>
                                 </button>
@@ -111,6 +116,12 @@ const KnowledgeSourcesBody: React.FC<KnowledgeSourcesBodyProps> = ({ workspaceId
                     ))}
                 </div>
             </div>
+            <CreateConfigurationDrawer
+                isOpen={isDrawerOpen}
+                onClose={() => setIsDrawerOpen(false)}
+                title="Create Knowledge Source"
+                description="Provide details to configure a new knowledge source for your workspace."
+            />
         </div>
     );
 };

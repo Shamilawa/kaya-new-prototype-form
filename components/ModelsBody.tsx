@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Plus, Cpu } from "lucide-react";
 import styles from "./ModelsBody.module.css";
+import CreateConfigurationDrawer from "./CreateConfigurationDrawer";
 
 interface ModelsBodyProps {
   workspaceId: string;
@@ -10,6 +11,8 @@ const integrationCards = [
   { type: "LLM", brand: "Open AI", used: "6 workflows" },
   { type: "SLM", brand: "Open AI", used: "4 workflows" },
   { type: "LLM", brand: "Open AI", used: "2 workflows" },
+  { type: "EMB", brand: "Open AI", used: "5 workflows" },
+  { type: "RRK", brand: "Cohere", used: "3 workflows" },
   { type: "LLM", brand: "Open AI", used: "8 workflows" },
   { type: "STS", brand: "Open AI", used: "1 workflow" },
   { type: "LLM", brand: "Open AI", used: "3 workflows" },
@@ -17,13 +20,16 @@ const integrationCards = [
 
 const ModelsBody: React.FC<ModelsBodyProps> = ({ workspaceId }) => {
   const [activeTab, setActiveTab] = useState("View all");
-  const tabs = ["View all", "LLMs", "SLM", "STS"];
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const tabs = ["View all", "LLMs", "SLM", "STS", "Embedding Models", "Re-Ranking Models"];
 
   const filteredCards =
     activeTab === "View all"
       ? integrationCards
       : integrationCards.filter((card) => {
           if (activeTab === "LLMs") return card.type === "LLM";
+          if (activeTab === "Embedding Models") return card.type === "EMB";
+          if (activeTab === "Re-Ranking Models") return card.type === "RRK";
           return card.type === activeTab;
         });
 
@@ -55,7 +61,10 @@ const ModelsBody: React.FC<ModelsBodyProps> = ({ workspaceId }) => {
                 <button className="flex items-center gap-1 px-3.5 py-2.5 bg-white text-[#414651] rounded-lg text-sm font-semibold border border-[#d5d7da] shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] hover:bg-gray-50 transition-colors cursor-pointer">
                   <span>Learn more</span>
                 </button>
-                <button className="flex items-center gap-1 px-3.5 py-2.5 bg-[#005BB5] text-white rounded-lg text-sm font-semibold shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] hover:bg-[#004A96] transition-colors cursor-pointer">
+                <button 
+                  className="flex items-center gap-1 px-3.5 py-2.5 bg-[#005BB5] text-white rounded-lg text-sm font-semibold shadow-[0_0_0_1px_rgba(10,13,18,0.18)_inset,0_-2px_0_rgba(10,13,18,0.05)_inset,0_1px_2px_rgba(10,13,18,0.05)] hover:bg-[#004A96] transition-colors cursor-pointer"
+                  onClick={() => setIsDrawerOpen(true)}
+                >
                   <Plus className="w-5 h-5" />
                   <span>Model</span>
                 </button>
@@ -135,6 +144,20 @@ const ModelsBody: React.FC<ModelsBodyProps> = ({ workspaceId }) => {
                           </div>
                         </div>
                       )}
+                      {(card.type === "EMB" || card.type === "Embedding Models") && (
+                        <div className={styles["badge-wrapper-green"]}>
+                          <div className={styles["badge-green"]}>
+                            <div className={styles["text8"]}>{card.type}</div>
+                          </div>
+                        </div>
+                      )}
+                      {(card.type === "RRK" || card.type === "Re-Ranking Models") && (
+                        <div className={styles["badge-wrapper-purple"]}>
+                          <div className={styles["badge-purple"]}>
+                            <div className={styles["text8"]}>{card.type}</div>
+                          </div>
+                        </div>
+                      )}
 
                       <div className={styles["badge-container"]}>
                         <div className={styles["badge2"]}>
@@ -162,6 +185,12 @@ const ModelsBody: React.FC<ModelsBodyProps> = ({ workspaceId }) => {
           </div>
         </div>
       </div>
+      <CreateConfigurationDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        title="Create Model"
+        description="Provide details to configure a new model for your workspace."
+      />
     </div>
   );
 };
