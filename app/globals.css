@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --bg-main: #f9f9fb;
   --sidebar-bg: #f9f9fb;
@@ -17,6 +19,11 @@
   --shadow-main: 0px 10px 30px rgba(163, 167, 174, 0.15);
   --gradient-sidebar: linear-gradient(180deg, #f9f9fb 0%, #f0f0f3 100%);
   --gradient-header: linear-gradient(90deg, #f2eff3 0%, #ffffff 100%);
+}
+
+.dark {
+  --bg-main: #18191b;
+  --text-primary: #f7f7f7;
 }
 
 @theme {
